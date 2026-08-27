@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Flame, Sun, Moon } from "lucide-react";
+import { Flame, Sun, Moon, ArrowRight } from "lucide-react";
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -31,17 +31,24 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
 
   return (
     <>
-      {/* Top Announcement Bar */}
-      <div className="bg-[#ffc857] py-1.5 px-4 text-center font-mono text-xs font-bold text-black border-b border-black">
-        <span>LK</span> We noticed you're in Sri Lanka. 24-hour space hackathon in Colombo • Free for all students.
+      {/* Actionable Non-Sticky Top Banner */}
+      <div className="bg-[#ffc857] py-2 px-4 text-center font-mono text-xs font-bold text-black border-b-2 border-black flex items-center justify-center gap-2 flex-wrap">
+        <span>⚡ REGISTRATION IS OPEN: Apogee 24-Hour Student Space Hackathon • Colombo, Sri Lanka • Jan 2027</span>
+        <button
+          onClick={onOpenRegister}
+          className="inline-flex items-center gap-1 rounded bg-black px-2.5 py-0.5 text-[11px] font-extrabold text-[#ffc857] hover:bg-[#ff5500] hover:text-white transition-colors"
+        >
+          <span>Register Team</span>
+          <ArrowRight className="h-3 w-3" />
+        </button>
       </div>
 
-      {/* Main Grid Header */}
-      <header className="sticky top-0 z-50 bg-[var(--header-bg)] backdrop-blur-md py-4 transition-colors border-b border-[var(--border-card)]">
+      {/* Main Non-Sticky Header */}
+      <header className="relative bg-[var(--header-bg)] py-4 border-b border-[var(--border-card)] transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-4 items-center">
             
-            {/* Logo: Spans 2 cols on mobile, 3 on tablet, 4 on desktop */}
+            {/* Logo */}
             <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center">
               <a href="#" className="flex items-center gap-2 group">
                 <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#ff5500] text-black shadow-sm group-hover:scale-105 transition-transform">
@@ -53,7 +60,7 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
               </a>
             </div>
 
-            {/* Actions: Spans 2 cols on mobile, 5 on tablet, 8 on desktop */}
+            {/* Actions */}
             <div className="col-span-2 sm:col-span-5 lg:col-span-8 flex items-center justify-end gap-3">
               
               <a
