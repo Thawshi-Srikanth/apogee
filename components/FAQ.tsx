@@ -12,29 +12,39 @@ export function FAQ() {
   ];
 
   return (
-    <section id="faq" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      
-      <div className="mb-4 inline-block font-mono text-xs font-bold text-[var(--accent-cyan)] uppercase tracking-wider">
-        // FAQ
-      </div>
-
-      <h2 className="font-heading text-3xl sm:text-4xl font-black text-[var(--text-cloud)] mb-8">
-        Questions answered.
-      </h2>
-
-      <div className="space-y-4">
-        {items.map((item, idx) => (
-          <div key={idx} className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-5 shadow-sm">
-            <h3 className="font-heading text-lg font-bold text-[var(--text-cloud)] mb-1">
-              {item.q}
-            </h3>
-            <p className="font-sans text-sm text-[var(--text-muted)]">
-              {item.a}
-            </p>
+    <section id="faq" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* 4-8-12 Master Grid Container */}
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
+          
+          {/* Header */}
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
+            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-cyan)] uppercase tracking-wider">
+              // FAQ
+            </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
+              Questions answered.
+            </h2>
           </div>
-        ))}
-      </div>
 
+          {/* FAQ items centered: Spans 4 cols on mobile, 8 on tablet, 10 on desktop */}
+          <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-4">
+            {items.map((item, idx) => (
+              <div key={idx} className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-6 shadow-sm">
+                <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2">
+                  {item.q}
+                </h3>
+                <p className="font-sans text-base text-[var(--text-muted)] leading-relaxed">
+                  {item.a}
+                </p>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+      </div>
     </section>
   );
 }

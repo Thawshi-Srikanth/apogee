@@ -35,43 +35,51 @@ export function Speakers() {
   ];
 
   return (
-    <section id="mentors" className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      
-      <div className="mb-4 inline-block font-mono text-xs font-bold text-[var(--accent-orange)] uppercase tracking-wider">
-        // MENTORS
-      </div>
-
-      <h2 className="font-heading text-3xl sm:text-4xl font-black text-[var(--text-cloud)] mb-8">
-        People who <span className="text-[var(--accent-yellow)]">actually build</span> this stuff.
-      </h2>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
-        {mentors.map((m, idx) => (
-          <div
-            key={idx}
-            className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-5 flex flex-col justify-between shadow-sm"
-          >
-            <div>
-              <div
-                className="h-10 w-10 rounded-lg flex items-center justify-center font-mono font-black text-black mb-3 text-sm"
-                style={{ backgroundColor: m.color }}
-              >
-                {m.initials}
-              </div>
-              <h3 className="font-heading text-lg font-bold text-[var(--text-cloud)] mb-0.5">
-                {m.name}
-              </h3>
-              <div className="font-mono text-xs text-[var(--accent-orange)] mb-2 font-bold">
-                {m.role}
-              </div>
-              <p className="font-sans text-xs text-[var(--text-muted)] leading-normal">
-                {m.cred}
-              </p>
+    <section id="mentors" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* 4-8-12 Master Grid Container */}
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
+          
+          {/* Header */}
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
+            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-orange)] uppercase tracking-wider">
+              // MENTORS
             </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
+              People who <span className="text-[var(--accent-yellow)]">actually build</span> this stuff.
+            </h2>
           </div>
-        ))}
-      </div>
 
+          {/* 4 Mentor Cards: Each spans 4 cols on mobile, 4 on tablet (2x2), 3 on desktop (4 per row!) */}
+          {mentors.map((m, idx) => (
+            <div
+              key={idx}
+              className="col-span-4 sm:col-span-4 lg:col-span-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-6 flex flex-col justify-between shadow-sm"
+            >
+              <div>
+                <div
+                  className="h-10 w-10 rounded-lg flex items-center justify-center font-mono font-black text-black mb-4 text-sm"
+                  style={{ backgroundColor: m.color }}
+                >
+                  {m.initials}
+                </div>
+                <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-1">
+                  {m.name}
+                </h3>
+                <div className="font-mono text-xs text-[var(--accent-orange)] mb-3 font-bold">
+                  {m.role}
+                </div>
+                <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed">
+                  {m.cred}
+                </p>
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
     </section>
   );
 }

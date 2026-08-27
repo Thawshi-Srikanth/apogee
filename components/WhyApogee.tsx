@@ -31,40 +31,48 @@ export function WhyApogee() {
   ];
 
   return (
-    <section id="why" className="py-16 px-4 sm:px-6 lg:px-8 max-w-5xl mx-auto">
-      
-      <div className="mb-4 inline-block font-mono text-xs font-bold text-[var(--accent-yellow)] uppercase tracking-wider">
-        // WHY APOGEE
-      </div>
-
-      <h2 className="font-heading text-3xl sm:text-4xl font-black text-[var(--text-cloud)] mb-8">
-        Built by students. <span className="text-[var(--accent-orange)]">For Sri Lanka.</span>
-      </h2>
-
-      <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-        {points.map((item, idx) => (
-          <div
-            key={idx}
-            className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-5 flex flex-col justify-between hover:border-[var(--accent-orange)] transition-colors shadow-sm"
-          >
-            <div>
-              <span
-                className="inline-block rounded font-mono text-[10px] font-bold px-2 py-0.5 mb-3 text-black uppercase"
-                style={{ backgroundColor: item.color }}
-              >
-                {item.badge}
-              </span>
-              <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-1">
-                {item.title}
-              </h3>
-              <p className="font-sans text-sm text-[var(--text-muted)]">
-                {item.desc}
-              </p>
+    <section id="why" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* 4-8-12 Master Grid Container */}
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
+          
+          {/* Header */}
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
+            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-yellow)] uppercase tracking-wider">
+              // WHY APOGEE
             </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
+              Built by students. <span className="text-[var(--accent-orange)]">For Sri Lanka.</span>
+            </h2>
           </div>
-        ))}
-      </div>
 
+          {/* 4 Cards: Each card spans 4 cols on mobile, 4 on tablet (2x2), 6 on desktop (2x2) */}
+          {points.map((item, idx) => (
+            <div
+              key={idx}
+              className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-6 flex flex-col justify-between hover:border-[var(--accent-orange)] transition-colors shadow-sm"
+            >
+              <div>
+                <span
+                  className="inline-block rounded font-mono text-[10px] font-bold px-2 py-0.5 mb-3 text-black uppercase"
+                  style={{ backgroundColor: item.color }}
+                >
+                  {item.badge}
+                </span>
+                <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)] mb-2">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-base text-[var(--text-muted)] leading-relaxed">
+                  {item.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+
+        </div>
+
+      </div>
     </section>
   );
 }

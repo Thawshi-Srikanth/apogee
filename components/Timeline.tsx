@@ -13,32 +13,42 @@ export function Timeline() {
   ];
 
   return (
-    <section id="timeline" className="py-16 px-4 sm:px-6 lg:px-8 max-w-4xl mx-auto">
-      
-      <div className="mb-4 inline-block font-mono text-xs font-bold text-[var(--accent-cyan)] uppercase tracking-wider">
-        // TIMELINE
-      </div>
-
-      <h2 className="font-heading text-3xl sm:text-4xl font-black text-[var(--text-cloud)] mb-8">
-        24 hours. <span className="text-[var(--accent-orange)]">No filler.</span>
-      </h2>
-
-      <div className="space-y-3 font-mono">
-        {events.map((evt, idx) => (
-          <div
-            key={idx}
-            className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-4 gap-2 shadow-sm"
-          >
-            <span className="text-xs font-bold text-[var(--accent-yellow)] bg-[var(--bg-void)] px-2.5 py-1 rounded w-fit border border-[var(--border-card)]">
-              {evt.time}
-            </span>
-            <span className="font-sans text-sm font-semibold text-[var(--text-cloud)]">
-              {evt.title}
-            </span>
+    <section id="timeline" className="py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* 4-8-12 Master Grid Container */}
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
+          
+          {/* Header */}
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
+            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-cyan)] uppercase tracking-wider">
+              // TIMELINE
+            </div>
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
+              24 hours. <span className="text-[var(--accent-orange)]">No filler.</span>
+            </h2>
           </div>
-        ))}
-      </div>
 
+          {/* Timeline centered: Spans 4 cols on mobile, 8 on tablet, 10 on desktop (centered) */}
+          <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-3 font-mono">
+            {events.map((evt, idx) => (
+              <div
+                key={idx}
+                className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-4 sm:p-5 gap-3 shadow-sm"
+              >
+                <span className="text-xs font-bold text-[var(--accent-yellow)] bg-[var(--bg-void)] px-3 py-1 rounded w-fit border border-[var(--border-card)]">
+                  {evt.time}
+                </span>
+                <span className="font-sans text-base font-semibold text-[var(--text-cloud)]">
+                  {evt.title}
+                </span>
+              </div>
+            ))}
+          </div>
+
+        </div>
+
+      </div>
     </section>
   );
 }
