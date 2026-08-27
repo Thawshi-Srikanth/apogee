@@ -20,8 +20,8 @@ export function Hero({ onOpenRegister }: HeroProps) {
           <div className="col-span-4 sm:col-span-8 lg:col-span-7 flex flex-col items-start text-left">
             
             <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.02] text-[var(--text-cloud)] uppercase mb-6">
-              Build something that <br />
-              <span className="text-[#00f0ff]">leaves the atmosphere.</span>
+              Rocket fuel for <br />
+              <span className="text-[#00f0ff]">developers.</span>
             </h1>
 
             <p className="font-sans text-lg sm:text-2xl text-[var(--text-muted)] font-medium max-w-xl mb-8 leading-relaxed">
@@ -40,7 +40,7 @@ export function Hero({ onOpenRegister }: HeroProps) {
 
           {/* Right 8-Bit Graphic */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-5 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[340px] rounded-3xl border-4 border-black bg-black p-3 shadow-[10px_10px_0px_0px_#000]">
+            <div className="relative w-full max-w-[340px] rounded-3xl card-border bg-black p-3 card-shadow">
               <Image
                 src="/8bit_arcade.jpg"
                 alt="8-Bit Retro Space Arcade Graphic"
