@@ -42,11 +42,11 @@ export function Speakers() {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Header */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center">
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
               Mentors
             </h2>
-            <p className="font-sans text-lg text-[#ffc857] font-bold">
+            <p className="font-sans text-lg text-[#ffc857] font-medium max-w-2xl mx-auto">
               People who actually build this stuff. Working engineers and satellite researchers.
             </p>
           </div>
@@ -67,7 +67,7 @@ export function Speakers() {
                 <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-1">
                   {m.name}
                 </h3>
-                <div className="font-mono text-xs text-[var(--accent-orange)] mb-3 font-bold uppercase">
+                <div className="font-mono text-xs text-[var(--accent-orange)] mb-3 font-semibold uppercase">
                   {m.role}
                 </div>
                 <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed">

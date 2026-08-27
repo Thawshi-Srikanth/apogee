@@ -16,8 +16,8 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
         {/* 4-8-12 Grid for Final CTA */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 text-center mb-16">
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-4xl sm:text-6xl font-black text-[var(--text-cloud)] mb-6 uppercase">
-              Your rocket doesn't <span className="text-[var(--accent-orange)]">build itself.</span>
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] mb-4 uppercase tracking-tight">
+              Build Your <span className="text-[var(--accent-orange)]">Rocket</span>
             </h2>
 
             <Button onClick={onOpenRegister} variant="primary" size="lg">

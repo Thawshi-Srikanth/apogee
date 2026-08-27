@@ -18,11 +18,11 @@ export function Prizes() {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Header */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center">
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
               Prizes
             </h2>
-            <p className="font-sans text-lg text-[#ff5500] font-bold">
+            <p className="font-sans text-lg text-[#ff5500] font-medium max-w-2xl mx-auto">
               Worth showing up for. Rs. 500,000+ total prize pool in cash and cloud credits.
             </p>
           </div>
@@ -43,7 +43,7 @@ export function Prizes() {
                 >
                   {p.amount}
                 </div>
-                <p className="font-sans text-sm text-[var(--text-cloud)] leading-relaxed font-semibold">
+                <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed font-normal">
                   {p.desc}
                 </p>
               </div>

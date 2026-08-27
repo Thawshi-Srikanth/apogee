@@ -20,11 +20,11 @@ export function Timeline() {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Header */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center">
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
               Timeline
             </h2>
-            <p className="font-sans text-lg text-[#ff5500] font-bold">
+            <p className="font-sans text-lg text-[#ff5500] font-medium max-w-2xl mx-auto">
               24 hours. No filler. All times in Sri Lanka Standard Time (SLST).
             </p>
           </div>
@@ -39,7 +39,7 @@ export function Timeline() {
                 <span className="font-mono text-xs font-bold text-black bg-[var(--accent-yellow)] px-3 py-1 rounded w-fit uppercase">
                   {evt.time}
                 </span>
-                <span className="font-sans text-base font-semibold text-[var(--text-cloud)]">
+                <span className="font-sans text-base font-medium text-[var(--text-cloud)]">
                   {evt.title}
                 </span>
               </div>

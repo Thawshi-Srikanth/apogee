@@ -42,10 +42,10 @@ export function CountdownSection() {
           
           {/* Centered Title & Subtitle */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12 flex flex-col items-center mb-4">
-            <h2 className="font-heading text-3xl sm:text-5xl lg:text-6xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
-              Mission Countdown
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
+              Countdown
             </h2>
-            <p className="font-mono text-sm sm:text-lg font-bold text-[var(--accent-yellow)] tracking-wider">
+            <p className="font-mono text-sm sm:text-lg font-medium text-[var(--accent-yellow)] tracking-wider">
               January 15, 2027 • Colombo, Sri Lanka (SLST / UTC+5:30)
             </p>
           </div>

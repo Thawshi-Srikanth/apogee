@@ -50,11 +50,11 @@ export function Tracks() {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Header */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center">
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
               Tracks
             </h2>
-            <p className="font-sans text-lg text-[#00f0ff] font-bold">
+            <p className="font-sans text-lg text-[#00f0ff] font-medium max-w-2xl mx-auto">
               Pick your orbit. Choose the challenge that matches your team's skills.
             </p>
           </div>
