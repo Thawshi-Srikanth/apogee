@@ -2,7 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
-import { ArrowDown, Clock } from "lucide-react";
+import { Clock } from "lucide-react";
 
 interface HeroProps {
   onOpenRegister: () => void;
@@ -40,97 +40,90 @@ export function Hero({ onOpenRegister }: HeroProps) {
   }, [targetDate]);
 
   return (
-    <section className="py-16 px-4 sm:px-6 lg:px-8 max-w-6xl mx-auto flex flex-col items-center text-center relative">
-      
-      {/* Fireship-style Pill Badge */}
-      <div className="mb-6 inline-flex items-center gap-2 rounded-md bg-[var(--bg-card)] border border-[var(--border-card)] px-3.5 py-1 font-mono text-xs font-bold text-[var(--accent-yellow)]">
-        <span className="h-2 w-2 rounded-full bg-[var(--accent-orange)]" />
-        <span>JANUARY 2027 • COLOMBO, SRI LANKA</span>
-      </div>
-
-      {/* Hero Layout: Headline & Retro Graphic Grid */}
-      <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 items-center text-center lg:text-left mb-10 w-full">
+    <section className="py-16 sm:py-24 px-4 sm:px-8 max-w-7xl mx-auto">
+      <div className="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
         
-        <div className="lg:col-span-8 flex flex-col items-center lg:items-start">
-          <h1 className="font-heading text-4xl sm:text-6xl font-black tracking-tight leading-[1.08] text-[var(--text-cloud)] mb-6">
-            Build something that{" "}
-            <span className="text-[var(--accent-orange)]">leaves the atmosphere.</span>
+        {/* Left Column: Fireship Hero Text & CTA */}
+        <div className="lg:col-span-7 flex flex-col items-start text-left">
+          
+          {/* Oversized 2-Line Headline */}
+          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.02] text-[var(--text-cloud)] uppercase mb-6">
+            Build something that <br />
+            <span className="text-[#00f0ff]">leaves the atmosphere.</span>
           </h1>
 
-          <p className="font-sans text-lg sm:text-xl text-[var(--text-muted)] font-medium max-w-2xl mb-8 leading-relaxed">
-            Sri Lanka's 24-hour space hackathon. Real challenges. Real judges. January 2027 in Colombo.
+          {/* Subheadline with colored inline code words */}
+          <p className="font-sans text-lg sm:text-2xl text-[var(--text-cloud)] font-medium max-w-xl mb-8 leading-relaxed">
+            Sri Lanka's 24-hour space hackathon in Colombo. Building{" "}
+            <span className="font-bold text-[#ff5500]">real challenges</span>{" "}
+            &&{" "}
+            <span className="font-bold text-[#f72585]">real judges</span>.
           </p>
 
-          <div className="flex flex-wrap items-center justify-center lg:justify-start gap-4">
-            <button
-              onClick={onOpenRegister}
-              className="rounded-lg bg-[var(--accent-orange)] px-7 py-3 font-mono text-sm font-bold text-white hover:bg-[var(--accent-yellow)] hover:text-black transition-all"
-            >
-              Register Now
-            </button>
+          {/* Fireship Yellow Pill CTA Button */}
+          <button
+            onClick={onOpenRegister}
+            className="rounded-full bg-[#ffc857] px-8 py-3.5 font-mono text-sm font-black uppercase text-black hover:bg-[#ff5500] hover:text-white transition-all shadow-[4px_4px_0px_0px_rgba(0,0,0,0.8)] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none mb-10"
+          >
+            Register Now
+          </button>
 
-            <a
-              href="#tracks"
-              className="inline-flex items-center gap-2 rounded-lg border border-[var(--border-card)] bg-[var(--bg-card)] px-6 py-3 font-mono text-sm font-bold text-[var(--text-cloud)] hover:border-[var(--accent-yellow)] transition-all"
-            >
-              See the tracks <ArrowDown className="h-4 w-4 text-[var(--accent-yellow)]" />
-            </a>
+          {/* Minimal Countdown Clock Bar */}
+          <div className="w-full max-w-lg rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] p-4 font-mono">
+            <div className="flex items-center justify-between text-xs text-[var(--text-muted)] border-b border-[var(--border-card)] pb-2 mb-3">
+              <span className="flex items-center gap-1.5 text-[#ffc857] font-bold">
+                <Clock className="h-3.5 w-3.5 text-[#ff5500]" /> MISSION T-MINUS
+              </span>
+              <span>JANUARY 2027 • SLST</span>
+            </div>
+
+            <div className="grid grid-cols-4 gap-2 text-center">
+              <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
+                <span className="block text-2xl font-black text-[#ff5500]">
+                  {String(timeLeft.days).padStart(2, "0")}
+                </span>
+                <span className="text-[10px] text-[var(--text-muted)]">DAYS</span>
+              </div>
+              <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
+                <span className="block text-2xl font-black text-[#ffc857]">
+                  {String(timeLeft.hours).padStart(2, "0")}
+                </span>
+                <span className="text-[10px] text-[var(--text-muted)]">HOURS</span>
+              </div>
+              <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
+                <span className="block text-2xl font-black text-[#f72585]">
+                  {String(timeLeft.minutes).padStart(2, "0")}
+                </span>
+                <span className="text-[10px] text-[var(--text-muted)]">MINS</span>
+              </div>
+              <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
+                <span className="block text-2xl font-black text-[#00f0ff]">
+                  {String(timeLeft.seconds).padStart(2, "0")}
+                </span>
+                <span className="text-[10px] text-[var(--text-muted)]">SECS</span>
+              </div>
+            </div>
           </div>
+
         </div>
 
-        {/* Retro Vector CRT Graphic */}
-        <div className="lg:col-span-4 flex justify-center">
-          <div className="relative rounded-2xl border-4 border-black bg-black p-2 shadow-[6px_6px_0px_0px_#000] max-w-[280px]">
+        {/* Right Column: Retro Graphic Vector Floating Items */}
+        <div className="lg:col-span-5 flex justify-center lg:justify-end gap-4 relative">
+          
+          <div className="relative w-full max-w-[320px] rounded-3xl border-4 border-black bg-black p-3 shadow-[8px_8px_0px_0px_#000]">
             <Image
               src="/retro_crt_monitor.jpg"
-              alt="Retro CRT Monitor Space Graphic"
-              width={280}
-              height={280}
-              className="rounded-xl object-cover"
+              alt="Retro CRT Space Graphic"
+              width={320}
+              height={320}
+              className="rounded-2xl object-cover"
               priority
             />
           </div>
+
         </div>
 
       </div>
-
-      {/* Minimal Mission Countdown */}
-      <div className="w-full max-w-md rounded-xl border border-[var(--border-card)] bg-[var(--bg-card)] p-4 text-left font-mono shadow-sm">
-        <div className="flex items-center justify-between text-xs text-[var(--text-muted)] border-b border-[var(--border-card)] pb-2 mb-3">
-          <span className="flex items-center gap-1.5 text-[var(--accent-yellow)] font-bold">
-            <Clock className="h-3.5 w-3.5 text-[var(--accent-orange)]" /> MISSION COUNTDOWN
-          </span>
-          <span>SLST (UTC+5:30)</span>
-        </div>
-
-        <div className="grid grid-cols-4 gap-2 text-center">
-          <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
-            <span className="block text-2xl font-black text-[var(--accent-orange)]">
-              {String(timeLeft.days).padStart(2, "0")}
-            </span>
-            <span className="text-[10px] text-[var(--text-muted)]">DAYS</span>
-          </div>
-          <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
-            <span className="block text-2xl font-black text-[var(--accent-yellow)]">
-              {String(timeLeft.hours).padStart(2, "0")}
-            </span>
-            <span className="text-[10px] text-[var(--text-muted)]">HOURS</span>
-          </div>
-          <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
-            <span className="block text-2xl font-black text-[var(--accent-pink)]">
-              {String(timeLeft.minutes).padStart(2, "0")}
-            </span>
-            <span className="text-[10px] text-[var(--text-muted)]">MINS</span>
-          </div>
-          <div className="rounded-lg bg-[var(--bg-void)] p-2 border border-[var(--border-card)]">
-            <span className="block text-2xl font-black text-[var(--accent-cyan)]">
-              {String(timeLeft.seconds).padStart(2, "0")}
-            </span>
-            <span className="text-[10px] text-[var(--text-muted)]">SECS</span>
-          </div>
-        </div>
-      </div>
-
     </section>
   );
 }

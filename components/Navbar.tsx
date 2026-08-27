@@ -30,55 +30,65 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
   };
 
   return (
-    <header className="sticky top-0 z-50 bg-[var(--header-bg)] backdrop-blur-md border-b border-[var(--border-card)] py-3.5 px-4 sm:px-8 transition-colors">
-      <div className="mx-auto flex max-w-6xl items-center justify-between">
-        
-        {/* Minimal Brand Logo */}
-        <a href="#" className="flex items-center gap-2.5">
-          <div className="flex h-8 w-8 items-center justify-center rounded-lg bg-[var(--accent-orange)] text-black">
-            <Flame className="h-5 w-5 stroke-[2.5]" />
-          </div>
-          <span className="font-heading text-xl font-black tracking-tight text-[var(--text-cloud)] uppercase">
-            Apogee
-          </span>
-          <span className="font-mono text-[10px] font-bold text-[var(--accent-yellow)] bg-[var(--bg-card)] px-1.5 py-0.5 rounded border border-[var(--border-card)]">
-            2027
-          </span>
-        </a>
+    <>
+      {/* Top Yellow Announcement Banner */}
+      <div className="bg-[#ffc857] py-1.5 px-4 text-center font-mono text-xs font-bold text-black border-b border-black">
+        <span>LK</span> We noticed you're in Sri Lanka. 24-hour space hackathon in Colombo • Free for all students.
+      </div>
 
-        {/* Right Actions: Theme Toggle + CTA Button */}
-        <div className="flex items-center gap-3">
+      {/* Main Clean Header */}
+      <header className="sticky top-0 z-50 bg-[var(--header-bg)] backdrop-blur-md py-4 px-4 sm:px-12 transition-colors">
+        <div className="mx-auto flex max-w-7xl items-center justify-between">
           
-          {/* Light / Dark Mode Toggle Button */}
-          <button
-            onClick={toggleTheme}
-            className="flex items-center gap-1.5 rounded-lg border border-[var(--border-card)] bg-[var(--bg-card)] px-2.5 py-1.5 font-mono text-xs font-bold text-[var(--text-cloud)] hover:border-[var(--accent-orange)] transition-all"
-            title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
-          >
-            {theme === "dark" ? (
-              <>
-                <Sun className="h-4 w-4 text-[var(--accent-yellow)]" />
-                <span className="hidden sm:inline">Light</span>
-              </>
-            ) : (
-              <>
-                <Moon className="h-4 w-4 text-[var(--accent-cyan)]" />
-                <span className="hidden sm:inline">Dark</span>
-              </>
-            )}
-          </button>
+          {/* Brand Logo - Pure Icon */}
+          <a href="#" className="flex items-center gap-2 group">
+            <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#ff5500] text-black shadow-sm group-hover:scale-105 transition-transform">
+              <Flame className="h-6 w-6 stroke-[2.5] fill-black" />
+            </div>
+            <span className="font-heading text-2xl font-black tracking-tight text-[var(--text-cloud)] uppercase">
+              Apogee
+            </span>
+          </a>
 
-          {/* Primary CTA Button */}
-          <button
-            onClick={onOpenRegister}
-            className="rounded-lg bg-[var(--accent-yellow)] px-4 py-1.5 font-mono text-xs font-bold text-black hover:bg-[var(--accent-orange)] hover:text-white transition-colors"
-          >
-            Register Now
-          </button>
+          {/* Right Header Actions */}
+          <div className="flex items-center gap-3">
+            
+            {/* Announcement Chip Button */}
+            <a
+              href="#tracks"
+              className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff]/40 bg-[#00f0ff]/10 px-3 py-1 font-mono text-xs font-bold text-[#00f0ff] hover:border-[#00f0ff] transition-colors"
+            >
+              <span className="rounded bg-[#00f0ff] px-1 py-0.2 text-[10px] font-black text-black uppercase">
+                NEW
+              </span>
+              <span>24H Space Hackathon in Colombo →</span>
+            </a>
+
+            {/* Circular Theme Toggle Button */}
+            <button
+              onClick={toggleTheme}
+              className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-cloud)] hover:border-[var(--accent-yellow)] transition-colors"
+              title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
+            >
+              {theme === "dark" ? (
+                <Sun className="h-4 w-4 text-[var(--accent-yellow)]" />
+              ) : (
+                <Moon className="h-4 w-4 text-[var(--accent-cyan)]" />
+              )}
+            </button>
+
+            {/* Oval Outline Button */}
+            <button
+              onClick={onOpenRegister}
+              className="rounded-full border-2 border-[#ffc857] px-5 py-1.5 font-mono text-xs font-black uppercase text-[#ffc857] hover:bg-[#ffc857] hover:text-black transition-all shadow-[2px_2px_0px_0px_rgba(255,200,87,0.3)]"
+            >
+              Register
+            </button>
+
+          </div>
 
         </div>
-
-      </div>
-    </header>
+      </header>
+    </>
   );
 }
