@@ -32,7 +32,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
       particleCount: 80,
       spread: 60,
       origin: { y: 0.6 },
-      colors: ["#ff5500", "#ffc857", "#00f0ff", "#f72585"],
+      colors: ["#ff5500", "#ffd000", "#00f0ff", "#f72585"],
     });
   };
 
@@ -42,9 +42,9 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
       
-      <div className="relative w-full max-w-md rounded-2xl border-4 border-black bg-[var(--bg-card)] p-6 text-[var(--text-cloud)] shadow-[10px_10px_0px_0px_#000]">
+      <div className="relative w-full max-w-md rounded-2xl card-border bg-[var(--bg-card)] p-6 text-[var(--text-cloud)] card-shadow">
         
         <button
           onClick={resetAndClose}
@@ -57,7 +57,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
           <div>
             <div className="flex items-center gap-2.5 mb-4">
               <Flame className="h-6 w-6 text-[#ff5500]" />
-              <h3 className="font-mono text-xs font-bold text-white uppercase">
+              <h3 className="font-mono text-xs font-bold text-[var(--text-cloud)] uppercase">
                 REGISTER FOR APOGEE 2027
               </h3>
             </div>
@@ -73,7 +73,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                   placeholder="e.g. Kasun Perera"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
+                  className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-sm text-[var(--text-cloud)] placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
                 />
               </div>
 
@@ -87,7 +87,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                   placeholder="e.g. student@univ.ac.lk"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
+                  className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-sm text-[var(--text-cloud)] placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
                 />
               </div>
 
@@ -100,7 +100,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                   placeholder="e.g. University of Moratuwa"
                   value={formData.institution}
                   onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
+                  className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-sm text-[var(--text-cloud)] placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
                 />
               </div>
 
@@ -111,7 +111,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                 <select
                   value={formData.track}
                   onChange={(e) => setFormData({ ...formData, track: e.target.value })}
-                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-mono"
+                  className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-xs font-bold text-[var(--text-cloud)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-mono"
                 >
                   <option value="Propulsion">Propulsion</option>
                   <option value="Mission Software">Mission Software</option>
@@ -130,12 +130,12 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
           </div>
         ) : (
           <div className="py-6 text-center">
-            <CheckCircle2 className="h-12 w-12 text-[#ffc857] mx-auto mb-3" />
-            <h3 className="font-heading text-xl font-bold text-white mb-2 uppercase">
+            <CheckCircle2 className="h-12 w-12 text-[#ffd000] mx-auto mb-3" />
+            <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2 uppercase">
               PLAYER 1 READY!
             </h3>
             <p className="font-sans text-sm text-[var(--text-muted)] mb-6">
-              Welcome, <span className="text-white font-bold">{formData.name}</span>. Details sent to <span className="font-mono text-xs text-[#ffc857]">{formData.email}</span>.
+              Welcome, <span className="text-[var(--text-cloud)] font-bold">{formData.name}</span>. Details sent to <span className="font-mono text-xs text-[#ffd000]">{formData.email}</span>.
             </p>
             <Button onClick={resetAndClose} variant="primary" size="sm">
               DONE

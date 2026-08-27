@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { Flame, Sun, Moon, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
+import { motion, AnimatePresence } from "framer-motion";
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -32,19 +33,19 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
 
   return (
     <>
-      {/* Top Banner Ticker */}
-      <div className="bg-[#ffc857] py-2 px-4 text-center font-mono text-xs font-bold text-black border-b-2 border-black flex items-center justify-center gap-2.5 flex-wrap">
+      {/* Actionable Top Banner Ticker */}
+      <div className="bg-[#ffd000] py-2 px-4 text-center font-mono text-xs font-bold text-black border-b-2 border-black flex items-center justify-center gap-2.5 flex-wrap">
         <span>⚡ REGISTRATION IS OPEN: Apogee 24-Hour Student Space Hackathon • Colombo, Sri Lanka • Jan 2027</span>
         <button
           onClick={onOpenRegister}
-          className="inline-flex items-center gap-1.5 rounded-full bg-black px-3 py-1 font-mono text-xs font-black text-[#ffc857] hover:bg-[#ff5500] hover:text-white transition-colors cursor-pointer"
+          className="inline-flex items-center gap-1.5 rounded-full bg-black px-3 py-1 font-mono text-xs font-black text-[#ffd000] hover:bg-[#ff5500] hover:text-white transition-colors cursor-pointer"
         >
           <span>Register Team</span>
           <ArrowRight className="h-3.5 w-3.5" />
         </button>
       </div>
 
-      {/* Main Header without bottom border */}
+      {/* Main Grid Header */}
       <header className="relative bg-[var(--header-bg)] py-4 transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-4 items-center">
@@ -74,18 +75,30 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
                 <span>24H Space Hackathon in Colombo →</span>
               </a>
 
-              {/* Theme Toggle Button */}
-              <button
+              {/* Theme Toggle Button without border and animated with framer-motion */}
+              <motion.button
                 onClick={toggleTheme}
-                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-cloud)] hover:border-[var(--accent-yellow)] transition-colors cursor-pointer"
+                whileTap={{ scale: 0.85, rotate: 180 }}
+                whileHover={{ scale: 1.1 }}
+                className="flex h-10 w-10 items-center justify-center rounded-full bg-transparent text-[var(--text-cloud)] hover:bg-[var(--bg-card)] transition-colors cursor-pointer outline-none border-none"
                 title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
-                {theme === "dark" ? (
-                  <Sun className="h-4.5 w-4.5 text-[var(--accent-yellow)]" />
-                ) : (
-                  <Moon className="h-4.5 w-4.5 text-[var(--accent-cyan)]" />
-                )}
-              </button>
+                <AnimatePresence mode="wait" initial={false}>
+                  <motion.div
+                    key={theme}
+                    initial={{ opacity: 0, rotate: -90, scale: 0.5 }}
+                    animate={{ opacity: 1, rotate: 0, scale: 1 }}
+                    exit={{ opacity: 0, rotate: 90, scale: 0.5 }}
+                    transition={{ duration: 0.25 }}
+                  >
+                    {theme === "dark" ? (
+                      <Sun className="h-5 w-5 text-[#ffd000]" />
+                    ) : (
+                      <Moon className="h-5 w-5 text-[#0084a3]" />
+                    )}
+                  </motion.div>
+                </AnimatePresence>
+              </motion.button>
 
               {/* Prominent Header Register Button */}
               <Button onClick={onOpenRegister} variant="primary" size="md">

@@ -41,7 +41,7 @@ export function Speakers() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header: Clean Title + Small Description Below */}
+          {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
               Mentors
@@ -55,11 +55,11 @@ export function Speakers() {
           {mentors.map((m, idx) => (
             <div
               key={idx}
-              className="col-span-4 sm:col-span-4 lg:col-span-3 rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000]"
+              className="col-span-4 sm:col-span-4 lg:col-span-3 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow"
             >
               <div>
                 <div
-                  className="h-10 w-10 rounded-lg border-2 border-black flex items-center justify-center font-mono text-xs font-black text-black mb-4"
+                  className="h-10 w-10 rounded-lg flex items-center justify-center font-mono text-xs font-black text-black mb-4"
                   style={{ backgroundColor: m.color }}
                 >
                   {m.initials}

@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import { motion } from "framer-motion";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
 import { CountdownSection } from "@/components/CountdownSection";
@@ -15,6 +16,16 @@ import { Sponsors } from "@/components/Sponsors";
 import { FooterCTA } from "@/components/FooterCTA";
 import { RegisterModal } from "@/components/RegisterModal";
 
+const sectionVariants = {
+  hidden: { opacity: 0, y: 20 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.5, ease: "easeOut" as const }
+  }
+};
+
+
 export default function Home() {
   const [isRegisterOpen, setIsRegisterOpen] = useState(false);
 
@@ -22,41 +33,112 @@ export default function Home() {
   const handleCloseRegister = () => setIsRegisterOpen(false);
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[var(--accent-orange)] selection:text-black">
+    <div className="relative min-h-screen flex flex-col bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[var(--accent-orange)] selection:text-black transition-colors">
       {/* Navbar */}
       <Navbar onOpenRegister={handleOpenRegister} />
 
-      {/* Main Content Sections */}
+      {/* Main Content Sections with Framer Motion scroll animations */}
       <main className="flex-grow">
+        
         {/* Section 1: Hero */}
-        <Hero onOpenRegister={handleOpenRegister} />
+        <motion.div
+          initial="hidden"
+          animate="visible"
+          variants={sectionVariants}
+        >
+          <Hero onOpenRegister={handleOpenRegister} />
+        </motion.div>
 
-        {/* Dedicated Countdown Section (Blends with background) */}
-        <CountdownSection />
+        {/* Dedicated Countdown Section */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <CountdownSection />
+        </motion.div>
 
         {/* Section 2: What Is Apogee */}
-        <WhatIsApogee />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <WhatIsApogee />
+        </motion.div>
 
         {/* Section 3: Why Apogee */}
-        <WhyApogee />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <WhyApogee />
+        </motion.div>
 
         {/* Section 4: Tracks / Themes */}
-        <Tracks />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <Tracks />
+        </motion.div>
 
         {/* Section 5: Timeline */}
-        <Timeline />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <Timeline />
+        </motion.div>
 
         {/* Section 6: Speakers / Mentors */}
-        <Speakers />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <Speakers />
+        </motion.div>
 
         {/* Section 7: Prizes */}
-        <Prizes />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <Prizes />
+        </motion.div>
 
         {/* Section 8: FAQ */}
-        <FAQ />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <FAQ />
+        </motion.div>
 
         {/* Section 9: Sponsors / Partners */}
-        <Sponsors />
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <Sponsors />
+        </motion.div>
+
       </main>
 
       {/* Section 10: Final CTA & Footer */}

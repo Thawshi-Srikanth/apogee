@@ -18,7 +18,7 @@ export function FAQ() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header: Clean Title + Small Description Below */}
+          {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
               FAQ
@@ -31,7 +31,7 @@ export function FAQ() {
           {/* FAQ items centered */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-4">
             {items.map((item, idx) => (
-              <div key={idx} className="rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 shadow-[5px_5px_0px_0px_#000]">
+              <div key={idx} className="rounded-xl bg-[var(--bg-card)] card-border p-6 card-shadow-sm">
                 <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2">
                   {item.q}
                 </h3>

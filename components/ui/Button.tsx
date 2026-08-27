@@ -21,13 +21,13 @@ export function Button({
 
   const variantStyles = {
     primary:
-      "bg-[#ffc857] text-black border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-[#ff5500] hover:text-white hover:shadow-[6px_6px_0px_0px_#000000]",
+      "bg-[#ffd000] text-black border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-[#ff5500] hover:text-white hover:shadow-[6px_6px_0px_0px_#000000]",
     secondary:
-      "bg-[var(--bg-card)] text-[#ffc857] border-2 border-[#ffc857] shadow-[3px_3px_0px_0px_rgba(255,200,87,0.3)] hover:bg-[#ffc857] hover:text-black hover:shadow-[5px_5px_0px_0px_#000]",
+      "bg-[var(--bg-card)] text-[#ffd000] border-2 border-[#ffd000] shadow-[3px_3px_0px_0px_rgba(255,208,0,0.3)] hover:bg-[#ffd000] hover:text-black hover:shadow-[5px_5px_0px_0px_#000]",
     accent:
-      "bg-[#ff5500] text-white border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-[#ffc857] hover:text-black hover:shadow-[6px_6px_0px_0px_#000000]",
+      "bg-[#ff5500] text-white border-2 border-black shadow-[4px_4px_0px_0px_#000000] hover:bg-[#ffd000] hover:text-black hover:shadow-[6px_6px_0px_0px_#000000]",
     ghost:
-      "bg-transparent text-[var(--text-cloud)] hover:text-[#ffc857] hover:bg-[var(--bg-card)]",
+      "bg-transparent text-[var(--text-cloud)] hover:text-[#ffd000] hover:bg-[var(--bg-card)]",
   };
 
   const sizeStyles = {

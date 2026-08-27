@@ -49,7 +49,7 @@ export function Tracks() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header: Clean Title + Small Description Below */}
+          {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
               Tracks
@@ -65,7 +65,7 @@ export function Tracks() {
             return (
               <div
                 key={idx}
-                className={`${track.span} rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform`}
+                className={`${track.span} rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">

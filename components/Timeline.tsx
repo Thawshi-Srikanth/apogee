@@ -19,7 +19,7 @@ export function Timeline() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header: Clean Title + Small Description Below */}
+          {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
               Timeline
@@ -34,9 +34,9 @@ export function Timeline() {
             {events.map((evt, idx) => (
               <div
                 key={idx}
-                className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] border-4 border-black p-4 sm:p-5 gap-3 shadow-[5px_5px_0px_0px_#000]"
+                className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] card-border p-4 sm:p-5 gap-3 card-shadow-sm"
               >
-                <span className="font-mono text-xs font-bold text-black bg-[var(--accent-yellow)] px-3 py-1 rounded border-2 border-black w-fit uppercase">
+                <span className="font-mono text-xs font-bold text-black bg-[var(--accent-yellow)] px-3 py-1 rounded w-fit uppercase">
                   {evt.time}
                 </span>
                 <span className="font-sans text-base font-semibold text-[var(--text-cloud)]">

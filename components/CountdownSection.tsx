@@ -63,7 +63,7 @@ export function CountdownSection() {
             </div>
 
             <div className="flex flex-col items-center">
-              <span className="font-heading text-6xl sm:text-8xl lg:text-9xl font-black text-[#ffc857] leading-none tracking-tighter">
+              <span className="font-heading text-6xl sm:text-8xl lg:text-9xl font-black text-[#ffd000] leading-none tracking-tighter">
                 {String(timeLeft.hours).padStart(2, "0")}
               </span>
               <span className="font-mono text-xs sm:text-base font-black text-[var(--text-muted)] uppercase tracking-widest mt-4">

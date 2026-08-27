@@ -4,12 +4,15 @@
   --bg-void: #0a0a0c;
   --bg-card: #12141a;
   --accent-orange: #ff5500;
-  --accent-yellow: #ffc857;
+  --accent-yellow: #ffd000;
   --accent-pink: #ff0055;
   --accent-cyan: #00f0ff;
   --text-cloud: #ffffff;
   --text-muted: #9499a8;
   --border-card: #1e222d;
+  --card-border-color: #000000;
+  --card-shadow: 6px 6px 0px 0px #000000;
+  --card-shadow-sm: 4px 4px 0px 0px #000000;
   --header-bg: rgba(10, 10, 12, 0.95);
   --font-heading: var(--font-space-grotesk), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
@@ -18,37 +21,48 @@
 }
 
 [data-theme="light"] {
-  --bg-void: #f8f5ee;
-  --bg-card: #ffffff;
-  --accent-orange: #ff5500;
-  --accent-yellow: #e6a800;
-  --accent-pink: #e6004c;
-  --accent-cyan: #009bb8;
-  --text-cloud: #0f1117;
-  --text-muted: #5e6473;
-  --border-card: #e2ddd3;
-  --header-bg: rgba(248, 245, 238, 0.95);
+  --bg-void: #f5f2eb;
+  --bg-card: #fefcf8;
+  --accent-orange: #e64a00;
+  --accent-yellow: #e6b000;
+  --accent-pink: #d61b6f;
+  --accent-cyan: #0084a3;
+  --text-cloud: #262930;
+  --text-muted: #686d7a;
+  --border-card: #e5dfd3;
+  --card-border-color: #e2ddd3;
+  --card-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.08);
+  --card-shadow-sm: 4px 4px 0px 0px rgba(0, 0, 0, 0.06);
+  --header-bg: rgba(245, 242, 235, 0.95);
 }
+
 
 body {
   background-color: var(--bg-void);
   color: var(--text-cloud);
   font-family: var(--font-sans);
   overflow-x: hidden;
-  transition: background-color 0.2s ease, color 0.2s ease;
+  transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .font-pixel {
   font-family: var(--font-pixel);
 }
 
-/* 8-Bit Pixel Box Shadow */
-.pixel-shadow {
-  box-shadow: 4px 4px 0px 0px #000000;
+.card-border {
+  border-width: 4px;
+  border-color: var(--card-border-color);
+  transition: border-color 0.35s ease;
 }
 
-.pixel-shadow-lg {
-  box-shadow: 6px 6px 0px 0px #000000;
+.card-shadow {
+  box-shadow: var(--card-shadow);
+  transition: box-shadow 0.35s ease;
+}
+
+.card-shadow-sm {
+  box-shadow: var(--card-shadow-sm);
+  transition: box-shadow 0.35s ease;
 }
 
 /* Custom Scrollbar */
@@ -65,6 +79,8 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-orange);
 }
+
+
 
 
 

@@ -11,7 +11,7 @@ export function WhatIsApogee() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           
-          {/* Section Header: Clean Title + Small Description Below */}
+          {/* Section Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
               What Is Apogee
@@ -23,18 +23,18 @@ export function WhatIsApogee() {
 
           {/* Body Paragraph Cards */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-8 space-y-4 font-sans text-base sm:text-lg text-[var(--text-cloud)] leading-relaxed">
-            <p className="rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 shadow-[6px_6px_0px_0px_#000]">
+            <p className="rounded-xl bg-[var(--bg-card)] card-border p-6 card-shadow">
               Apogee is 24 hours. One weekend in Colombo. Teams of Sri Lankan students building real space-tech projects. Satellites, mission software, rover systems, orbital mechanics tools, whatever you can ship.
             </p>
 
-            <p className="rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 font-bold text-[var(--accent-yellow)] shadow-[6px_6px_0px_0px_#000]">
+            <p className="rounded-xl bg-[var(--bg-card)] card-border p-6 font-bold text-[var(--accent-yellow)] card-shadow">
               No fluff talks. No "networking sessions." You show up, you build, you demo.
             </p>
           </div>
 
           {/* 8-Bit Pixel Satellite Graphic */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[280px] rounded-3xl border-4 border-black bg-black p-3 shadow-[8px_8px_0px_0px_#000]">
+            <div className="relative w-full max-w-[280px] rounded-3xl card-border bg-black p-3 card-shadow">
               <Image
                 src="/8bit_satellite.jpg"
                 alt="8-Bit Pixel Satellite Graphic"
