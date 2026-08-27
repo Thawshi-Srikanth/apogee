@@ -50,7 +50,7 @@ export function Tracks() {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Header */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">
             <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
               Tracks
             </h2>
