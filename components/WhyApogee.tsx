@@ -31,10 +31,10 @@ export function WhyApogee() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
-              Why Apogee
+            <h2 className="font-pixel text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-3">
+              WHY APOGEE
             </h2>
-            <p className="font-sans text-lg text-[#ffc857] font-bold">
+            <p className="font-sans text-lg text-[#ffd000] font-bold">
               Built by students, for students across Sri Lanka. No corporate fluff.
             </p>
           </div>
@@ -46,7 +46,7 @@ export function WhyApogee() {
               className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform"
             >
               <div>
-                <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)] mb-2">
+                <h3 className="font-pixel text-xl sm:text-2xl font-bold text-[var(--text-cloud)] mb-3 leading-snug uppercase">
                   {item.title}
                 </h3>
                 <p className="font-sans text-base text-[var(--text-muted)] leading-relaxed">

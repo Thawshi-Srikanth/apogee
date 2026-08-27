@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import { Space_Grotesk, JetBrains_Mono, Inter, Press_Start_2P } from "next/font/google";
+import { Space_Grotesk, JetBrains_Mono, Inter, Press_Start_2P, Silkscreen } from "next/font/google";
 import "./globals.css";
 
 const spaceGrotesk = Space_Grotesk({
@@ -19,7 +19,13 @@ const inter = Inter({
 
 const pressStart2P = Press_Start_2P({
   weight: "400",
-  variable: "--font-pixel",
+  variable: "--font-press-start",
+  subsets: ["latin"],
+});
+
+const silkscreen = Silkscreen({
+  weight: ["400", "700"],
+  variable: "--font-silkscreen",
   subsets: ["latin"],
 });
 
@@ -37,13 +43,11 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${inter.variable} ${pressStart2P.variable} h-full antialiased`}
+      className={`${spaceGrotesk.variable} ${jetbrainsMono.variable} ${inter.variable} ${pressStart2P.variable} ${silkscreen.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col selection:bg-[#FF6B35] selection:text-white">
+      <body className="min-h-full flex flex-col selection:bg-[#FF5500] selection:text-black">
         {children}
       </body>
     </html>
   );
 }
-
-

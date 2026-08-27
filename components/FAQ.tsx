@@ -20,7 +20,7 @@ export function FAQ() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+            <h2 className="font-pixel text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-3">
               FAQ
             </h2>
             <p className="font-sans text-lg text-[#00f0ff] font-bold">
@@ -32,7 +32,7 @@ export function FAQ() {
           <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-4">
             {items.map((item, idx) => (
               <div key={idx} className="rounded-xl bg-[var(--bg-card)] card-border p-6 card-shadow-sm">
-                <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2">
+                <h3 className="font-pixel text-lg sm:text-xl font-bold text-[var(--text-cloud)] uppercase mb-2">
                   {item.q}
                 </h3>
                 <p className="font-sans text-base text-[var(--text-muted)] leading-relaxed">

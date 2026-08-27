@@ -19,11 +19,11 @@ export function Prizes() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
-              Prizes
+            <h2 className="font-pixel text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-3">
+              PRIZES
             </h2>
             <p className="font-sans text-lg text-[#ff5500] font-bold">
-              Worth showing up for. Rs. 500,000+ total prize pool in cash and cloud credits.
+              Worth showing up for. <span className="font-mono text-xl text-[var(--accent-yellow)]">Rs. 500,000+</span> total prize pool in cash and cloud credits.
             </p>
           </div>
 
@@ -34,11 +34,12 @@ export function Prizes() {
               className="col-span-4 sm:col-span-4 lg:col-span-3 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow"
             >
               <div>
-                <span className="font-mono text-xs text-[var(--text-muted)] font-bold block mb-2">
+                <span className="font-pixel text-xs text-[var(--text-muted)] font-bold block mb-2 uppercase">
                   {p.rank}
                 </span>
+                {/* Crisp Monospace Price Digits (Not Abstract Pixelated) */}
                 <div
-                  className="font-mono text-2xl font-black mb-3"
+                  className="font-mono text-2xl sm:text-3xl font-black mb-3 tracking-tight"
                   style={{ color: p.color }}
                 >
                   {p.amount}

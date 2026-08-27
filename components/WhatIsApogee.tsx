@@ -13,8 +13,8 @@ export function WhatIsApogee() {
           
           {/* Section Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
-              What Is Apogee
+            <h2 className="font-pixel text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-3">
+              WHAT IS APOGEE
             </h2>
             <p className="font-sans text-lg text-[#ff5500] font-bold">
               Not a lecture. Not a career fair. A 24-hour space hackathon in Colombo.
@@ -34,7 +34,7 @@ export function WhatIsApogee() {
 
           {/* 8-Bit Pixel Satellite Graphic */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[280px] rounded-3xl card-border bg-black p-3 card-shadow">
+            <div className="relative w-full max-w-[280px] rounded-3xl card-border bg-black p-3 card-shadow crt-scanlines">
               <Image
                 src="/8bit_satellite.jpg"
                 alt="8-Bit Pixel Satellite Graphic"

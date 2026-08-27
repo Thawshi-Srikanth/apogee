@@ -51,8 +51,8 @@ export function Tracks() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
-              Tracks
+            <h2 className="font-pixel text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-3">
+              TRACKS
             </h2>
             <p className="font-sans text-lg text-[#00f0ff] font-bold">
               Pick your orbit. Choose the challenge that matches your team's skills.
@@ -69,7 +69,7 @@ export function Tracks() {
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
-                    <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)]">
+                    <h3 className="font-pixel text-xl sm:text-2xl font-bold text-[var(--text-cloud)] uppercase">
                       {track.name}
                     </h3>
                     <IconComp className="h-6 w-6" style={{ color: track.color }} />

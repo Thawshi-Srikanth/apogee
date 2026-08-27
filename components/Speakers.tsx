@@ -43,8 +43,8 @@ export function Speakers() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
-              Mentors
+            <h2 className="font-pixel text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-3">
+              MENTORS
             </h2>
             <p className="font-sans text-lg text-[#ffc857] font-bold">
               People who actually build this stuff. Working engineers and satellite researchers.
@@ -59,15 +59,15 @@ export function Speakers() {
             >
               <div>
                 <div
-                  className="h-10 w-10 rounded-lg flex items-center justify-center font-mono text-xs font-black text-black mb-4"
+                  className="h-10 w-10 rounded-lg flex items-center justify-center font-pixel text-xs font-black text-black mb-4"
                   style={{ backgroundColor: m.color }}
                 >
                   {m.initials}
                 </div>
-                <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-1">
+                <h3 className="font-pixel text-lg font-bold text-[var(--text-cloud)] uppercase mb-1">
                   {m.name}
                 </h3>
-                <div className="font-mono text-xs text-[var(--accent-orange)] mb-3 font-bold uppercase">
+                <div className="font-pixel text-[10px] text-[var(--accent-orange)] mb-3 font-bold uppercase">
                   {m.role}
                 </div>
                 <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed">

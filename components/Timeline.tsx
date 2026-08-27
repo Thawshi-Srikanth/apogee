@@ -21,8 +21,8 @@ export function Timeline() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
-              Timeline
+            <h2 className="font-pixel text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-3">
+              TIMELINE
             </h2>
             <p className="font-sans text-lg text-[#ff5500] font-bold">
               24 hours. No filler. All times in Sri Lanka Standard Time (SLST).
@@ -30,16 +30,16 @@ export function Timeline() {
           </div>
 
           {/* Timeline centered */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-3 font-mono">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-3">
             {events.map((evt, idx) => (
               <div
                 key={idx}
                 className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] card-border p-4 sm:p-5 gap-3 card-shadow-sm"
               >
-                <span className="font-mono text-xs font-bold text-black bg-[var(--accent-yellow)] px-3 py-1 rounded w-fit uppercase">
+                <span className="font-pixel text-xs font-bold text-black bg-[var(--accent-yellow)] px-3 py-1 rounded w-fit uppercase">
                   {evt.time}
                 </span>
-                <span className="font-sans text-base font-semibold text-[var(--text-cloud)]">
+                <span className="font-sans text-base sm:text-lg font-semibold text-[var(--text-cloud)]">
                   {evt.title}
                 </span>
               </div>

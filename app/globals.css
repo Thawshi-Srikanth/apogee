@@ -14,9 +14,9 @@
   --card-shadow: 6px 6px 0px 0px #000000;
   --card-shadow-sm: 4px 4px 0px 0px #000000;
   --header-bg: rgba(10, 10, 12, 0.95);
-  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-heading: var(--font-silkscreen), var(--font-press-start), monospace;
   --font-mono: var(--font-jetbrains-mono), monospace;
-  --font-pixel: var(--font-pixel), monospace;
+  --font-pixel: var(--font-silkscreen), var(--font-press-start), monospace;
   --font-sans: var(--font-inter), sans-serif;
 }
 
@@ -30,12 +30,11 @@
   --text-cloud: #262930;
   --text-muted: #686d7a;
   --border-card: #e5dfd3;
-  --card-border-color: #e2ddd3;
-  --card-shadow: 6px 6px 0px 0px rgba(0, 0, 0, 0.08);
-  --card-shadow-sm: 4px 4px 0px 0px rgba(0, 0, 0, 0.06);
+  --card-border-color: #262930;
+  --card-shadow: 6px 6px 0px 0px rgba(38, 41, 48, 0.15);
+  --card-shadow-sm: 4px 4px 0px 0px rgba(38, 41, 48, 0.12);
   --header-bg: rgba(245, 242, 235, 0.95);
 }
-
 
 body {
   background-color: var(--bg-void);
@@ -45,8 +44,10 @@ body {
   transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
+/* Chunky Silkscreen 8-Bit Pixelated Typography */
 .font-pixel {
-  font-family: var(--font-pixel);
+  font-family: var(--font-silkscreen), var(--font-press-start), monospace;
+  letter-spacing: -0.01em;
 }
 
 .card-border {
@@ -65,24 +66,36 @@ body {
   transition: box-shadow 0.35s ease;
 }
 
+/* CRT Scanline Overlay for 8-Bit Arcade Graphics */
+.crt-scanlines {
+  position: relative;
+  overflow: hidden;
+}
+.crt-scanlines::after {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(
+    rgba(18, 16, 16, 0) 50%, 
+    rgba(0, 0, 0, 0.2) 50%
+  );
+  background-size: 100% 4px;
+  pointer-events: none;
+  border-radius: inherit;
+}
+
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 6px;
+  width: 8px;
 }
 ::-webkit-scrollbar-track {
   background: var(--bg-void);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--border-card);
-  border-radius: 3px;
+  background: var(--accent-yellow);
+  border: 2px solid #000;
 }
 ::-webkit-scrollbar-thumb:hover {
   background: var(--accent-orange);
 }
-
-
-
-
-
-
-
