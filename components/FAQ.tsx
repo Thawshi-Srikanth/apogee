@@ -20,18 +20,18 @@ export function FAQ() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-cyan)] uppercase tracking-wider">
-              // FAQ
+            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-cyan)] uppercase tracking-wider">
+              // STAGE 07 • FAQ
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
               Questions answered.
             </h2>
           </div>
 
-          {/* FAQ items centered: Spans 4 cols on mobile, 8 on tablet, 10 on desktop */}
+          {/* FAQ items centered */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-4">
             {items.map((item, idx) => (
-              <div key={idx} className="rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-6 shadow-sm">
+              <div key={idx} className="rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 shadow-[5px_5px_0px_0px_#000]">
                 <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2">
                   {item.q}
                 </h3>

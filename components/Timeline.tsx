@@ -21,22 +21,22 @@ export function Timeline() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-cyan)] uppercase tracking-wider">
-              // TIMELINE
+            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-cyan)] uppercase tracking-wider">
+              // STAGE 04 • 24H SCHEDULE
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
               24 hours. <span className="text-[var(--accent-orange)]">No filler.</span>
             </h2>
           </div>
 
-          {/* Timeline centered: Spans 4 cols on mobile, 8 on tablet, 10 on desktop (centered) */}
+          {/* Timeline centered */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-10 lg:col-start-2 space-y-3 font-mono">
             {events.map((evt, idx) => (
               <div
                 key={idx}
-                className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-4 sm:p-5 gap-3 shadow-sm"
+                className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] border-4 border-black p-4 sm:p-5 gap-3 shadow-[5px_5px_0px_0px_#000]"
               >
-                <span className="text-xs font-bold text-[var(--accent-yellow)] bg-[var(--bg-void)] px-3 py-1 rounded w-fit border border-[var(--border-card)]">
+                <span className="font-pixel text-[10px] font-bold text-black bg-[var(--accent-yellow)] px-3 py-1.5 rounded border-2 border-black w-fit uppercase">
                   {evt.time}
                 </span>
                 <span className="font-sans text-base font-semibold text-[var(--text-cloud)]">

@@ -43,23 +43,23 @@ export function Speakers() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-orange)] uppercase tracking-wider">
-              // MENTORS
+            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-orange)] uppercase tracking-wider">
+              // STAGE 05 • MENTORS
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
               People who <span className="text-[var(--accent-yellow)]">actually build</span> this stuff.
             </h2>
           </div>
 
-          {/* 4 Mentor Cards: Each spans 4 cols on mobile, 4 on tablet (2x2), 3 on desktop (4 per row!) */}
+          {/* 4 Mentor Cards */}
           {mentors.map((m, idx) => (
             <div
               key={idx}
-              className="col-span-4 sm:col-span-4 lg:col-span-3 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-6 flex flex-col justify-between shadow-sm"
+              className="col-span-4 sm:col-span-4 lg:col-span-3 rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000]"
             >
               <div>
                 <div
-                  className="h-10 w-10 rounded-lg flex items-center justify-center font-mono font-black text-black mb-4 text-sm"
+                  className="h-10 w-10 rounded-lg border-2 border-black flex items-center justify-center font-pixel text-xs font-black text-black mb-4"
                   style={{ backgroundColor: m.color }}
                 >
                   {m.initials}
@@ -67,7 +67,7 @@ export function Speakers() {
                 <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-1">
                   {m.name}
                 </h3>
-                <div className="font-mono text-xs text-[var(--accent-orange)] mb-3 font-bold">
+                <div className="font-pixel text-[9px] text-[var(--accent-orange)] mb-3 font-bold uppercase">
                   {m.role}
                 </div>
                 <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed">

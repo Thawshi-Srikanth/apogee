@@ -39,23 +39,23 @@ export function WhyApogee() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-yellow)] uppercase tracking-wider">
-              // WHY APOGEE
+            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-yellow)] uppercase tracking-wider">
+              // STAGE 02 • DIFFERENTIATION
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
               Built by students. <span className="text-[var(--accent-orange)]">For Sri Lanka.</span>
             </h2>
           </div>
 
-          {/* 4 Cards: Each card spans 4 cols on mobile, 4 on tablet (2x2), 6 on desktop (2x2) */}
+          {/* 4 Cards */}
           {points.map((item, idx) => (
             <div
               key={idx}
-              className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-6 flex flex-col justify-between hover:border-[var(--accent-orange)] transition-colors shadow-sm"
+              className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform"
             >
               <div>
                 <span
-                  className="inline-block rounded font-mono text-[10px] font-bold px-2 py-0.5 mb-3 text-black uppercase"
+                  className="inline-block rounded border-2 border-black font-pixel text-[9px] font-bold px-2 py-0.5 mb-3 text-black uppercase"
                   style={{ backgroundColor: item.color }}
                 >
                   {item.badge}

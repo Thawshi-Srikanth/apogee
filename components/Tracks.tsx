@@ -9,7 +9,7 @@ export function Tracks() {
       name: "Propulsion",
       icon: Rocket,
       desc: "Design something that gets mass from A to B in space, efficiently.",
-      badge: "TRACK 01",
+      badge: "LEVEL 01",
       color: "var(--accent-orange)",
       span: "col-span-4 sm:col-span-4 lg:col-span-4",
     },
@@ -17,7 +17,7 @@ export function Tracks() {
       name: "Mission Software",
       icon: Code2,
       desc: "Build reliable flight software, ground station control, or live satellite telemetry dashboards.",
-      badge: "TRACK 02",
+      badge: "LEVEL 02",
       color: "var(--accent-cyan)",
       span: "col-span-4 sm:col-span-4 lg:col-span-4",
     },
@@ -25,7 +25,7 @@ export function Tracks() {
       name: "Satellite Systems",
       icon: Satellite,
       desc: "Create small-satellite payloads, communications arrays, or constellation controllers.",
-      badge: "TRACK 03",
+      badge: "LEVEL 03",
       color: "var(--accent-yellow)",
       span: "col-span-4 sm:col-span-4 lg:col-span-4",
     },
@@ -33,7 +33,7 @@ export function Tracks() {
       name: "Space Biology",
       icon: Dna,
       desc: "Develop life-support systems, bio-reactors, or extreme environment habitats.",
-      badge: "TRACK 04",
+      badge: "LEVEL 04",
       color: "var(--accent-pink)",
       span: "col-span-4 sm:col-span-4 lg:col-span-6",
     },
@@ -41,7 +41,7 @@ export function Tracks() {
       name: "Open Track",
       icon: Compass,
       desc: "Anything space-tech. If it belongs in orbit or beyond, it counts.",
-      badge: "TRACK 05",
+      badge: "LEVEL 05",
       color: "var(--accent-cyan)",
       span: "col-span-4 sm:col-span-8 lg:col-span-6",
     },
@@ -56,8 +56,8 @@ export function Tracks() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-mono text-xs font-bold text-[var(--accent-pink)] uppercase tracking-wider">
-              // TRACKS
+            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-pink)] uppercase tracking-wider">
+              // STAGE 03 • MISSION TRACKS
             </div>
             <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
               Pick your <span className="text-[var(--accent-yellow)]">orbit.</span>
@@ -70,12 +70,12 @@ export function Tracks() {
             return (
               <div
                 key={idx}
-                className={`${track.span} rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] p-6 flex flex-col justify-between hover:border-[var(--accent-orange)] transition-colors shadow-sm`}
+                className={`${track.span} rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000] hover:translate-x-[-2px] hover:translate-y-[-2px] transition-transform`}
               >
                 <div>
                   <div className="flex items-center justify-between mb-4">
                     <span
-                      className="rounded font-mono text-[10px] font-bold px-2 py-0.5 text-black uppercase"
+                      className="rounded border-2 border-black font-pixel text-[9px] font-bold px-2 py-0.5 text-black uppercase"
                       style={{ backgroundColor: track.color }}
                     >
                       {track.badge}

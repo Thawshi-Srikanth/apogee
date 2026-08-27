@@ -43,27 +43,27 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
       
-      <div className="relative w-full max-w-md rounded-xl border border-[#222632] bg-[#12141a] p-6 text-[#ededed]">
+      <div className="relative w-full max-w-md rounded-2xl border-4 border-black bg-[var(--bg-card)] p-6 text-[var(--text-cloud)] shadow-[10px_10px_0px_0px_#000]">
         
         <button
           onClick={resetAndClose}
-          className="absolute top-4 right-4 text-[#8a8f9d] hover:text-white"
+          className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-white"
         >
           <X className="h-5 w-5" />
         </button>
 
         {!submitted ? (
           <div>
-            <div className="flex items-center gap-2 mb-4">
+            <div className="flex items-center gap-2.5 mb-4">
               <Flame className="h-6 w-6 text-[#ff5500]" />
-              <h3 className="font-heading text-xl font-black text-white">
-                Register for Apogee 2027
+              <h3 className="font-pixel text-xs text-white uppercase">
+                INSERT COIN • REGISTER 2027
               </h3>
             </div>
 
-            <form onSubmit={handleSubmit} className="space-y-4">
+            <form onSubmit={handleSubmit} className="space-y-4 font-sans">
               <div>
-                <label className="block font-mono text-xs font-bold text-[#8a8f9d] uppercase mb-1">
+                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   Full Name
                 </label>
                 <input
@@ -72,12 +72,12 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                   placeholder="e.g. Kasun Perera"
                   value={formData.name}
                   onChange={(e) => setFormData({ ...formData, name: e.target.value })}
-                  className="w-full rounded-lg border border-[#262b3a] bg-[#0a0a0c] p-3 text-sm text-white placeholder-[#8a8f9d]/50 focus:outline-none focus:border-[#ff5500]"
+                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
                 />
               </div>
 
               <div>
-                <label className="block font-mono text-xs font-bold text-[#8a8f9d] uppercase mb-1">
+                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   Email Address
                 </label>
                 <input
@@ -86,12 +86,12 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                   placeholder="e.g. student@univ.ac.lk"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
-                  className="w-full rounded-lg border border-[#262b3a] bg-[#0a0a0c] p-3 text-sm text-white placeholder-[#8a8f9d]/50 focus:outline-none focus:border-[#ff5500]"
+                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
                 />
               </div>
 
               <div>
-                <label className="block font-mono text-xs font-bold text-[#8a8f9d] uppercase mb-1">
+                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   University or School
                 </label>
                 <input
@@ -99,18 +99,18 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                   placeholder="e.g. University of Moratuwa"
                   value={formData.institution}
                   onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
-                  className="w-full rounded-lg border border-[#262b3a] bg-[#0a0a0c] p-3 text-sm text-white placeholder-[#8a8f9d]/50 focus:outline-none focus:border-[#ff5500]"
+                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-sm text-white placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
                 />
               </div>
 
               <div>
-                <label className="block font-mono text-xs font-bold text-[#8a8f9d] uppercase mb-1">
+                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   Track
                 </label>
                 <select
                   value={formData.track}
                   onChange={(e) => setFormData({ ...formData, track: e.target.value })}
-                  className="w-full rounded-lg border border-[#262b3a] bg-[#0a0a0c] p-3 text-xs font-bold text-white focus:outline-none focus:border-[#ff5500]"
+                  className="w-full rounded-xl border-3 border-black bg-[var(--bg-void)] p-3 text-xs font-bold text-white focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-mono"
                 >
                   <option value="Propulsion">Propulsion</option>
                   <option value="Mission Software">Mission Software</option>
@@ -122,26 +122,26 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
 
               <button
                 type="submit"
-                className="w-full mt-2 rounded-lg bg-[#ff5500] py-3 font-mono text-sm font-bold text-white hover:bg-[#ff661a] transition-all"
+                className="w-full mt-2 rounded-xl border-4 border-black bg-[#ff5500] py-3.5 font-pixel text-[10px] font-bold uppercase text-white shadow-[4px_4px_0px_0px_#000] hover:bg-[#ffc857] hover:text-black transition-all"
               >
-                Confirm Free Registration
+                CONFIRM REGISTRATION →
               </button>
             </form>
           </div>
         ) : (
           <div className="py-6 text-center">
             <CheckCircle2 className="h-12 w-12 text-[#ffc857] mx-auto mb-3" />
-            <h3 className="font-heading text-2xl font-black text-white mb-2">
-              Registration Confirmed!
+            <h3 className="font-pixel text-sm text-white mb-2 uppercase">
+              PLAYER 1 READY!
             </h3>
-            <p className="font-sans text-sm text-[#8a8f9d] mb-6">
+            <p className="font-sans text-sm text-[var(--text-muted)] mb-6">
               Welcome, <span className="text-white font-bold">{formData.name}</span>. Details sent to <span className="font-mono text-xs text-[#ffc857]">{formData.email}</span>.
             </p>
             <button
               onClick={resetAndClose}
-              className="rounded-lg bg-[#ff5500] px-6 py-2 font-mono text-xs font-bold text-white"
+              className="rounded-xl border-3 border-black bg-[#ff5500] px-6 py-2.5 font-pixel text-[9px] font-bold text-white shadow-[3px_3px_0px_0px_#000]"
             >
-              Done
+              DONE
             </button>
           </div>
         )}
