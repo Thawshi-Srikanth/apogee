@@ -44,8 +44,8 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
         </button>
       </div>
 
-      {/* Main Grid Header */}
-      <header className="relative bg-[var(--header-bg)] py-4 border-b border-[var(--border-card)] transition-colors">
+      {/* Main Header without bottom border */}
+      <header className="relative bg-[var(--header-bg)] py-4 transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-4 items-center">
             
