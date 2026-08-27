@@ -15,6 +15,7 @@ import { FAQ } from "@/components/FAQ";
 import { Sponsors } from "@/components/Sponsors";
 import { FooterCTA } from "@/components/FooterCTA";
 import { RegisterModal } from "@/components/RegisterModal";
+import { CrossStripeTicker } from "@/components/CrossStripeTicker";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -33,7 +34,7 @@ export default function Home() {
   const handleCloseRegister = () => setIsRegisterOpen(false);
 
   return (
-    <div className="relative min-h-screen flex flex-col bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[var(--accent-orange)] selection:text-black transition-colors">
+    <div className="relative min-h-screen flex flex-col bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[var(--accent-orange)] selection:text-black transition-colors overflow-x-hidden">
       {/* Navbar */}
       <Navbar onOpenRegister={handleOpenRegister} />
 
@@ -48,6 +49,15 @@ export default function Home() {
         >
           <Hero onOpenRegister={handleOpenRegister} />
         </motion.div>
+
+        {/* Diagonal Cross-Stripe Ticker Tape Banner 1 */}
+        <CrossStripeTicker
+          text="REGISTER NOW • APOGEE 2027 • SRI LANKA'S 1ST 24-HR SPACE HACKATHON • COLOMBO • BUILD REAL SPACE-TECH • "
+          bgColor="bg-[#FFC857]"
+          textColor="text-black"
+          rotation="-rotate-2 sm:-rotate-3"
+          direction="left"
+        />
 
         {/* Dedicated Countdown Section */}
         <motion.div
@@ -98,6 +108,15 @@ export default function Home() {
         >
           <Timeline />
         </motion.div>
+
+        {/* Diagonal Cross-Stripe Ticker Tape Banner 2 */}
+        <CrossStripeTicker
+          text="RS. 500,000+ PRIZE POOL • REAL MENTORS • WORKING SATELLITE ENGINEERS • NO CORPORATE FLUFF • DEMO LIVE • "
+          bgColor="bg-[#00F0FF]"
+          textColor="text-black"
+          rotation="rotate-2 sm:rotate-3"
+          direction="right"
+        />
 
         {/* Section 6: Speakers / Mentors */}
         <motion.div
