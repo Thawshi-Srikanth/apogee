@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react";
 import { Flame, Sun, Moon, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
+import { Logo } from "@/components/Logo";
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -50,15 +51,10 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-4 items-center">
             
-            {/* Logo */}
-            <div className="col-span-2 sm:col-span-3 lg:col-span-4 flex items-center">
-              <a href="#" className="flex items-center gap-2 group">
-                <div className="flex h-9 w-9 items-center justify-center rounded-xl bg-[#ff5500] text-black shadow-sm group-hover:scale-105 transition-transform">
-                  <Flame className="h-6 w-6 stroke-[2.5] fill-black" />
-                </div>
-                <span className="font-heading text-2xl font-black tracking-tight text-[var(--text-cloud)] uppercase">
-                  Apogee
-                </span>
+            {/* Theme-Adaptive Logo */}
+            <div className="col-span-2 sm:col-span-4 lg:col-span-4 flex items-center">
+              <a href="#" className="flex items-center group transition-transform hover:scale-[1.03]">
+                <Logo className="h-7 sm:h-9 w-auto" />
               </a>
             </div>
 
