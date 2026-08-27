@@ -18,14 +18,14 @@ export function FAQ() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header */}
+          {/* Header: Clean Title + Small Description Below */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-cyan)] uppercase tracking-wider">
-              // STAGE 07 • FAQ
-            </div>
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
-              Questions answered.
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+              FAQ
             </h2>
+            <p className="font-sans text-lg text-[#00f0ff] font-bold">
+              Short, direct answers to common questions. Answered like a person, not a policy document.
+            </p>
           </div>
 
           {/* FAQ items centered */}

@@ -19,14 +19,14 @@ export function Timeline() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header */}
+          {/* Header: Clean Title + Small Description Below */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-cyan)] uppercase tracking-wider">
-              // STAGE 04 • 24H SCHEDULE
-            </div>
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
-              24 hours. <span className="text-[var(--accent-orange)]">No filler.</span>
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+              Timeline
             </h2>
+            <p className="font-sans text-lg text-[#ff5500] font-bold">
+              24 hours. No filler. All times in Sri Lanka Standard Time (SLST).
+            </p>
           </div>
 
           {/* Timeline centered */}
@@ -36,7 +36,7 @@ export function Timeline() {
                 key={idx}
                 className="flex flex-col sm:flex-row sm:items-center justify-between rounded-xl bg-[var(--bg-card)] border-4 border-black p-4 sm:p-5 gap-3 shadow-[5px_5px_0px_0px_#000]"
               >
-                <span className="font-pixel text-[10px] font-bold text-black bg-[var(--accent-yellow)] px-3 py-1.5 rounded border-2 border-black w-fit uppercase">
+                <span className="font-mono text-xs font-bold text-black bg-[var(--accent-yellow)] px-3 py-1 rounded border-2 border-black w-fit uppercase">
                   {evt.time}
                 </span>
                 <span className="font-sans text-base font-semibold text-[var(--text-cloud)]">

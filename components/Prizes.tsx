@@ -17,14 +17,14 @@ export function Prizes() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header */}
+          {/* Header: Clean Title + Small Description Below */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-yellow)] uppercase tracking-wider">
-              // STAGE 06 • HIGH SCORES & REWARDS
-            </div>
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
-              Worth <span className="text-[var(--accent-orange)]">showing up for.</span>
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+              Prizes
             </h2>
+            <p className="font-sans text-lg text-[#ff5500] font-bold">
+              Worth showing up for. Rs. 500,000+ total prize pool in cash and cloud credits.
+            </p>
           </div>
 
           {/* 4 Prize Cards */}
@@ -34,11 +34,11 @@ export function Prizes() {
               className="col-span-4 sm:col-span-4 lg:col-span-3 rounded-xl bg-[var(--bg-card)] border-4 border-black p-6 flex flex-col justify-between shadow-[6px_6px_0px_0px_#000]"
             >
               <div>
-                <span className="font-pixel text-[9px] text-[var(--text-muted)] font-bold block mb-2">
+                <span className="font-mono text-xs text-[var(--text-muted)] font-bold block mb-2">
                   {p.rank}
                 </span>
                 <div
-                  className="font-pixel text-xl sm:text-2xl font-black mb-3"
+                  className="font-mono text-2xl font-black mb-3"
                   style={{ color: p.color }}
                 >
                   {p.amount}

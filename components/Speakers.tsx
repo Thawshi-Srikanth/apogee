@@ -41,14 +41,14 @@ export function Speakers() {
         {/* 4-8-12 Master Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
-          {/* Header */}
+          {/* Header: Clean Title + Small Description Below */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12">
-            <div className="mb-2 inline-block font-pixel text-[10px] text-[var(--accent-orange)] uppercase tracking-wider">
-              // STAGE 05 • MENTORS
-            </div>
-            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)]">
-              People who <span className="text-[var(--accent-yellow)]">actually build</span> this stuff.
+            <h2 className="font-heading text-3xl sm:text-5xl font-black text-[var(--text-cloud)] uppercase mb-2">
+              Mentors
             </h2>
+            <p className="font-sans text-lg text-[#ffc857] font-bold">
+              People who actually build this stuff. Working engineers and satellite researchers.
+            </p>
           </div>
 
           {/* 4 Mentor Cards */}
@@ -59,7 +59,7 @@ export function Speakers() {
             >
               <div>
                 <div
-                  className="h-10 w-10 rounded-lg border-2 border-black flex items-center justify-center font-pixel text-xs font-black text-black mb-4"
+                  className="h-10 w-10 rounded-lg border-2 border-black flex items-center justify-center font-mono text-xs font-black text-black mb-4"
                   style={{ backgroundColor: m.color }}
                 >
                   {m.initials}
@@ -67,7 +67,7 @@ export function Speakers() {
                 <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-1">
                   {m.name}
                 </h3>
-                <div className="font-pixel text-[9px] text-[var(--accent-orange)] mb-3 font-bold uppercase">
+                <div className="font-mono text-xs text-[var(--accent-orange)] mb-3 font-bold uppercase">
                   {m.role}
                 </div>
                 <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed">
