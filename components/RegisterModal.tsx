@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { X, Flame, CheckCircle2 } from "lucide-react";
 import confetti from "canvas-confetti";
+import { Button } from "@/components/ui/Button";
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -47,7 +48,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
         
         <button
           onClick={resetAndClose}
-          className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-white"
+          className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-white cursor-pointer"
         >
           <X className="h-5 w-5" />
         </button>
@@ -56,14 +57,14 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
           <div>
             <div className="flex items-center gap-2.5 mb-4">
               <Flame className="h-6 w-6 text-[#ff5500]" />
-              <h3 className="font-pixel text-xs text-white uppercase">
-                INSERT COIN • REGISTER 2027
+              <h3 className="font-mono text-xs font-bold text-white uppercase">
+                REGISTER FOR APOGEE 2027
               </h3>
             </div>
 
             <form onSubmit={handleSubmit} className="space-y-4 font-sans">
               <div>
-                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                <label className="block font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   Full Name
                 </label>
                 <input
@@ -77,7 +78,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
               </div>
 
               <div>
-                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                <label className="block font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   Email Address
                 </label>
                 <input
@@ -91,7 +92,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
               </div>
 
               <div>
-                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                <label className="block font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   University or School
                 </label>
                 <input
@@ -104,7 +105,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
               </div>
 
               <div>
-                <label className="block font-pixel text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                <label className="block font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase mb-1">
                   Track
                 </label>
                 <select
@@ -120,29 +121,25 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                 </select>
               </div>
 
-              <button
-                type="submit"
-                className="w-full mt-2 rounded-xl border-4 border-black bg-[#ff5500] py-3.5 font-pixel text-[10px] font-bold uppercase text-white shadow-[4px_4px_0px_0px_#000] hover:bg-[#ffc857] hover:text-black transition-all"
-              >
-                CONFIRM REGISTRATION →
-              </button>
+              <div className="pt-2">
+                <Button type="submit" variant="accent" size="md" className="w-full">
+                  CONFIRM REGISTRATION →
+                </Button>
+              </div>
             </form>
           </div>
         ) : (
           <div className="py-6 text-center">
             <CheckCircle2 className="h-12 w-12 text-[#ffc857] mx-auto mb-3" />
-            <h3 className="font-pixel text-sm text-white mb-2 uppercase">
+            <h3 className="font-heading text-xl font-bold text-white mb-2 uppercase">
               PLAYER 1 READY!
             </h3>
             <p className="font-sans text-sm text-[var(--text-muted)] mb-6">
               Welcome, <span className="text-white font-bold">{formData.name}</span>. Details sent to <span className="font-mono text-xs text-[#ffc857]">{formData.email}</span>.
             </p>
-            <button
-              onClick={resetAndClose}
-              className="rounded-xl border-3 border-black bg-[#ff5500] px-6 py-2.5 font-pixel text-[9px] font-bold text-white shadow-[3px_3px_0px_0px_#000]"
-            >
+            <Button onClick={resetAndClose} variant="primary" size="sm">
               DONE
-            </button>
+            </Button>
           </div>
         )}
 

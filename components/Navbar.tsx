@@ -2,6 +2,7 @@
 
 import React, { useState, useEffect } from "react";
 import { Flame, Sun, Moon, ArrowRight } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
 interface NavbarProps {
   onOpenRegister: () => void;
@@ -31,19 +32,19 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
 
   return (
     <>
-      {/* Actionable Non-Sticky Top Banner */}
-      <div className="bg-[#ffc857] py-2 px-4 text-center font-mono text-xs font-bold text-black border-b-2 border-black flex items-center justify-center gap-2 flex-wrap">
+      {/* Top Banner Ticker */}
+      <div className="bg-[#ffc857] py-2 px-4 text-center font-mono text-xs font-bold text-black border-b-2 border-black flex items-center justify-center gap-2.5 flex-wrap">
         <span>⚡ REGISTRATION IS OPEN: Apogee 24-Hour Student Space Hackathon • Colombo, Sri Lanka • Jan 2027</span>
         <button
           onClick={onOpenRegister}
-          className="inline-flex items-center gap-1 rounded bg-black px-2.5 py-0.5 text-[11px] font-extrabold text-[#ffc857] hover:bg-[#ff5500] hover:text-white transition-colors"
+          className="inline-flex items-center gap-1.5 rounded-full bg-black px-3 py-1 font-mono text-xs font-black text-[#ffc857] hover:bg-[#ff5500] hover:text-white transition-colors cursor-pointer"
         >
           <span>Register Team</span>
-          <ArrowRight className="h-3 w-3" />
+          <ArrowRight className="h-3.5 w-3.5" />
         </button>
       </div>
 
-      {/* Main Non-Sticky Header */}
+      {/* Main Grid Header */}
       <header className="relative bg-[var(--header-bg)] py-4 border-b border-[var(--border-card)] transition-colors">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-4 items-center">
@@ -61,11 +62,11 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
             </div>
 
             {/* Actions */}
-            <div className="col-span-2 sm:col-span-5 lg:col-span-8 flex items-center justify-end gap-3">
+            <div className="col-span-2 sm:col-span-5 lg:col-span-8 flex items-center justify-end gap-3.5">
               
               <a
                 href="#tracks"
-                className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff]/40 bg-[#00f0ff]/10 px-3.5 py-1 font-mono text-xs font-bold text-[#00f0ff] hover:border-[#00f0ff] transition-colors"
+                className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff]/40 bg-[#00f0ff]/10 px-3.5 py-1.5 font-mono text-xs font-bold text-[#00f0ff] hover:border-[#00f0ff] transition-colors"
               >
                 <span className="rounded bg-[#00f0ff] px-1 py-0.2 text-[10px] font-black text-black uppercase">
                   NEW
@@ -73,24 +74,23 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
                 <span>24H Space Hackathon in Colombo →</span>
               </a>
 
+              {/* Theme Toggle Button */}
               <button
                 onClick={toggleTheme}
-                className="flex h-9 w-9 items-center justify-center rounded-full border border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-cloud)] hover:border-[var(--accent-yellow)] transition-colors"
+                className="flex h-10 w-10 items-center justify-center rounded-full border border-[var(--border-card)] bg-[var(--bg-card)] text-[var(--text-cloud)] hover:border-[var(--accent-yellow)] transition-colors cursor-pointer"
                 title={theme === "dark" ? "Switch to Light Mode" : "Switch to Dark Mode"}
               >
                 {theme === "dark" ? (
-                  <Sun className="h-4 w-4 text-[var(--accent-yellow)]" />
+                  <Sun className="h-4.5 w-4.5 text-[var(--accent-yellow)]" />
                 ) : (
-                  <Moon className="h-4 w-4 text-[var(--accent-cyan)]" />
+                  <Moon className="h-4.5 w-4.5 text-[var(--accent-cyan)]" />
                 )}
               </button>
 
-              <button
-                onClick={onOpenRegister}
-                className="rounded-full border-2 border-[#ffc857] px-5 py-1.5 font-mono text-xs font-black uppercase text-[#ffc857] hover:bg-[#ffc857] hover:text-black transition-all shadow-[2px_2px_0px_0px_rgba(255,200,87,0.3)]"
-              >
+              {/* Prominent Header Register Button */}
+              <Button onClick={onOpenRegister} variant="primary" size="md">
                 Register
-              </button>
+              </Button>
 
             </div>
 

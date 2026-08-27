@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import { Clock } from "lucide-react";
+import { Button } from "@/components/ui/Button";
 
 interface HeroProps {
   onOpenRegister: () => void;
@@ -61,12 +62,12 @@ export function Hero({ onOpenRegister }: HeroProps) {
               <span className="font-bold text-[#f72585]">real judges</span>.
             </p>
 
-            <button
-              onClick={onOpenRegister}
-              className="rounded-xl border-4 border-black bg-[#ffc857] px-8 py-4 font-mono text-sm font-black uppercase text-black hover:bg-[#ff5500] hover:text-white transition-all shadow-[6px_6px_0px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-[2px_2px_0px_0px_#000] mb-10"
-            >
-              REGISTER NOW
-            </button>
+            {/* Prominent Large Hero Button */}
+            <div className="mb-10">
+              <Button onClick={onOpenRegister} variant="primary" size="lg">
+                REGISTER NOW
+              </Button>
+            </div>
 
             {/* Countdown Bar */}
             <div className="w-full max-w-lg rounded-xl border-4 border-black bg-[var(--bg-card)] p-4 shadow-[6px_6px_0px_0px_#000]">
