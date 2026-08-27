@@ -3,6 +3,7 @@
 import React, { useState } from "react";
 import { Navbar } from "@/components/Navbar";
 import { Hero } from "@/components/Hero";
+import { CountdownSection } from "@/components/CountdownSection";
 import { WhatIsApogee } from "@/components/WhatIsApogee";
 import { WhyApogee } from "@/components/WhyApogee";
 import { Tracks } from "@/components/Tracks";
@@ -22,13 +23,16 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[var(--accent-orange)] selection:text-black">
-      {/* Sticky Navbar */}
+      {/* Navbar */}
       <Navbar onOpenRegister={handleOpenRegister} />
 
       {/* Main Content Sections */}
       <main className="flex-grow">
         {/* Section 1: Hero */}
         <Hero onOpenRegister={handleOpenRegister} />
+
+        {/* Dedicated Countdown Section (Blends with background) */}
+        <CountdownSection />
 
         {/* Section 2: What Is Apogee */}
         <WhatIsApogee />
