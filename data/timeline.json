@@ -1,0 +1,62 @@
+[
+  {
+    "id": "chk-1",
+    "time": "FRI 6:00 PM",
+    "code": "T-00:00",
+    "phase": "LAUNCHPAD",
+    "title": "Doors Open & Registration",
+    "description": "Team formation, badge collection, networking, and pre-event dinner.",
+    "status": "completed",
+    "align": "top"
+  },
+  {
+    "id": "chk-2",
+    "time": "FRI 7:00 PM",
+    "code": "T+01:00",
+    "phase": "IGNITION",
+    "title": "Opening Ceremony & Briefing",
+    "description": "Official challenge reveal, mentor introduction, and hackathon kickoff.",
+    "status": "completed",
+    "align": "bottom"
+  },
+  {
+    "id": "chk-3",
+    "time": "SAT 12:00 PM",
+    "code": "T+18:00",
+    "phase": "ORBITAL CHECK",
+    "title": "Midpoint Check-in",
+    "description": "Technical review with space-tech mentors, project health check, and lunch.",
+    "status": "active",
+    "align": "top"
+  },
+  {
+    "id": "chk-4",
+    "time": "SUN 12:00 PM",
+    "code": "T+42:00",
+    "phase": "PAYLOAD LOCK",
+    "title": "Code Freeze & Submissions",
+    "description": "Repositories locked, dev submission portal closes, final pitch prep.",
+    "status": "upcoming",
+    "align": "bottom"
+  },
+  {
+    "id": "chk-5",
+    "time": "SUN 2:00 PM",
+    "code": "T+44:00",
+    "phase": "TELEMETRY",
+    "title": "Live Demos & Judging",
+    "description": "Teams present live prototypes to the judging panel in 5-minute sprints.",
+    "status": "upcoming",
+    "align": "top"
+  },
+  {
+    "id": "chk-6",
+    "time": "SUN 5:00 PM",
+    "code": "T+47:00",
+    "phase": "APOGEE",
+    "title": "Prize Ceremony & Closing",
+    "description": "Rs. 500,000+ awarded, keynotes, closing ceremony, and photo session.",
+    "status": "upcoming",
+    "align": "bottom"
+  }
+]
