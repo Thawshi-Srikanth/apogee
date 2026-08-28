@@ -61,16 +61,6 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
             {/* Actions */}
             <div className="col-span-2 sm:col-span-5 lg:col-span-8 flex items-center justify-end gap-3.5">
               
-              <a
-                href="#tracks"
-                className="hidden md:inline-flex items-center gap-1.5 rounded-full border border-[#00f0ff]/40 bg-[#00f0ff]/10 px-3.5 py-1.5 font-mono text-xs font-bold text-[#00f0ff] hover:border-[#00f0ff] transition-colors"
-              >
-                <span className="rounded bg-[#00f0ff] px-1 py-0.2 text-[10px] font-black text-black uppercase">
-                  NEW
-                </span>
-                <span>24H Space Hackathon in Colombo →</span>
-              </a>
-
               {/* Theme Toggle Button without border and animated with framer-motion */}
               <motion.button
                 onClick={toggleTheme}
