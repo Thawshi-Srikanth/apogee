@@ -43,26 +43,26 @@ export default function AttributionsPage() {
   ];
 
   return (
-    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[#FF6B35] selection:text-white py-10 px-4 sm:px-6 lg:px-8">
-      <div className="max-w-5xl mx-auto">
+    <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[#FF6B35] selection:text-white py-12 px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto">
         
-        {/* Top Header & Navigation */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 mb-12 border-b-4 border-[var(--card-border-color)] pb-8">
+        {/* Top Header & Navigation Bar */}
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12 border-b-4 border-[var(--card-border-color)] pb-8">
           <div className="flex items-center gap-4">
             <Logo />
             <div>
-              <h1 className="font-heading text-3xl sm:text-4xl font-normal uppercase tracking-wide">
-                Attributions & Open Source
+              <h1 className="font-heading text-3xl sm:text-5xl font-normal uppercase tracking-wide text-[var(--text-cloud)]">
+                ATTRIBUTIONS
               </h1>
-              <p className="font-sans text-sm text-[var(--accent-orange)] font-medium">
-                Educational Non-Profit Hackathon Project
+              <p className="font-sans text-sm sm:text-base text-[var(--accent-orange)] font-medium">
+                Educational Non-Profit Hackathon & Open Source Licenses
               </p>
             </div>
           </div>
 
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--bg-card)] card-border font-mono text-xs font-bold uppercase text-[var(--text-cloud)] card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform w-fit"
+            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--bg-card)] card-border font-mono text-xs sm:text-sm font-bold uppercase text-[var(--text-cloud)] card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all w-fit"
           >
             <ArrowLeft className="h-4 w-4 text-[var(--accent-cyan)]" />
             BACK TO APOGEE
@@ -70,27 +70,34 @@ export default function AttributionsPage() {
         </div>
 
         {/* Co-Organizers Highlight Card */}
-        <div className="rounded-2xl bg-[var(--bg-card)] card-border p-6 sm:p-8 card-shadow mb-12">
+        <div className="rounded-2xl bg-[var(--bg-card)] card-border p-6 sm:p-10 card-shadow mb-12">
           <div className="flex items-center gap-3 mb-3">
             <Heart className="h-6 w-6 text-[var(--accent-pink)] fill-current" />
-            <h2 className="font-heading text-2xl font-normal uppercase tracking-wide text-[var(--text-cloud)]">
-              Organized By Student Space Bodies
+            <h2 className="font-heading text-2xl sm:text-3xl font-normal uppercase tracking-wide text-[var(--text-cloud)]">
+              ORGANIZED BY STUDENT SPACE BODIES
             </h2>
           </div>
-          <p className="font-sans text-base text-[var(--text-muted)] leading-relaxed mb-6">
+          <p className="font-sans text-base sm:text-lg text-[var(--text-muted)] font-normal leading-relaxed max-w-3xl mb-8">
             Apogee is Sri Lanka's 1st 24-Hour Space Hackathon, developed as a non-profit educational initiative by student leaders and space tech enthusiasts.
           </p>
 
-          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <a
               href="https://sedssl.org/"
               target="_blank"
               rel="noreferrer"
-              className="p-4 rounded-xl bg-[var(--bg-void)] border-3 border-[var(--card-border-color)] hover:border-[var(--accent-orange)] transition-colors flex items-center justify-between group"
+              className="p-6 rounded-xl bg-[var(--bg-void)] card-border hover:border-[var(--accent-orange)] card-shadow-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all flex items-center justify-between group cursor-pointer"
             >
               <div>
-                <div className="font-mono text-xs font-bold text-[var(--accent-orange)] uppercase">National Body</div>
-                <div className="font-heading text-lg font-normal text-[var(--text-cloud)]">SEDS Sri Lanka</div>
+                <div className="font-mono text-xs font-bold text-[var(--accent-orange)] uppercase mb-1">
+                  National Chapter
+                </div>
+                <div className="font-heading text-xl font-normal text-[var(--text-cloud)] group-hover:underline">
+                  SEDS Sri Lanka
+                </div>
+                <div className="font-mono text-xs text-[var(--text-muted)] mt-1">
+                  sedssl.org
+                </div>
               </div>
               <ExternalLink className="h-5 w-5 text-[var(--text-muted)] group-hover:text-[var(--accent-orange)] transition-colors" />
             </a>
@@ -99,11 +106,18 @@ export default function AttributionsPage() {
               href="https://www.sedssliit.org/"
               target="_blank"
               rel="noreferrer"
-              className="p-4 rounded-xl bg-[var(--bg-void)] border-3 border-[var(--card-border-color)] hover:border-[var(--accent-yellow)] transition-colors flex items-center justify-between group"
+              className="p-6 rounded-xl bg-[var(--bg-void)] card-border hover:border-[var(--accent-yellow)] card-shadow-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-all flex items-center justify-between group cursor-pointer"
             >
               <div>
-                <div className="font-mono text-xs font-bold text-[var(--accent-yellow)] uppercase">University Chapter</div>
-                <div className="font-heading text-lg font-normal text-[var(--text-cloud)]">SEDS SLIIT</div>
+                <div className="font-mono text-xs font-bold text-[var(--accent-yellow)] uppercase mb-1">
+                  University Chapter
+                </div>
+                <div className="font-heading text-xl font-normal text-[var(--text-cloud)] group-hover:underline">
+                  SEDS SLIIT
+                </div>
+                <div className="font-mono text-xs text-[var(--text-muted)] mt-1">
+                  sedssliit.org
+                </div>
               </div>
               <ExternalLink className="h-5 w-5 text-[var(--text-muted)] group-hover:text-[var(--accent-yellow)] transition-colors" />
             </a>
@@ -111,40 +125,40 @@ export default function AttributionsPage() {
         </div>
 
         {/* Categories of Open Source Dependencies */}
-        <div className="space-y-10">
+        <div className="space-y-12">
           {openSourceItems.map((sec, idx) => (
             <div key={idx}>
-              <h3 className="font-heading text-2xl font-normal uppercase tracking-wide text-[var(--accent-cyan)] mb-4 flex items-center gap-2">
-                <ShieldCheck className="h-5 w-5" />
+              <h3 className="font-heading text-2xl sm:text-3xl font-normal uppercase tracking-wide text-[var(--accent-cyan)] mb-6 flex items-center gap-3">
+                <ShieldCheck className="h-6 w-6" />
                 {sec.category}
               </h3>
 
-              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
                 {sec.items.map((item, iIdx) => (
                   <div
                     key={iIdx}
-                    className="rounded-xl bg-[var(--bg-card)] card-border p-5 flex flex-col justify-between card-shadow-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
+                    className="rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow-sm hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
                   >
                     <div>
-                      <div className="flex items-center justify-between mb-1">
-                        <h4 className="font-heading text-lg font-normal text-[var(--text-cloud)]">
+                      <div className="flex items-center justify-between mb-2">
+                        <h4 className="font-heading text-xl font-normal text-[var(--text-cloud)]">
                           {item.name}
                         </h4>
                         <a
                           href={item.url}
                           target="_blank"
                           rel="noreferrer"
-                          className="text-[var(--text-muted)] hover:text-[var(--accent-cyan)] transition-colors"
+                          className="text-[var(--text-muted)] hover:text-[var(--accent-cyan)] transition-colors p-1"
                         >
                           <ExternalLink className="h-4 w-4" />
                         </a>
                       </div>
-                      <p className="font-sans text-xs text-[var(--text-muted)] leading-relaxed mb-3">
+                      <p className="font-sans text-sm text-[var(--text-muted)] font-normal leading-relaxed mb-4">
                         {item.desc}
                       </p>
                     </div>
 
-                    <div className="font-mono text-[10px] font-bold uppercase tracking-wider text-[var(--accent-yellow)] border-t border-white/10 pt-2">
+                    <div className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--accent-yellow)] border-t border-white/10 pt-3">
                       {item.license}
                     </div>
                   </div>
@@ -154,14 +168,14 @@ export default function AttributionsPage() {
           ))}
         </div>
 
-        {/* Bottom Footer Back Link */}
-        <div className="mt-16 text-center border-t-4 border-[var(--card-border-color)] pt-8">
-          <p className="font-sans text-sm text-[var(--text-muted)] mb-4">
+        {/* Bottom Navigation */}
+        <div className="mt-20 text-center border-t-4 border-[var(--card-border-color)] pt-10">
+          <p className="font-sans text-base text-[var(--text-muted)] font-normal mb-6">
             Built with passion by student space engineers in Colombo. MIT Licensed.
           </p>
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--accent-orange)] text-black font-mono text-sm font-black uppercase tracking-wider card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
+            className="inline-flex items-center gap-2 px-8 py-4 rounded-xl bg-[var(--accent-orange)] text-black font-mono text-sm font-black uppercase tracking-wider card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
           >
             ← RETURN TO APOGEE HOMEPAGE
           </Link>

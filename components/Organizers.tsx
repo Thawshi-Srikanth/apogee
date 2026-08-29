@@ -1,6 +1,7 @@
 "use client";
 
 import React from "react";
+import { ExternalLink } from "lucide-react";
 
 export function Organizers() {
   const organizers = [
@@ -9,12 +10,14 @@ export function Organizers() {
       role: "National Chapter",
       desc: "Students for the Exploration and Development of Space (SEDS) Sri Lanka.",
       color: "var(--accent-cyan)",
+      url: "https://sedssl.org/",
     },
     {
       name: "SEDS SLIIT",
       role: "University Chapter",
       desc: "SEDS SLIIT Student Branch & Space Robotics Lab.",
       color: "var(--accent-yellow)",
+      url: "https://www.sedssliit.org/",
     },
   ];
 
@@ -35,22 +38,28 @@ export function Organizers() {
         {/* 4-8-12 Grid Container */}
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           {organizers.map((org, idx) => (
-            <div
+            <a
               key={idx}
-              className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
+              href={org.url}
+              target="_blank"
+              rel="noreferrer"
+              className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform group cursor-pointer"
             >
               <div>
-                <div className="font-mono text-xs font-bold uppercase mb-1" style={{ color: org.color }}>
-                  {org.role}
+                <div className="flex items-center justify-between mb-1">
+                  <div className="font-mono text-xs font-bold uppercase" style={{ color: org.color }}>
+                    {org.role}
+                  </div>
+                  <ExternalLink className="h-4 w-4 text-[var(--text-muted)] group-hover:text-[var(--text-cloud)] transition-colors" />
                 </div>
-                <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)] mb-2">
+                <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)] mb-2 group-hover:underline">
                   {org.name}
                 </h3>
                 <p className="font-sans text-sm text-[var(--text-muted)] font-normal leading-relaxed">
                   {org.desc}
                 </p>
               </div>
-            </div>
+            </a>
           ))}
         </div>
 
