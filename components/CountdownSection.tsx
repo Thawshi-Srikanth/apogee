@@ -1,13 +1,6 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { HugeiconsIcon } from "@hugeicons/react";
-import {
-  RocketIcon,
-  Calendar01Icon,
-  CheckmarkCircle02Icon,
-  Clock01Icon,
-} from "@hugeicons/core-free-icons";
 
 export function CountdownSection() {
   // Target date: January 15, 2027 18:00:00 SLST
@@ -126,33 +119,26 @@ export function CountdownSection() {
 
         </div>
 
-        {/* Event Milestone Trajectory Bar */}
-        <div className="max-w-4xl mx-auto rounded-2xl bg-[var(--bg-card)] card-border p-6 sm:p-8 card-shadow">
-          <div className="flex items-center gap-2.5 mb-6 pb-3 border-b-2 border-white/10">
-            <HugeiconsIcon icon={Clock01Icon} className="h-5 w-5 text-[var(--accent-cyan)]" />
-            <h3 className="font-mono text-xs sm:text-sm font-bold text-[var(--text-cloud)] uppercase tracking-wider">
-              MISSION MILESTONE SCHEDULE
-            </h3>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+        {/* Event Milestone Progression */}
+        <div className="max-w-4xl mx-auto">
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
             {milestones.map((item, idx) => (
               <div
                 key={idx}
-                className="p-4 rounded-xl bg-[var(--bg-void)] card-border flex flex-col justify-between"
+                className="p-6 rounded-2xl bg-[var(--bg-card)] card-border card-shadow-sm flex flex-col justify-between"
               >
                 <div>
-                  <div className="flex items-center justify-between mb-2">
-                    <span className="font-mono text-xs font-bold text-[var(--text-muted)]">
-                      {item.phase}
+                  <div className="flex items-center justify-between mb-3">
+                    <span className="font-mono text-xs font-black text-[var(--text-muted)]">
+                      0{idx + 1}/
                     </span>
-                    <span className={`inline-block px-2 py-0.5 rounded text-[10px] font-mono font-bold uppercase border ${item.color}`}>
+                    <span className={`px-2.5 py-0.5 rounded-md text-xs font-mono font-bold uppercase border ${item.color}`}>
                       {item.date}
                     </span>
                   </div>
-                  <h4 className="font-heading text-base font-bold text-[var(--text-cloud)] uppercase">
+                  <h3 className="font-heading text-lg font-extrabold text-[var(--text-cloud)] uppercase">
                     {item.title}
-                  </h4>
+                  </h3>
                 </div>
               </div>
             ))}
