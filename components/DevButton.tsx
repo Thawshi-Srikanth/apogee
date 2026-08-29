@@ -23,10 +23,7 @@ export function DevButton() {
       aria-label="Open Mission Dev Panel"
       title="Open Trajectory Dev Panel (Shift+D)"
     >
-      <div className="relative flex items-center justify-center">
-        <Sliders className="w-4 h-4" />
-        <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[var(--accent-yellow)] border border-black animate-ping" />
-      </div>
+      <Sliders className="w-4 h-4" />
       <span className="hidden sm:inline font-heading font-black">DEV PANEL</span>
     </motion.button>
   );

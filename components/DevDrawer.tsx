@@ -4,9 +4,7 @@ import React, { useEffect, useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useTimelineStore } from "@/store/useTimelineStore";
 import {
-  X, Play, Pause, Plus, Trash2, RotateCcw, Clock,
-  Lock, CheckCircle2, Navigation, Sliders, ChevronDown, ChevronUp,
-  FastForward, Rewind, Layers
+  X, Play, Pause, ChevronDown, ChevronUp, FastForward, Rewind
 } from "lucide-react";
 
 export function DevDrawer() {
@@ -68,18 +66,13 @@ export function DevDrawer() {
           >
             {/* Panel Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b-3 border-[var(--card-border-color)] bg-[var(--bg-void)]">
-              <div className="flex items-center gap-3">
-                <div className="p-2 rounded bg-[var(--accent-orange)] text-black font-black border-2 border-black shadow-[2px_2px_0px_0px_#000]">
-                  <Sliders className="w-4 h-4" />
-                </div>
-                <div>
-                  <h3 className="font-heading text-sm font-black uppercase tracking-wide text-[var(--text-cloud)]">
-                    MISSION CONTROL DEV PANEL
-                  </h3>
-                  <p className="font-mono text-[10px] font-medium text-[var(--accent-orange)] uppercase">
-                    SIMULATED TIME & TRAJECTORY CONTROLS
-                  </p>
-                </div>
+              <div>
+                <h3 className="font-heading text-sm font-black uppercase tracking-wide text-[var(--text-cloud)]">
+                  MISSION CONTROL DEV PANEL
+                </h3>
+                <p className="font-mono text-[10px] font-medium text-[var(--accent-orange)] uppercase">
+                  SIMULATED TIME & TRAJECTORY CONTROLS
+                </p>
               </div>
               <button
                 onClick={() => setDevDrawerOpen(false)}
@@ -96,8 +89,8 @@ export function DevDrawer() {
               {/* ── Section 1: Time Scrubber & Playback Controls ── */}
               <div className="p-4 rounded-xl border-3 border-[var(--card-border-color)] bg-[var(--bg-void)] shadow-[4px_4px_0px_0px_#000000] space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)] flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[var(--accent-orange)]" /> TIME SCRUBBER
+                  <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
+                    TIME SCRUBBER
                   </span>
                   <span className="font-mono text-xs font-black text-black bg-[var(--accent-yellow)] border border-black px-2 py-0.5 rounded uppercase shadow-[1px_1px_0px_0px_#000]">
                     T+{simulatedTime.toFixed(1)} HRS
@@ -155,9 +148,9 @@ export function DevDrawer() {
 
                   <button
                     onClick={resetEvents}
-                    className="flex items-center gap-1.5 px-2.5 py-2 rounded bg-[var(--bg-card)] border-2 border-black text-[var(--text-muted)] hover:text-white font-mono text-xs font-bold uppercase shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
+                    className="px-2.5 py-2 rounded bg-[var(--bg-card)] border-2 border-black text-[var(--text-muted)] hover:text-white font-mono text-xs font-bold uppercase shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
                   >
-                    <RotateCcw className="w-3.5 h-3.5" /> RESET
+                    RESET
                   </button>
                 </div>
               </div>
@@ -190,14 +183,14 @@ export function DevDrawer() {
               {/* ── Section 3: Checkpoint Nodes Manager ── */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)] flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-[var(--accent-cyan)]" /> CHECKPOINTS ({events.length})
+                  <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
+                    CHECKPOINTS ({events.length})
                   </span>
                   <button
                     onClick={addEvent}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--accent-cyan)] text-black border-2 border-black font-mono text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
+                    className="px-2.5 py-1 rounded bg-[var(--accent-cyan)] text-black border-2 border-black font-mono text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
                   >
-                    <Plus className="w-3 h-3" /> ADD PLANET
+                    + ADD PLANET
                   </button>
                 </div>
 
@@ -330,9 +323,9 @@ export function DevDrawer() {
                               {events.length > 2 && (
                                 <button
                                   onClick={() => removeEvent(node.id)}
-                                  className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-red-400 hover:text-red-300 transition-colors uppercase"
+                                  className="font-mono text-[10px] font-bold text-red-400 hover:text-red-300 transition-colors uppercase"
                                 >
-                                  <Trash2 className="w-3 h-3" /> REMOVE CHECKPOINT
+                                  REMOVE CHECKPOINT
                                 </button>
                               )}
                             </div>
