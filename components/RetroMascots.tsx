@@ -189,7 +189,7 @@ export function TelescopeMascot({
         width={size}
         height={size}
         style={{ width: "100%", height: "auto" }}
-        className="object-contain filter drop-shadow-[4px_4px_0px_rgba(0,0,0,0.8)]"
+        className="object-contain"
       />
     </div>
   );

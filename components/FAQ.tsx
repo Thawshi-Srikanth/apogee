@@ -6,7 +6,7 @@ export function FAQ() {
   const items = [
     { q: "Do I need a team?", a: "No. Solo entries welcome, or form a team at the event." },
     { q: "What if I've never built anything space-related?", a: "Good. That's the point." },
-    { q: "Is it free?", a: "Yes. 100% free for all Sri Lankan students. Food and drinks provided." },
+    { q: "Is it free?", a: <>Yes. 100% free for all <span className="whitespace-nowrap">Sri Lankan</span> students. Food and drinks provided.</> },
     { q: "Who owns what I build?", a: "You do. 100% student owned." },
     { q: "Where is it held?", a: "Colombo, Sri Lanka." },
   ];

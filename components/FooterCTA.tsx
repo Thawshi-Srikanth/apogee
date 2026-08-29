@@ -51,7 +51,9 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
 
             {/* Right Rover Mascot Graphic */}
             <div className="col-span-4 sm:col-span-8 lg:col-span-5 flex justify-center lg:justify-end items-end">
-              <RoverMascot size={260} className="transform hover:scale-105 transition-transform" />
+              <div className="w-[180px] sm:w-[260px] flex justify-center">
+                <RoverMascot size={260} className="transform hover:scale-105 transition-transform" />
+              </div>
             </div>
           </div>
         </div>

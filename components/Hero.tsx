@@ -62,7 +62,7 @@ export function Hero({ onOpenRegister }: HeroProps) {
             {/* Outer Layer: Handles GPU Scroll Spring (Y-Axis) without property collisions */}
             <motion.div
               style={{ y: springY }}
-              className="relative w-full max-w-[360px] flex items-center justify-center transform-gpu will-change-transform z-30"
+              className="relative w-full max-w-[220px] sm:max-w-[360px] flex items-center justify-center transform-gpu will-change-transform z-30"
             >
               {/* Inner Layer: Handles pure GPU Float & Rotation */}
               <motion.div
