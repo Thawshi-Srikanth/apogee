@@ -1,0 +1,102 @@
+import { create } from "zustand";
+import timelineData from "@/data/timeline.json";
+
+export interface TimelineEvent {
+  id: string;
+  time: string;
+  code: string;
+  phase: string;
+  title: string;
+  description: string;
+  status?: string;
+  hourOffset: number;
+  align?: string;
+  planetIndex?: number;
+}
+
+interface TimelineState {
+  events: TimelineEvent[];
+  simulatedTime: number;
+  isPlaying: boolean;
+  isDevDrawerOpen: boolean;
+  hoveredId: string | null;
+  expandedMobileId: string | null;
+
+  // Actions
+  setSimulatedTime: (time: number | ((prev: number) => number)) => void;
+  setIsPlaying: (playing: boolean) => void;
+  toggleIsPlaying: () => void;
+  setDevDrawerOpen: (open: boolean) => void;
+  toggleDevDrawer: () => void;
+  setHoveredId: (id: string | null) => void;
+  setExpandedMobileId: (id: string | null) => void;
+  addEvent: () => void;
+  removeEvent: (id: string) => void;
+  updateEvent: (id: string, updates: Partial<TimelineEvent>) => void;
+  resetEvents: () => void;
+}
+
+const initialEvents: TimelineEvent[] = (timelineData as TimelineEvent[]).map((evt, idx) => ({
+  ...evt,
+  planetIndex: (idx % 5) + 1,
+}));
+
+export const useTimelineStore = create<TimelineState>((set) => ({
+  events: initialEvents,
+  simulatedTime: 18,
+  isPlaying: false,
+  isDevDrawerOpen: false,
+  hoveredId: null,
+  expandedMobileId: null,
+
+  setSimulatedTime: (timeOrFn) =>
+    set((state) => ({
+      simulatedTime:
+        typeof timeOrFn === "function" ? timeOrFn(state.simulatedTime) : timeOrFn,
+    })),
+
+  setIsPlaying: (isPlaying) => set({ isPlaying }),
+  toggleIsPlaying: () => set((state) => ({ isPlaying: !state.isPlaying })),
+
+  setDevDrawerOpen: (isDevDrawerOpen) => set({ isDevDrawerOpen }),
+  toggleDevDrawer: () => set((state) => ({ isDevDrawerOpen: !state.isDevDrawerOpen })),
+
+  setHoveredId: (hoveredId) => set({ hoveredId }),
+  setExpandedMobileId: (expandedMobileId) => set({ expandedMobileId }),
+
+  addEvent: () =>
+    set((state) => {
+      const lastHour = state.events.at(-1)?.hourOffset ?? 0;
+      const newHour = lastHour + 6;
+      const newEvt: TimelineEvent = {
+        id: `chk-${state.events.length + 1}`,
+        time: `T+${newHour}:00`,
+        code: `T+${String(newHour).padStart(2, "0")}:00`,
+        phase: "ORBITAL CHECK",
+        title: `Checkpoint ${state.events.length + 1}`,
+        description: "Dynamically added node. Trajectory path recalculates automatically.",
+        status: "upcoming",
+        hourOffset: newHour,
+        planetIndex: (state.events.length % 5) + 1,
+      };
+      return { events: [...state.events, newEvt] };
+    }),
+
+  removeEvent: (id) =>
+    set((state) => {
+      if (state.events.length <= 2) return state;
+      return { events: state.events.filter((e) => e.id !== id) };
+    }),
+
+  updateEvent: (id, updates) =>
+    set((state) => ({
+      events: state.events.map((e) => (e.id === id ? { ...e, ...updates } : e)),
+    })),
+
+  resetEvents: () =>
+    set({
+      events: initialEvents,
+      simulatedTime: 18,
+      isPlaying: false,
+    }),
+}));

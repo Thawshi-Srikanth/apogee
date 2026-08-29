@@ -16,6 +16,8 @@ import { Sponsors } from "@/components/Sponsors";
 import { FooterCTA } from "@/components/FooterCTA";
 import { RegisterModal } from "@/components/RegisterModal";
 import { CrossStripeTicker } from "@/components/CrossStripeTicker";
+import { DevButton } from "@/components/DevButton";
+import { DevDrawer } from "@/components/DevDrawer";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -59,7 +61,7 @@ export default function Home() {
           direction="left"
         />
 
-        {/* Dedicated Countdown Section */}
+        {/* Section 2: Countdown Timer */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -69,7 +71,7 @@ export default function Home() {
           <CountdownSection />
         </motion.div>
 
-        {/* Section 2: What Is Apogee */}
+        {/* Section 3: What is Apogee */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -79,7 +81,7 @@ export default function Home() {
           <WhatIsApogee />
         </motion.div>
 
-        {/* Section 3: Why Apogee */}
+        {/* Section 4: Why Apogee */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -89,7 +91,16 @@ export default function Home() {
           <WhyApogee />
         </motion.div>
 
-        {/* Section 4: Tracks / Themes */}
+        {/* Diagonal Cross-Stripe Ticker Tape Banner 2 */}
+        <CrossStripeTicker
+          text="HACKATHON TRACKS • SATELLITE TECH • AI & DEEP SPACE • ORBITAL SYSTEMS • GROUND STATIONS • "
+          bgColor="bg-[var(--accent-orange)]"
+          textColor="text-black"
+          rotation="rotate-2 sm:rotate-3"
+          direction="right"
+        />
+
+        {/* Section 5: Challenge Tracks */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -99,7 +110,7 @@ export default function Home() {
           <Tracks />
         </motion.div>
 
-        {/* Section 5: Timeline */}
+        {/* Section 6: Interactive Slingshot Trajectory Timeline */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -109,16 +120,7 @@ export default function Home() {
           <Timeline />
         </motion.div>
 
-        {/* Diagonal Cross-Stripe Ticker Tape Banner 2 */}
-        <CrossStripeTicker
-          text="RS. 500,000+ PRIZE POOL • REAL MENTORS • WORKING SATELLITE ENGINEERS • NO CORPORATE FLUFF • DEMO LIVE • "
-          bgColor="bg-[#00F0FF]"
-          textColor="text-black"
-          rotation="rotate-2 sm:rotate-3"
-          direction="right"
-        />
-
-        {/* Section 6: Speakers / Mentors */}
+        {/* Section 7: Keynote Speakers / Judges */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -128,7 +130,7 @@ export default function Home() {
           <Speakers />
         </motion.div>
 
-        {/* Section 7: Prizes */}
+        {/* Section 8: Prize Pool */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -138,7 +140,7 @@ export default function Home() {
           <Prizes />
         </motion.div>
 
-        {/* Section 8: FAQ */}
+        {/* Section 9: FAQ */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -148,7 +150,7 @@ export default function Home() {
           <FAQ />
         </motion.div>
 
-        {/* Section 9: Sponsors / Partners */}
+        {/* Section 10: Sponsors / Partners */}
         <motion.div
           initial="hidden"
           whileInView="visible"
@@ -160,7 +162,7 @@ export default function Home() {
 
       </main>
 
-      {/* Section 10: Final CTA & Footer */}
+      {/* Section 11: Final CTA & Footer */}
       <FooterCTA onOpenRegister={handleOpenRegister} />
 
       {/* Interactive Registration Modal */}
@@ -168,6 +170,10 @@ export default function Home() {
         isOpen={isRegisterOpen}
         onClose={handleCloseRegister}
       />
+
+      {/* Trajectory Dev Drawer & Floating Trigger Button */}
+      <DevButton />
+      <DevDrawer />
     </div>
   );
 }

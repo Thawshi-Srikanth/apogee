@@ -1,10 +1,9 @@
 "use client";
 
-import React, { useState, useMemo, useEffect } from "react";
-import timelineData from "@/data/timeline.json";
+import React, { useMemo, useEffect } from "react";
+import { useTimelineStore } from "@/store/useTimelineStore";
 import {
-  Play, Pause, Plus, Trash2, RotateCcw, Clock,
-  Lock, CheckCircle2, Navigation, ChevronDown, ChevronUp,
+  Trash2, Lock, CheckCircle2, Navigation, ChevronDown, ChevronUp,
 } from "lucide-react";
 
 export interface TimelineEvent {
@@ -146,19 +145,27 @@ function shipAt(segs: Seg[], totalLen: number, progress: number) {
 
 // ─────────────────────────────────────────────────────────────────────────────
 export function Timeline() {
-  const [events, setEvents] = useState<TimelineEvent[]>(
-    (timelineData as TimelineEvent[]).map((evt, idx) => ({
-      ...evt, planetIndex: (idx % 5) + 1,
-    }))
-  );
+  const {
+    events,
+    simulatedTime,
+    isPlaying,
+    hoveredId,
+    expandedMobileId,
+    setSimulatedTime,
+    setIsPlaying,
+    toggleIsPlaying,
+    setHoveredId,
+    setExpandedMobileId,
+    toggleDevDrawer,
+    addEvent,
+    removeEvent,
+    resetEvents,
+  } = useTimelineStore();
 
   const minHour = events[0]?.hourOffset ?? 0;
   const maxHour = events[events.length - 1]?.hourOffset ?? 48;
-  const [simulatedTime, setSimulatedTime] = useState(18);
-  const [isPlaying, setIsPlaying] = useState(false);
-  const [hoveredId, setHoveredId] = useState<string | null>(null);
-  const [expandedMobileId, setExpandedMobileId] = useState<string | null>(null);
 
+  // Auto playback timer
   useEffect(() => {
     if (!isPlaying) return;
     const id = setInterval(() => {
@@ -168,7 +175,7 @@ export function Timeline() {
       });
     }, 80);
     return () => clearInterval(id);
-  }, [isPlaying, maxHour]);
+  }, [isPlaying, maxHour, setSimulatedTime, setIsPlaying]);
 
   // Layout — desktop
   const ITEM_H = 280;
@@ -252,27 +259,6 @@ export function Timeline() {
     return shipAt(mobilePathData.segs, mobilePathData.totalLen, progress);
   }, [mobilePathData, simulatedTime, minHour, maxHour, M_PAD]);
 
-  // Event management
-  const addEvent = () => {
-    const lastHour = events.at(-1)?.hourOffset ?? 0;
-    const newHour = lastHour + 6;
-    setEvents(prev => [...prev, {
-      id: `chk-${prev.length + 1}`, time: `T+${newHour}:00`,
-      code: `T+${String(newHour).padStart(2, "0")}:00`, phase: "ORBITAL CHECK",
-      title: `Checkpoint ${prev.length + 1}`,
-      description: "Dynamically added node. Path recalculates automatically.",
-      status: "upcoming", hourOffset: newHour,
-      planetIndex: (prev.length % 5) + 1,
-    }]);
-  };
-  const removeEvent = (id: string) => {
-    if (events.length > 2) setEvents(p => p.filter(e => e.id !== id));
-  };
-  const reset = () => {
-    setEvents((timelineData as TimelineEvent[]).map((e, i) => ({ ...e, planetIndex: (i % 5) + 1 })));
-    setSimulatedTime(18);
-  };
-
   return (
     <section id="timeline" className="relative py-12 sm:py-20 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
@@ -289,41 +275,6 @@ export function Timeline() {
           <p className="font-sans text-base sm:text-lg text-[var(--text-muted)] max-w-xl mx-auto">
             Orbital gravity assists & planet slingshot checkpoints.
           </p>
-        </div>
-
-        {/* Debug scrubber */}
-        <div className="mb-10 p-4 sm:p-5 rounded-xl bg-[var(--bg-card)] border border-[var(--border-card)] card-shadow-sm max-w-4xl mx-auto">
-          <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-3">
-            <div className="flex items-center gap-3">
-              <Clock className="w-4 h-4 text-[var(--accent-orange)]" />
-              <div>
-                <div className="text-[10px] font-mono text-[var(--text-muted)] uppercase tracking-widest">Debug Scrubber</div>
-                <div className="text-sm font-mono font-bold text-[var(--text-cloud)]">T+{simulatedTime.toFixed(1)} hrs</div>
-              </div>
-            </div>
-            <div className="flex items-center gap-2">
-              <button onClick={() => setIsPlaying(p => !p)}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[var(--bg-void)] border border-[var(--border-card)] text-[var(--text-cloud)] hover:border-[var(--accent-orange)] transition-colors text-xs font-mono font-bold">
-                {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                {isPlaying ? "Pause" : "Play"}
-              </button>
-              <button onClick={addEvent}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[var(--bg-void)] border border-[var(--border-card)] text-[var(--text-cloud)] hover:border-[var(--accent-orange)] transition-colors text-xs font-mono font-bold">
-                <Plus className="w-3.5 h-3.5" /> Add
-              </button>
-              <button onClick={reset}
-                className="flex items-center gap-1.5 px-3 py-1.5 rounded bg-[var(--bg-void)] border border-[var(--border-card)] text-[var(--text-muted)] hover:text-[var(--text-cloud)] transition-colors text-xs font-mono font-bold">
-                <RotateCcw className="w-3.5 h-3.5" /> Reset
-              </button>
-            </div>
-          </div>
-          <input type="range" min={minHour} max={maxHour} step={0.1} value={simulatedTime}
-            onChange={e => { setIsPlaying(false); setSimulatedTime(+e.target.value); }}
-            className="w-full h-2 bg-[var(--bg-void)] rounded appearance-none cursor-pointer accent-[var(--accent-orange)]"
-          />
-          <div className="flex justify-between mt-1.5 font-mono text-[9px] text-[var(--text-muted)]">
-            {events.map(e => <span key={e.id}>{e.code}</span>)}
-          </div>
         </div>
 
         {/* ── Desktop View ─────────────────────────────────────────────────── */}
@@ -473,14 +424,13 @@ export function Timeline() {
           })}
         </div>
 
-        {/* ── Mobile View: Planets Aligned on Left (x=65) + Large Circular Orbit (orbitR=55) + Cards on Right ── */}
+        {/* ── Mobile View ── */}
         <div className="md:hidden relative w-full overflow-hidden" style={{ height: `${M_VH}px` }}>
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
             viewBox={`0 0 ${M_VW} ${M_VH}`}
             preserveAspectRatio="none"
           >
-            {/* Thick track line for mobile orbital path */}
             <path
               d={mobilePathData.d}
               fill="none"
@@ -489,7 +439,6 @@ export function Timeline() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
-            {/* Dotted orbital path line */}
             <path
               d={mobilePathData.d}
               fill="none"
@@ -499,7 +448,6 @@ export function Timeline() {
               strokeLinecap="round"
             />
 
-            {/* Connector stubs: planet (x=65) → card tile (left: 110px) */}
             {mobileNodes.map(node => (
               <line
                 key={`m-conn-${node.id}`}
@@ -513,7 +461,6 @@ export function Timeline() {
               />
             ))}
 
-            {/* Spaceship traveling along mobile path */}
             <image
               href="/roadmap/ship.png"
               width="32"
@@ -524,7 +471,6 @@ export function Timeline() {
             />
           </svg>
 
-          {/* Planets Aligned on Left (x=65) & Cards Aligned on Right (left:110px) */}
           {mobileNodes.map((node) => {
             const isHovered = hoveredId === node.id;
             const isCompleted = node.derivedStatus === "completed";
@@ -534,7 +480,6 @@ export function Timeline() {
 
             return (
               <React.Fragment key={`m-item-${node.id}`}>
-                {/* Mobile Planet Node (Left column x=65) */}
                 <div
                   className="absolute z-20 cursor-pointer pointer-events-auto"
                   style={{
@@ -573,7 +518,6 @@ export function Timeline() {
                   )}
                 </div>
 
-                {/* Mobile Tile Card (Right side, left:110px, right:12px) */}
                 <div
                   className="absolute z-30 cursor-pointer pointer-events-auto"
                   style={{
@@ -593,7 +537,6 @@ export function Timeline() {
                         : "border-[var(--border-card)] hover:border-[var(--accent-orange)]/60"
                     }`}
                   >
-                    {/* Header: Time badge & Status indicator */}
                     <div className="flex items-center justify-between gap-1 mb-1">
                       <span className="font-mono text-[9px] font-bold text-black bg-[var(--accent-yellow)] px-1.5 py-0.5 rounded uppercase">
                         {node.time}
@@ -612,12 +555,10 @@ export function Timeline() {
                       </div>
                     </div>
 
-                    {/* Title */}
                     <h3 className="font-sans text-xs font-bold text-[var(--text-cloud)] leading-tight">
                       {node.title}
                     </h3>
 
-                    {/* Expanded Content on Tap / Hover */}
                     {isExpanded && (
                       <div className="mt-2 pt-2 border-t border-[var(--border-card)] space-y-1.5 animate-in fade-in duration-200">
                         <div className="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider">
