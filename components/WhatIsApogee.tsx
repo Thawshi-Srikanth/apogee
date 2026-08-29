@@ -15,7 +15,7 @@ export function WhatIsApogee() {
 
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-10">
-          <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
+          <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-[var(--text-cloud)] uppercase tracking-wide mb-3">
             WHAT IS APOGEE
           </h2>
           <p className="font-sans text-lg sm:text-xl text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">

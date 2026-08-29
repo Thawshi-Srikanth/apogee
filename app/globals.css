@@ -1,5 +1,12 @@
 @import "tailwindcss";
 
+@theme {
+  --font-heading: var(--font-cubano), sans-serif;
+  --font-mono: var(--font-jetbrains-mono), monospace;
+  --font-pixel: var(--font-pixel), monospace;
+  --font-sans: var(--font-outfit), sans-serif;
+}
+
 :root {
   --bg-void: #0a0a0c;
   --bg-card: #12141a;
@@ -14,10 +21,10 @@
   --card-shadow: 6px 6px 0px 0px #000000;
   --card-shadow-sm: 4px 4px 0px 0px #000000;
   --header-bg: rgba(10, 10, 12, 0.95);
-  --font-heading: var(--font-space-grotesk), sans-serif;
+  --font-heading: var(--font-cubano), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
   --font-pixel: var(--font-pixel), monospace;
-  --font-sans: var(--font-inter), sans-serif;
+  --font-sans: var(--font-outfit), sans-serif;
   /* Timeline path */
   --path-track: #0d1520;
   --path-dot: rgba(180, 240, 255, 0.7);
@@ -42,13 +49,26 @@
   --path-dot: rgba(0, 80, 140, 0.65);
 }
 
-
 body {
   background-color: var(--bg-void);
   color: var(--text-cloud);
   font-family: var(--font-sans);
   overflow-x: hidden;
   transition: background-color 0.35s cubic-bezier(0.4, 0, 0.2, 1), color 0.35s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.font-heading {
+  font-family: var(--font-heading);
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.font-mono {
+  font-family: var(--font-mono);
+}
+
+.font-sans {
+  font-family: var(--font-sans);
 }
 
 .font-pixel {
@@ -58,46 +78,25 @@ body {
 .card-border {
   border-width: 4px;
   border-color: var(--card-border-color);
-  transition: border-color 0.35s ease;
 }
 
 .card-shadow {
   box-shadow: var(--card-shadow);
-  transition: box-shadow 0.35s ease;
 }
 
 .card-shadow-sm {
   box-shadow: var(--card-shadow-sm);
-  transition: box-shadow 0.35s ease;
 }
 
-/* Custom Scrollbar */
-::-webkit-scrollbar {
-  width: 6px;
-}
-::-webkit-scrollbar-track {
-  background: var(--bg-void);
-}
-::-webkit-scrollbar-thumb {
-  background: var(--border-card);
-  border-radius: 3px;
-}
-::-webkit-scrollbar-thumb:hover {
-  background: var(--accent-orange);
-}
-
-/* Marquee Ticker Animation */
-@keyframes marquee {
-  0% { transform: translateX(0%); }
-  100% { transform: translateX(-50%); }
-}
-
-.animate-marquee {
-  display: flex;
-  width: max-content;
-  animation: marquee 25s linear infinite;
-}
-
-.animate-marquee:hover {
-  animation-play-state: paused;
+/* Custom retro CRT overlay scanline effect */
+.crt-overlay::before {
+  content: " ";
+  display: block;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  background: linear-gradient(rgba(18, 16, 16, 0) 50%, rgba(0, 0, 0, 0.25) 50%);
+  background-size: 100% 4px;
+  z-index: 20;
+  pointer-events: none;
+  opacity: 0.15;
 }
