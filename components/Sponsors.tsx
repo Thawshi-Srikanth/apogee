@@ -5,19 +5,28 @@ import React from "react";
 export function Sponsors() {
   const partners = [
     {
-      name: "Arthur C. Clarke Institute (ACCIMT)",
+      name: "Arthur C. Clarke Institute",
+      code: "ACCIMT",
       type: "Space Research Partner",
-      desc: "Sri Lanka's premier national space applications & satellite research centre.",
+      desc: "Sri Lanka's national space applications & satellite research centre.",
+      color: "var(--accent-orange)",
+      bgBg: "bg-orange-950/40",
     },
     {
       name: "SLIIT",
+      code: "SLIIT",
       type: "Academic & Venue Partner",
-      desc: "Sri Lanka Institute of Information Technology campus & lab facilities.",
+      desc: "Sri Lanka Institute of Information Technology campus & research labs.",
+      color: "var(--accent-cyan)",
+      bgBg: "bg-cyan-950/40",
     },
     {
-      name: "Industry & Cloud Partners",
+      name: "Industry & Cloud",
+      code: "CLOUD PARTNERS",
       type: "Supporting Bodies",
-      desc: "Providing cloud credits, developer tools, and prize pool backing.",
+      desc: "Providing cloud infrastructure credits, developer tools & prize pool backing.",
+      color: "var(--accent-yellow)",
+      bgBg: "bg-yellow-950/40",
     },
   ];
 
@@ -40,18 +49,27 @@ export function Sponsors() {
           {partners.map((p, idx) => (
             <div
               key={idx}
-              className="col-span-4 sm:col-span-4 lg:col-span-4 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
+              className="group col-span-4 sm:col-span-4 lg:col-span-4 rounded-xl bg-[var(--bg-card)] card-border flex flex-col justify-between card-shadow overflow-hidden transition-all duration-200 ease-out hover:-translate-y-1.5 hover:shadow-[7px_7px_0px_0px_#000000]"
             >
-              <div>
-                <div className="font-mono text-xs font-bold uppercase text-[var(--accent-cyan)] mb-1">
-                  {p.type}
+              {/* 4:3 Aspect Ratio Image / Logo Container (Vibrant Solid Theme Color) */}
+              <div
+                className="relative w-full aspect-[4/3] border-b-3 border-[var(--card-border-color)] overflow-hidden"
+                style={{ backgroundColor: p.color }}
+              />
+
+              {/* Card Text Content */}
+              <div className="p-5 flex-1 flex flex-col justify-between">
+                <div>
+                  <div className="font-mono text-xs font-bold uppercase mb-1" style={{ color: p.color }}>
+                    {p.type}
+                  </div>
+                  <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2">
+                    {p.name}
+                  </h3>
+                  <p className="font-sans text-xs text-[var(--text-muted)] font-normal leading-relaxed">
+                    {p.desc}
+                  </p>
                 </div>
-                <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2">
-                  {p.name}
-                </h3>
-                <p className="font-sans text-sm text-[var(--text-muted)] font-normal leading-relaxed">
-                  {p.desc}
-                </p>
               </div>
             </div>
           ))}
