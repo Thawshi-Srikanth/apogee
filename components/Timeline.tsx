@@ -235,10 +235,10 @@ export function Timeline() {
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodes.map(n => n.id).join(","), VW]);
 
-  // Mobile path — generous large circular orbits (orbitR = 55px) around each mobile planet
+  // Mobile path — 1:1 pixel canvas (w=140px) to prevent path distortion on medium screens (500px - 1000px)
   const mobilePathData = useMemo(() => {
     const rng = seededRNG(events.reduce((a, e) => a + e.id.length * 11 + e.hourOffset, 99));
-    return buildPath(mobileNodes.map(n => ({ x: n.x, y: n.y, isLeft: true })), rng, 180, 55);
+    return buildPath(mobileNodes.map(n => ({ x: n.x, y: n.y, isLeft: true })), rng, 140, 55);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [mobileNodes.map(n => n.id).join(",")]);
 
@@ -269,7 +269,8 @@ export function Timeline() {
           </p>
         </div>
 
-        <div className="hidden md:block relative w-full" style={{ height: `${VH}px` }}>
+        {/* ── Dual-Sided Slingshot Trajectory (Screens >= 500px) ── */}
+        <div className="hidden sm:block relative w-full max-w-[1000px] mx-auto" style={{ height: `${VH}px` }}>
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
             viewBox={`0 0 ${VW} ${VH}`}
@@ -312,7 +313,7 @@ export function Timeline() {
             />
           </svg>
 
-          {/* Desktop Planets + Neo-Brutalist Cards */}
+          {/* Planets + Neo-Brutalist Cards */}
           {nodes.map((node) => {
             const isHovered   = hoveredId === node.id;
             const isCompleted = node.derivedStatus === "completed";
@@ -371,7 +372,7 @@ export function Timeline() {
                     right: !node.isLeft ? `${(((VW - node.x) + PLANET / 2 + 14) / VW) * 100}%` : "auto",
                     top: `${node.y}px`,
                     transform: "translateY(-50%)",
-                    width: "275px",
+                    width: "min(275px, calc(44% - 30px))",
                   }}
                   onMouseEnter={() => setHoveredId(node.id)}
                   onMouseLeave={() => setHoveredId(null)}
@@ -415,11 +416,11 @@ export function Timeline() {
           })}
         </div>
 
-        {/* ── Mobile View: Planets Aligned on Left (x=65) + Large Circular Orbit + Neo-Brutalist Cards ── */}
-        <div className="md:hidden relative w-full overflow-hidden" style={{ height: `${M_VH}px` }}>
+        {/* ── Mobile View: Phones (< 500px) ── */}
+        <div className="sm:hidden relative w-full overflow-hidden" style={{ height: `${M_VH}px` }}>
           <svg
-            className="absolute inset-0 w-full h-full pointer-events-none"
-            viewBox={`0 0 ${M_VW} ${M_VH}`}
+            className="absolute left-0 top-0 bottom-0 w-[140px] pointer-events-none"
+            viewBox={`0 0 140 ${M_VH}`}
             preserveAspectRatio="none"
           >
             {/* Thick track line for mobile orbital path */}
@@ -480,7 +481,7 @@ export function Timeline() {
                 <div
                   className="absolute z-20 cursor-pointer pointer-events-auto"
                   style={{
-                    left: `${(node.x / M_VW) * 100}%`,
+                    left: "65px",
                     top: `${node.y}px`,
                     transform: "translate(-50%, -50%)",
                     width: `${M_PLANET}px`,
@@ -529,6 +530,7 @@ export function Timeline() {
                     right: "12px",
                     top: `${node.y}px`,
                     transform: "translateY(-50%)",
+                    maxWidth: "480px",
                   }}
                   onClick={() => setExpandedMobileId(expandedMobileId === node.id ? null : node.id)}
                   onMouseEnter={() => setHoveredId(node.id)}
