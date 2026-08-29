@@ -32,7 +32,7 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
           <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-8 items-center">
             {/* Left Text Content */}
             <div className="col-span-4 sm:col-span-8 lg:col-span-7">
-              <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-black uppercase tracking-wide mb-4 leading-none">
+              <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-black uppercase tracking-tight mb-4 leading-none">
                 READY TO <br />LAUNCH?
               </h2>
               <p className="font-sans text-lg sm:text-xl text-black font-semibold mb-3 max-w-xl leading-relaxed">

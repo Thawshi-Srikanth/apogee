@@ -64,7 +64,7 @@ export default function AttributionsPage() {
 
         {/* Standard Centered Display Scale Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-[var(--text-cloud)] uppercase tracking-wide mb-3">
+          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
             ATTRIBUTIONS
           </h1>
           <p className="font-sans text-lg sm:text-xl text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">

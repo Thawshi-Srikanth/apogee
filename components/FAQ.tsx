@@ -20,7 +20,7 @@ export function FAQ() {
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">
-            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-[var(--text-cloud)] uppercase tracking-wide mb-3">
+            <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
               FAQ
             </h2>
             <p className="font-sans text-lg text-[#00f0ff] font-medium max-w-2xl mx-auto">

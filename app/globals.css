@@ -59,8 +59,8 @@ body {
 
 .font-heading {
   font-family: var(--font-heading);
-  font-weight: 400;
-  letter-spacing: 0.03em;
+  font-weight: 900;
+  letter-spacing: 0.02em;
 }
 
 .font-mono {
