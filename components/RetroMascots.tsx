@@ -2,6 +2,7 @@
 
 import React from "react";
 import Image from "next/image";
+import { motion } from "framer-motion";
 
 export function SatBoyMascot({
   className = "",
@@ -124,3 +125,73 @@ export function SpaceHatMascot({ className = "", bubbleText }: { className?: str
     </div>
   );
 }
+
+export function RocketMascot({
+  className = "",
+  size = 180,
+}: {
+  className?: string;
+  size?: number;
+}) {
+  return (
+    <div className={`relative inline-block ${className}`}>
+      <motion.div
+        animate={{ y: [-6, 6, -6], rotate: [-2, 2, -2] }}
+        transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
+        className="relative"
+      >
+        <Image
+          src="/character/rocket.png"
+          alt="Rocket Character"
+          width={size}
+          height={size}
+          style={{ width: "100%", height: "auto" }}
+          className="object-contain filter drop-shadow-[0_10px_15px_rgba(255,85,0,0.4)]"
+        />
+      </motion.div>
+    </div>
+  );
+}
+
+export function RoverMascot({
+  className = "",
+  size = 180,
+}: {
+  className?: string;
+  size?: number;
+}) {
+  return (
+    <div className={`relative inline-block ${className}`}>
+      <Image
+        src="/character/rover.png"
+        alt="Rover Character on Land"
+        width={size}
+        height={size}
+        style={{ width: "100%", height: "auto" }}
+        className="object-contain filter drop-shadow-[4px_4px_0px_rgba(0,0,0,0.8)]"
+      />
+    </div>
+  );
+}
+
+export function TelescopeMascot({
+  className = "",
+  size = 180,
+}: {
+  className?: string;
+  size?: number;
+}) {
+  return (
+    <div className={`relative inline-block ${className}`}>
+      <Image
+        src="/character/telescope.png"
+        alt="Telescope Character on Land"
+        width={size}
+        height={size}
+        style={{ width: "100%", height: "auto" }}
+        className="object-contain filter drop-shadow-[4px_4px_0px_rgba(0,0,0,0.8)]"
+      />
+    </div>
+  );
+}
+

@@ -19,6 +19,9 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
             <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] mb-4 uppercase tracking-tight">
               Build Your <span className="text-[var(--accent-orange)]">Rocket</span>
             </h2>
+            <p className="font-sans text-base sm:text-lg text-[var(--text-muted)] mb-6 max-w-xl mx-auto">
+              24 Hours. Infinite Possibilities. Claim your spot at Sri Lanka's 1st Space Hackathon.
+            </p>
 
             <Button onClick={onOpenRegister} variant="primary" size="lg">
               REGISTER NOW

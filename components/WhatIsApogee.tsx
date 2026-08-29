@@ -2,10 +2,11 @@
 
 import React from "react";
 import Image from "next/image";
+import { TelescopeMascot } from "@/components/RetroMascots";
 
 export function WhatIsApogee() {
   return (
-    <section id="what" className="py-16 sm:py-24">
+    <section id="what" className="relative py-16 sm:py-24 overflow-visible">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* 4-8-12 Master Grid Container */}
@@ -16,13 +17,13 @@ export function WhatIsApogee() {
             <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
               What Is Apogee
             </h2>
-            <p className="font-sans text-lg text-[#ff5500] font-medium max-w-2xl mx-auto">
+            <p className="font-sans text-lg text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">
               Not a lecture. Not a career fair. A 24-hour space hackathon in Colombo.
             </p>
           </div>
 
           {/* Body Paragraph Cards */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-8 space-y-4 font-sans text-base sm:text-lg text-[var(--text-cloud)] leading-relaxed">
+          <div className="col-span-4 sm:col-span-8 lg:col-span-7 space-y-4 font-sans text-base sm:text-lg text-[var(--text-cloud)] leading-relaxed">
             <p className="rounded-xl bg-[var(--bg-card)] card-border p-6 card-shadow">
               Apogee is 24 hours. One weekend in Colombo. Teams of Sri Lankan students building real space-tech projects. Satellites, mission software, rover systems, orbital mechanics tools, whatever you can ship.
             </p>
@@ -32,17 +33,9 @@ export function WhatIsApogee() {
             </p>
           </div>
 
-          {/* 8-Bit Pixel Satellite Graphic */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-4 flex justify-center lg:justify-end">
-            <div className="relative w-full max-w-[280px] rounded-3xl card-border bg-black p-3 card-shadow">
-              <Image
-                src="/8bit_satellite.jpg"
-                alt="8-Bit Pixel Satellite Graphic"
-                width={280}
-                height={280}
-                className="rounded-2xl object-cover"
-              />
-            </div>
+          {/* Telescope Character (On Land) & 8-Bit Graphic */}
+          <div className="col-span-4 sm:col-span-8 lg:col-span-5 flex flex-col items-center lg:items-end justify-center">
+            <TelescopeMascot size={260} className="transform hover:scale-105 transition-transform" />
           </div>
 
         </div>
