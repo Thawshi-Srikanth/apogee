@@ -12,7 +12,8 @@ import {
   DrawerFooter,
 } from "@/components/ui/drawer";
 import { Tabs, TabsList, TabsTrigger, TabsContent } from "@/components/ui/tabs";
-import { Play, Pause, ChevronDown, ChevronUp, FastForward, Rewind } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { PlayIcon, PauseIcon, FastForwardIcon, RewindIcon, ArrowDown01Icon, ArrowUp01Icon } from "@hugeicons/core-free-icons";
 
 export function DevDrawer() {
   const {
@@ -125,14 +126,14 @@ export function DevDrawer() {
                     className="p-2 rounded bg-[var(--bg-card)] border-2 border-black text-[var(--text-cloud)] shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
                     title="Jump to Start"
                   >
-                    <Rewind className="w-3.5 h-3.5" />
+                    <HugeiconsIcon icon={RewindIcon} className="w-3.5 h-3.5" />
                   </button>
 
                   <button
                     onClick={toggleIsPlaying}
                     className="flex items-center gap-1.5 px-3 py-2 rounded bg-[var(--accent-orange)] text-black border-2 border-black font-mono text-xs font-black uppercase shadow-[3px_3px_0px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all cursor-pointer"
                   >
-                    {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
+                    {isPlaying ? <HugeiconsIcon icon={PauseIcon} className="w-3.5 h-3.5" /> : <HugeiconsIcon icon={PlayIcon} className="w-3.5 h-3.5" />}
                     {isPlaying ? "PAUSE" : "PLAY"}
                   </button>
 
@@ -141,7 +142,7 @@ export function DevDrawer() {
                     className="p-2 rounded bg-[var(--bg-card)] border-2 border-black text-[var(--text-cloud)] shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all cursor-pointer"
                     title="Jump to Finish"
                   >
-                    <FastForward className="w-3.5 h-3.5" />
+                    <HugeiconsIcon icon={FastForwardIcon} className="w-3.5 h-3.5" />
                   </button>
                 </div>
 
@@ -387,9 +388,9 @@ export function DevDrawer() {
                                         "bg-[var(--text-muted)]"
                         }`} />
                         {isExpanded ? (
-                          <ChevronUp className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+                          <HugeiconsIcon icon={ArrowUp01Icon} className="w-3.5 h-3.5 text-[var(--text-muted)]" />
                         ) : (
-                          <ChevronDown className="w-3.5 h-3.5 text-[var(--text-muted)]" />
+                          <HugeiconsIcon icon={ArrowDown01Icon} className="w-3.5 h-3.5 text-[var(--text-muted)]" />
                         )}
                       </div>
                     </div>

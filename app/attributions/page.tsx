@@ -2,7 +2,8 @@
 
 import React from "react";
 import Link from "next/link";
-import { ArrowLeft, ExternalLink, ShieldCheck, Heart } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowLeft01Icon, ArrowUpRight01Icon, ShieldCheckIcon, FavouriteIcon } from "@hugeicons/core-free-icons";
 import { Logo } from "@/components/Logo";
 
 export default function AttributionsPage() {
@@ -19,7 +20,7 @@ export default function AttributionsPage() {
       category: "UI Frameworks & Styling",
       items: [
         { name: "Tailwind CSS v4", desc: "Utility-first CSS framework & theme engine.", license: "MIT License", url: "https://tailwindcss.com" },
-        { name: "Lucide React", desc: "Clean, consistent SVG icon library.", license: "ISC License", url: "https://lucide.dev" },
+        { name: "Hugeicons React", desc: "Modern, customizable SVG icon system.", license: "MIT License", url: "https://hugeicons.com" },
       ],
     },
     {
@@ -54,7 +55,7 @@ export default function AttributionsPage() {
             href="/"
             className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--bg-card)] card-border font-mono text-xs sm:text-sm font-bold uppercase text-[var(--text-cloud)] card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
           >
-            <ArrowLeft className="h-4 w-4 text-[var(--accent-cyan)]" />
+            <HugeiconsIcon icon={ArrowLeft01Icon} className="h-4 w-4 text-[var(--accent-cyan)]" />
             BACK TO HOMEPAGE
           </Link>
         </div>
@@ -72,7 +73,7 @@ export default function AttributionsPage() {
         {/* Co-Organizers Highlight Card */}
         <div className="rounded-2xl bg-[var(--bg-card)] card-border p-6 sm:p-10 card-shadow mb-12">
           <div className="flex items-center gap-3 mb-3">
-            <Heart className="h-6 w-6 text-[var(--accent-pink)] fill-current" />
+            <HugeiconsIcon icon={FavouriteIcon} className="h-6 w-6 text-[var(--accent-pink)] fill-current" />
             <h2 className="font-heading text-2xl sm:text-3xl font-normal uppercase tracking-wide text-[var(--text-cloud)]">
               ORGANIZED BY STUDENT SPACE BODIES
             </h2>
@@ -99,7 +100,7 @@ export default function AttributionsPage() {
                   sedssl.org
                 </div>
               </div>
-              <ExternalLink className="h-5 w-5 text-[var(--text-muted)] group-hover:text-[var(--accent-orange)] transition-colors" />
+              <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-5 w-5 text-[var(--text-muted)] group-hover:text-[var(--accent-orange)] transition-colors" />
             </a>
 
             <a
@@ -119,7 +120,7 @@ export default function AttributionsPage() {
                   sedssliit.org
                 </div>
               </div>
-              <ExternalLink className="h-5 w-5 text-[var(--text-muted)] group-hover:text-[var(--accent-yellow)] transition-colors" />
+              <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-5 w-5 text-[var(--text-muted)] group-hover:text-[var(--accent-yellow)] transition-colors" />
             </a>
           </div>
         </div>
@@ -129,7 +130,7 @@ export default function AttributionsPage() {
           {openSourceItems.map((sec, idx) => (
             <div key={idx}>
               <h3 className="font-heading text-2xl sm:text-3xl font-normal uppercase tracking-wide text-[var(--accent-cyan)] mb-6 flex items-center gap-3">
-                <ShieldCheck className="h-6 w-6" />
+                <HugeiconsIcon icon={ShieldCheckIcon} className="h-6 w-6" />
                 {sec.category}
               </h3>
 
@@ -150,7 +151,7 @@ export default function AttributionsPage() {
                           rel="noreferrer"
                           className="text-[var(--text-muted)] hover:text-[var(--accent-cyan)] transition-colors p-1"
                         >
-                          <ExternalLink className="h-4 w-4" />
+                          <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-4 w-4" />
                         </a>
                       </div>
                       <p className="font-sans text-sm text-[var(--text-muted)] font-normal leading-relaxed mb-4">

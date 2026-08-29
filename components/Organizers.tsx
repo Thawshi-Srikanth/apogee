@@ -1,7 +1,8 @@
 "use client";
 
 import React from "react";
-import { ExternalLink } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowUpRight01Icon } from "@hugeicons/core-free-icons";
 
 export function Organizers() {
   const organizers = [
@@ -50,7 +51,7 @@ export function Organizers() {
                   <div className="font-mono text-xs font-bold uppercase" style={{ color: org.color }}>
                     {org.role}
                   </div>
-                  <ExternalLink className="h-4 w-4 text-[var(--text-muted)] group-hover:text-[var(--text-cloud)] transition-colors" />
+                  <HugeiconsIcon icon={ArrowUpRight01Icon} className="h-4 w-4 text-[var(--text-muted)] group-hover:text-[var(--text-cloud)] transition-colors" />
                 </div>
                 <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)] mb-2 group-hover:underline">
                   {org.name}

@@ -1,7 +1,8 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { Flame, Sun, Moon, ArrowRight } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Sun01Icon, Moon01Icon, ArrowRight01Icon, FlashIcon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/Button";
 import { motion, AnimatePresence } from "framer-motion";
 import { Logo } from "@/components/Logo";
@@ -36,13 +37,16 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
     <>
       {/* Actionable Top Banner Ticker */}
       <div className="bg-[#ffd000] py-2 px-4 text-center font-mono text-xs font-bold text-black border-b-2 border-black flex items-center justify-center gap-2.5 flex-wrap">
-        <span>⚡ REGISTRATION IS OPEN: Apogee 24-Hour Student Space Hackathon • Colombo, Sri Lanka • Jan 2027</span>
+        <span className="flex items-center gap-1.5">
+          <HugeiconsIcon icon={FlashIcon} className="h-4 w-4 text-black fill-current" />
+          <span>REGISTRATION IS OPEN: Apogee 24-Hour Student Space Hackathon • Colombo, Sri Lanka • Jan 2027</span>
+        </span>
         <button
           onClick={onOpenRegister}
           className="inline-flex items-center gap-1.5 rounded-full bg-black px-3 py-1 font-mono text-xs font-black text-[#ffd000] hover:bg-[#ff5500] hover:text-white transition-colors cursor-pointer"
         >
           <span>Register Team</span>
-          <ArrowRight className="h-3.5 w-3.5" />
+          <HugeiconsIcon icon={ArrowRight01Icon} className="h-3.5 w-3.5" />
         </button>
       </div>
 
@@ -78,9 +82,9 @@ export function Navbar({ onOpenRegister }: NavbarProps) {
                     transition={{ duration: 0.25 }}
                   >
                     {theme === "dark" ? (
-                      <Sun className="h-5 w-5 text-[#ffd000]" />
+                      <HugeiconsIcon icon={Sun01Icon} className="h-5 w-5 text-[#ffd000]" />
                     ) : (
-                      <Moon className="h-5 w-5 text-[#0084a3]" />
+                      <HugeiconsIcon icon={Moon01Icon} className="h-5 w-5 text-[#0084a3]" />
                     )}
                   </motion.div>
                 </AnimatePresence>

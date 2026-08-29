@@ -54,8 +54,8 @@ export function MonitorMascot({ className = "", bubbleText }: { className?: stri
             <span className="h-2 w-2 rounded-full bg-[#FF5500]" />
           </div>
           {/* Happy face */}
-          <div className="font-mono text-xs font-black text-[#00F0FF]">
-            (⁠◠⁠‿⁠◠⁠)
+          <div className="font-mono text-[10px] font-black text-[#00F0FF]">
+            LIVE
           </div>
           <div className="h-1 w-8 rounded bg-[#FFC857]" />
         </div>
@@ -118,8 +118,8 @@ export function SpaceHatMascot({ className = "", bubbleText }: { className?: str
       )}
       <div className="relative rounded-full border-3 border-black bg-[#FF5500] p-3 shadow-[4px_4px_0px_0px_#000] flex items-center justify-center h-16 w-16">
         <div className="h-10 w-10 rounded-full border-2 border-black bg-[#00F0FF] flex flex-col items-center justify-center">
-          <span className="font-mono text-xs font-black text-black">{`●  ●`}</span>
-          <span className="font-mono text-[8px] font-black text-black">‿</span>
+          <span className="font-mono text-xs font-black text-black">{`o  o`}</span>
+          <span className="font-mono text-[8px] font-black text-black">--</span>
         </div>
       </div>
     </div>

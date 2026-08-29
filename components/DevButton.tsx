@@ -3,7 +3,8 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTimelineStore } from "@/store/useTimelineStore";
-import { Sliders } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { SlidersHorizontalIcon } from "@hugeicons/core-free-icons";
 
 export function DevButton() {
   const { toggleDevDrawer, isDevDrawerOpen } = useTimelineStore();
@@ -25,8 +26,8 @@ export function DevButton() {
       aria-label="Open Dev Panel"
       title="Open Dev Panel (Shift+D)"
     >
-      <Sliders className="w-4 h-4" />
-      <span className="hidden sm:inline font-heading font-black">DEV PANEL</span>
+      <HugeiconsIcon icon={SlidersHorizontalIcon} className="w-4 h-4" />
+      <span className="hidden sm:inline font-heading font-extrabold">DEV PANEL</span>
     </motion.button>
   );
 }

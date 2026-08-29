@@ -2,7 +2,8 @@
 
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { X } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Cancel01Icon } from "@hugeicons/core-free-icons";
 
 interface DrawerProps {
   isOpen: boolean;
@@ -74,7 +75,7 @@ export function DrawerTitle({
   className?: string;
 }) {
   return (
-    <h3 className={`font-heading text-sm font-black uppercase tracking-wide text-[var(--text-cloud)] ${className}`}>
+    <h3 className={`font-heading text-lg font-bold text-[var(--text-cloud)] uppercase tracking-wide ${className}`}>
       {children}
     </h3>
   );
@@ -107,7 +108,7 @@ export function DrawerClose({
       className={`p-1.5 rounded border-2 border-black bg-[var(--bg-card)] text-[var(--text-cloud)] hover:bg-[var(--accent-pink)] hover:text-white active:translate-x-[1px] active:translate-y-[1px] shadow-[2px_2px_0px_0px_#000] transition-all cursor-pointer ${className}`}
       title="Close (Esc)"
     >
-      <X className="w-4 h-4" />
+      <HugeiconsIcon icon={Cancel01Icon} className="w-4 h-4" />
     </button>
   );
 }
@@ -119,7 +120,11 @@ export function DrawerContent({
   children: React.ReactNode;
   className?: string;
 }) {
-  return <div className={`flex-1 overflow-y-auto p-5 ${className}`}>{children}</div>;
+  return (
+    <div className={`flex-1 overflow-y-auto p-5 space-y-6 ${className}`}>
+      {children}
+    </div>
+  );
 }
 
 export function DrawerFooter({
@@ -131,7 +136,7 @@ export function DrawerFooter({
 }) {
   return (
     <div
-      className={`p-4 border-t-3 border-[var(--card-border-color)] bg-[var(--bg-void)] flex items-center justify-between font-mono text-[10px] font-bold text-[var(--text-muted)] ${className}`}
+      className={`px-5 py-3 border-t-3 border-[var(--card-border-color)] bg-[var(--bg-void)] font-mono text-[10px] text-[var(--text-muted)] flex items-center justify-between ${className}`}
     >
       {children}
     </div>

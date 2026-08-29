@@ -3,9 +3,8 @@
 import React, { useMemo, useEffect } from "react";
 import { motion } from "framer-motion";
 import { useTimelineStore } from "@/store/useTimelineStore";
-import {
-  Lock, CheckCircle2, Navigation, ChevronDown, ChevronUp,
-} from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { SecurityLockIcon, CheckmarkCircle02Icon, Navigation01Icon, ArrowDown01Icon, ArrowUp01Icon } from "@hugeicons/core-free-icons";
 
 export interface TimelineEvent {
   id: string;
@@ -390,17 +389,17 @@ export function Timeline() {
                       </span>
                       {isCompleted && (
                         <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--accent-cyan)] uppercase tracking-wide">
-                          <CheckCircle2 className="w-3 h-3" /> Unlocked
+                          <HugeiconsIcon icon={CheckmarkCircle02Icon} className="w-3 h-3" /> Unlocked
                         </span>
                       )}
                       {isActive && (
                         <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--accent-orange)] uppercase tracking-wide">
-                          <Navigation className="w-3 h-3" /> Active
+                          <HugeiconsIcon icon={Navigation01Icon} className="w-3 h-3" /> Active
                         </span>
                       )}
                       {isLocked && (
                         <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wide">
-                          <Lock className="w-3 h-3" /> Locked
+                          <HugeiconsIcon icon={SecurityLockIcon} className="w-3 h-3" /> Locked
                         </span>
                       )}
                     </div>
@@ -559,9 +558,9 @@ export function Timeline() {
                                         "bg-[var(--text-muted)]"
                         }`} />
                         {isExpanded ? (
-                          <ChevronUp className="w-3 h-3 text-[var(--text-muted)]" />
+                          <HugeiconsIcon icon={ArrowUp01Icon} className="w-3 h-3 text-[var(--text-muted)]" />
                         ) : (
-                          <ChevronDown className="w-3 h-3 text-[var(--text-muted)]" />
+                          <HugeiconsIcon icon={ArrowDown01Icon} className="w-3 h-3 text-[var(--text-muted)]" />
                         )}
                       </div>
                     </div>
@@ -583,17 +582,17 @@ export function Timeline() {
                         <div className="pt-1">
                           {isCompleted && (
                             <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold text-[var(--accent-cyan)] uppercase">
-                              <CheckCircle2 className="w-3 h-3" /> Unlocked
+                              <HugeiconsIcon icon={CheckmarkCircle02Icon} className="w-3 h-3" /> Unlocked
                             </span>
                           )}
                           {isActive && (
                             <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold text-[var(--accent-orange)] uppercase">
-                              <Navigation className="w-3 h-3" /> Active
+                              <HugeiconsIcon icon={Navigation01Icon} className="w-3 h-3" /> Active
                             </span>
                           )}
                           {isLocked && (
                             <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase">
-                              <Lock className="w-3 h-3" /> Locked
+                              <HugeiconsIcon icon={SecurityLockIcon} className="w-3 h-3" /> Locked
                             </span>
                           )}
                         </div>

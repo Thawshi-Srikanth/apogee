@@ -1,9 +1,10 @@
 "use client";
 
 import React, { useState } from "react";
-import { X, Flame, CheckCircle2 } from "lucide-react";
 import confetti from "canvas-confetti";
 import { Button } from "@/components/ui/Button";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Cancel01Icon, FireIcon, CheckmarkCircle02Icon } from "@hugeicons/core-free-icons";
 
 interface RegisterModalProps {
   isOpen: boolean;
@@ -32,7 +33,6 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
       particleCount: 80,
       spread: 60,
       origin: { y: 0.6 },
-      colors: ["#ff5500", "#ffd000", "#00f0ff", "#f72585"],
     });
   };
 
@@ -42,21 +42,26 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/70 backdrop-blur-sm">
-      
-      <div className="relative w-full max-w-md rounded-2xl card-border bg-[var(--bg-card)] p-6 text-[var(--text-cloud)] card-shadow">
-        
+    <div className="fixed inset-0 z-50 flex items-center justify-center p-4">
+      {/* Backdrop */}
+      <div
+        className="fixed inset-0 bg-black/80 backdrop-blur-xs"
+        onClick={resetAndClose}
+      />
+
+      {/* Modal Container */}
+      <div className="relative w-full max-w-md rounded-2xl bg-[var(--bg-card)] p-6 sm:p-8 card-border card-shadow z-10">
         <button
           onClick={resetAndClose}
           className="absolute top-4 right-4 text-[var(--text-muted)] hover:text-white cursor-pointer"
         >
-          <X className="h-5 w-5" />
+          <HugeiconsIcon icon={Cancel01Icon} className="h-5 w-5" />
         </button>
 
         {!submitted ? (
           <div>
             <div className="flex items-center gap-2.5 mb-4">
-              <Flame className="h-6 w-6 text-[#ff5500]" />
+              <HugeiconsIcon icon={FireIcon} className="h-6 w-6 text-[#ff5500]" />
               <h3 className="font-mono text-xs font-bold text-[var(--text-cloud)] uppercase">
                 REGISTER FOR APOGEE 2027
               </h3>
@@ -84,7 +89,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
                 <input
                   type="email"
                   required
-                  placeholder="e.g. student@univ.ac.lk"
+                  placeholder="kasun@example.com"
                   value={formData.email}
                   onChange={(e) => setFormData({ ...formData, email: e.target.value })}
                   className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-sm text-[var(--text-cloud)] placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
@@ -93,11 +98,11 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
 
               <div>
                 <label className="block font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase mb-1">
-                  University or School
+                  University / Organization
                 </label>
                 <input
                   type="text"
-                  placeholder="e.g. University of Moratuwa"
+                  placeholder="e.g. SLIIT / University of Moratuwa"
                   value={formData.institution}
                   onChange={(e) => setFormData({ ...formData, institution: e.target.value })}
                   className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-sm text-[var(--text-cloud)] placeholder-zinc-500 focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
@@ -106,12 +111,12 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
 
               <div>
                 <label className="block font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase mb-1">
-                  Track
+                  Preferred Track
                 </label>
                 <select
                   value={formData.track}
                   onChange={(e) => setFormData({ ...formData, track: e.target.value })}
-                  className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-xs font-bold text-[var(--text-cloud)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-mono"
+                  className="w-full rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)] p-3 text-sm text-[var(--text-cloud)] focus:outline-none focus:ring-2 focus:ring-[var(--accent-orange)] font-semibold"
                 >
                   <option value="Propulsion">Propulsion</option>
                   <option value="Mission Software">Mission Software</option>
@@ -130,7 +135,7 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
           </div>
         ) : (
           <div className="py-6 text-center">
-            <CheckCircle2 className="h-12 w-12 text-[#ffd000] mx-auto mb-3" />
+            <HugeiconsIcon icon={CheckmarkCircle02Icon} className="h-12 w-12 text-[#ffd000] mx-auto mb-3" />
             <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2 uppercase">
               PLAYER 1 READY!
             </h3>
@@ -142,7 +147,6 @@ export function RegisterModal({ isOpen, onClose }: RegisterModalProps) {
             </Button>
           </div>
         )}
-
       </div>
     </div>
   );
