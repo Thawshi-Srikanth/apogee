@@ -1,7 +1,13 @@
 import type { Metadata } from "next";
 import localFont from "next/font/local";
-import { Outfit, JetBrains_Mono, Press_Start_2P } from "next/font/google";
+import { Rubik, Outfit, JetBrains_Mono, Press_Start_2P } from "next/font/google";
 import "./globals.css";
+
+const rubik = Rubik({
+  variable: "--font-rubik",
+  subsets: ["latin"],
+  weight: ["400", "500", "600", "700", "800", "900"],
+});
 
 const cubano = localFont({
   src: "../public/fonts/cubano-webfont/cubano-regular-webfont.woff",
@@ -39,7 +45,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${cubano.variable} ${outfit.variable} ${jetbrainsMono.variable} ${pressStart2P.variable} h-full antialiased`}
+      className={`${rubik.variable} ${cubano.variable} ${outfit.variable} ${jetbrainsMono.variable} ${pressStart2P.variable} h-full antialiased`}
     >
       <body className="min-h-full flex flex-col selection:bg-[#FF6B35] selection:text-white">
         {children}

@@ -33,7 +33,8 @@ export default function AttributionsPage() {
     {
       category: "Fonts & Typography Assets",
       items: [
-        { name: "Cubano", desc: "Rounded bold display headline typeface by C. Van De Water.", license: "Lost Type Personal & Educational License", url: "http://www.losttype.com/font/?name=cubano" },
+        { name: "Rubik", desc: "Primary rounded bold display headline typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Rubik" },
+        { name: "Cubano (Backup)", desc: "Rounded bold display headline typeface by C. Van De Water.", license: "Lost Type Personal & Educational License", url: "http://www.losttype.com/font/?name=cubano" },
         { name: "Outfit", desc: "Modern geometric display sans-serif typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Outfit" },
         { name: "JetBrains Mono", desc: "Developer monospaced typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/JetBrains+Mono" },
         { name: "Inter", desc: "High-legibility sans-serif typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Inter" },

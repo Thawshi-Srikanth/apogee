@@ -60,11 +60,16 @@ Below is the complete registry of open-source libraries, frameworks, tools, and 
 
 ## Fonts & Typography Assets
 
-- **Cubano**
+- **Rubik**
+  - **Description:** Primary rounded geometric display sans-serif typeface.
+  - **License:** SIL Open Font License 1.1
+  - **Provider:** Google Fonts / `next/font/google`
+
+- **Cubano (Backup)**
   - **Designed By:** C. Van De Water
   - **Distributed By:** The Lost Type Co-op
   - **License:** Personal, Educational & Student Use License
-  - **Coverage:** Approved for educational student projects, school assignments, and non-commercial self-initiated student organization initiatives (SEDS Sri Lanka & SEDS SLIIT).
+  - **Coverage:** Backup display typeface for educational student projects & SEDS club initiatives.
 
 - **Outfit**
   - **Description:** Modern geometric display sans-serif typeface.
