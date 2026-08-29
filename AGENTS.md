@@ -155,9 +155,10 @@ When creating or editing ANY component:
 ---
 
 ## Attributions & Open Source Registry Rule
-Whenever adding, modifying, or removing ANY third-party library, package dependency, font asset, or icon system:
+Whenever adding, modifying, or removing ANY third-party library, package dependency, font asset, icon system, **or algorithmic implementation**:
 - All AI agents MUST immediately update **`ATTRIBUTION.md`** and the dedicated Next.js page at **`app/attributions/page.tsx`**.
 - Keep license names, descriptions, package names, and official URL links 100% synchronized between `ATTRIBUTION.md` and `app/attributions/page.tsx`.
+- If any algorithm (e.g., sorting, graph traversal, cryptographic) is sourced from an external library or reference, also include its attribution here.
 
 ---
 
