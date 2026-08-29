@@ -6,28 +6,28 @@ import Image from "next/image";
 export function Speakers() {
   const mentors = [
     {
-      name: "Dr. Kanishka Perera",
+      name: "[Name]",
       role: "Satellite Systems Engineer",
       cred: "Designed CubeSat attitude determination for 40+ micro-satellites.",
       image: "/mentors/person-1.png",
       color: "var(--accent-orange)",
     },
     {
-      name: "Dilshan Jayasinghe",
+      name: "[Name]",
       role: "Flight Software Tech Lead",
       cred: "Built autonomous launch telemetry and ground-station software.",
       image: "/mentors/person-2.png",
       color: "var(--accent-cyan)",
     },
     {
-      name: "Nethmi Fernando",
+      name: "[Name]",
       role: "Avionics Research Lead",
       cred: "Engineered high-altitude balloon payload communication systems.",
       image: "/mentors/person-3.png",
       color: "var(--accent-yellow)",
     },
     {
-      name: "Tharindu Silva",
+      name: "[Name]",
       role: "Orbital Mechanics Researcher",
       cred: "Developed mission trajectory simulation engines.",
       image: "/mentors/person-5.png",
@@ -36,7 +36,7 @@ export function Speakers() {
   ];
 
   return (
-    <section id="mentors" className="py-16 sm:py-24 bg-[var(--bg-void)]">
+    <section id="mentors" className="relative py-16 sm:py-24">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* Header */}

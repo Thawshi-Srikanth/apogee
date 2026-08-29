@@ -10,7 +10,7 @@ interface FooterCTAProps {
 
 export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
   return (
-    <footer className="bg-[var(--bg-void)] border-t-4 border-black mt-12 py-16">
+    <footer className="relative border-t-4 border-black mt-12 py-16">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* 4-8-12 Grid for Final CTA */}

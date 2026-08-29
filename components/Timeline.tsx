@@ -261,7 +261,7 @@ export function Timeline() {
   }, [mobilePathData, simulatedTime, minHour, maxHour, M_PAD]);
 
   return (
-    <section id="timeline" className="relative py-12 sm:py-20 overflow-visible bg-[var(--bg-void)]">
+    <section id="timeline" className="relative py-12 sm:py-20 overflow-visible">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
         <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">

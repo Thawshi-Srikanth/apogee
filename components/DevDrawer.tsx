@@ -24,6 +24,9 @@ export function DevDrawer() {
     curveTension,
     itemHeight,
     playbackSpeed,
+    starCount,
+    starSpeed,
+    starOpacity,
     setSimulatedTime,
     setIsPlaying,
     toggleIsPlaying,
@@ -32,6 +35,9 @@ export function DevDrawer() {
     setCurveTension,
     setItemHeight,
     setPlaybackSpeed,
+    setStarCount,
+    setStarSpeed,
+    setStarOpacity,
     addEvent,
     removeEvent,
     updateEvent,
@@ -176,6 +182,7 @@ export function DevDrawer() {
           {/* Tab 2: PARAMETERS */}
           <TabsContent value="parameters" className="space-y-4">
             <div className="p-4 rounded-xl border-3 border-[var(--card-border-color)] bg-[var(--bg-void)] shadow-[4px_4px_0px_0px_#000000] space-y-4">
+              {/* Curve Tension */}
               <div>
                 <div className="flex justify-between items-center mb-1">
                   <label className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
@@ -196,6 +203,7 @@ export function DevDrawer() {
                 />
               </div>
 
+              {/* Orbit Radius */}
               <div>
                 <div className="flex justify-between items-center mb-1">
                   <label className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
@@ -216,6 +224,7 @@ export function DevDrawer() {
                 />
               </div>
 
+              {/* Item Height */}
               <div>
                 <div className="flex justify-between items-center mb-1">
                   <label className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
@@ -236,6 +245,49 @@ export function DevDrawer() {
                 />
               </div>
 
+              {/* Star Count */}
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
+                    STARRY BG: STAR COUNT
+                  </label>
+                  <span className="font-mono text-xs font-bold text-[var(--accent-pink)]">
+                    {starCount}
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={30}
+                  max={400}
+                  step={10}
+                  value={starCount}
+                  onChange={(e) => setStarCount(parseInt(e.target.value))}
+                  className="w-full h-2 bg-gray-900 rounded appearance-none cursor-pointer accent-[var(--accent-pink)]"
+                />
+              </div>
+
+              {/* Star Speed */}
+              <div>
+                <div className="flex justify-between items-center mb-1">
+                  <label className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
+                    STARRY BG: DRIFT SPEED
+                  </label>
+                  <span className="font-mono text-xs font-bold text-[var(--accent-yellow)]">
+                    {starSpeed.toFixed(1)}x
+                  </span>
+                </div>
+                <input
+                  type="range"
+                  min={0.1}
+                  max={3.0}
+                  step={0.1}
+                  value={starSpeed}
+                  onChange={(e) => setStarSpeed(parseFloat(e.target.value))}
+                  className="w-full h-2 bg-gray-900 rounded appearance-none cursor-pointer accent-[var(--accent-yellow)]"
+                />
+              </div>
+
+              {/* Playback Speed Multiplier */}
               <div>
                 <label className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)] block mb-2">
                   SIMULATION SPEED

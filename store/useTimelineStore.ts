@@ -28,6 +28,11 @@ interface TimelineState {
   itemHeight: number;
   playbackSpeed: number;
 
+  // Starry Background Parameters
+  starCount: number;
+  starSpeed: number;
+  starOpacity: number;
+
   // Actions
   setSimulatedTime: (time: number | ((prev: number) => number)) => void;
   setIsPlaying: (playing: boolean) => void;
@@ -40,6 +45,11 @@ interface TimelineState {
   setCurveTension: (t: number) => void;
   setItemHeight: (h: number) => void;
   setPlaybackSpeed: (s: number) => void;
+
+  setStarCount: (count: number) => void;
+  setStarSpeed: (speed: number) => void;
+  setStarOpacity: (opacity: number) => void;
+
   addEvent: () => void;
   removeEvent: (id: string) => void;
   updateEvent: (id: string, updates: Partial<TimelineEvent>) => void;
@@ -66,6 +76,11 @@ export const useTimelineStore = create<TimelineState>((set) => ({
   itemHeight: 280,
   playbackSpeed: 1,
 
+  // Starry Background Defaults
+  starCount: 160,
+  starSpeed: 0.5,
+  starOpacity: 0.8,
+
   setSimulatedTime: (timeOrFn) =>
     set((state) => ({
       simulatedTime:
@@ -85,6 +100,10 @@ export const useTimelineStore = create<TimelineState>((set) => ({
   setCurveTension: (curveTension) => set({ curveTension }),
   setItemHeight: (itemHeight) => set({ itemHeight }),
   setPlaybackSpeed: (playbackSpeed) => set({ playbackSpeed }),
+
+  setStarCount: (starCount) => set({ starCount }),
+  setStarSpeed: (starSpeed) => set({ starSpeed }),
+  setStarOpacity: (starOpacity) => set({ starOpacity }),
 
   addEvent: () =>
     set((state) => {
@@ -128,5 +147,8 @@ export const useTimelineStore = create<TimelineState>((set) => ({
       curveTension: 0.5,
       itemHeight: 280,
       playbackSpeed: 1,
+      starCount: 160,
+      starSpeed: 0.5,
+      starOpacity: 0.8,
     }),
 }));

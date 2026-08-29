@@ -18,6 +18,7 @@ import { RegisterModal } from "@/components/RegisterModal";
 import { CrossStripeTicker } from "@/components/CrossStripeTicker";
 import { DevButton } from "@/components/DevButton";
 import { DevDrawer } from "@/components/DevDrawer";
+import { StarryBackground } from "@/components/StarryBackground";
 
 const sectionVariants = {
   hidden: { opacity: 0, y: 20 },
@@ -37,11 +38,14 @@ export default function Home() {
 
   return (
     <div className="relative min-h-screen flex flex-col bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[var(--accent-orange)] selection:text-black transition-colors overflow-x-hidden">
+      {/* Starry Background */}
+      <StarryBackground />
+
       {/* Navbar */}
       <Navbar onOpenRegister={handleOpenRegister} />
 
       {/* Main Content Sections with Framer Motion scroll animations */}
-      <main className="flex-grow">
+      <main className="relative z-10 flex-grow">
         
         {/* Section 1: Hero */}
         <motion.div

@@ -34,7 +34,7 @@ export function CountdownSection() {
   }, [targetDate]);
 
   return (
-    <section className="py-24 sm:py-32 bg-[var(--bg-void)] overflow-hidden">
+    <section className="relative py-24 sm:py-32 overflow-hidden">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 text-center">
         
         {/* Master 4-8-12 Grid Container */}
