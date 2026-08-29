@@ -103,6 +103,18 @@ All section headers MUST use the standardized display scale and centered layout 
 
 ---
 
+## Component Modularization & Shadcn-Style Architecture
+
+1. **Shadcn-Style Modular Component Architecture:**
+   - UI elements MUST be modularized into clean, atomic, reusable primitives (similar to Shadcn UI conventions) placed in `components/ui/` or feature-focused component folders.
+   - Avoid monolithic code structures. Extract reusable UI primitives (buttons, cards, badges, drawers, modal overlays, tooltips).
+
+2. **Theme Token Adherence in Modular Primitives:**
+   - Every modular component MUST consume Apogee's CSS variable tokens (`var(--bg-card)`, `var(--bg-void)`, `var(--text-cloud)`, `var(--border-card)`, `var(--card-border-color)`).
+   - Component primitives should allow custom class extensions via `className` while maintaining strict Neo-Brutalist defaults (hard offset shadows, high contrast borders, tactile click states).
+
+---
+
 ## Animation & Motion Principles
 
 1. **Scroll-Driven Motion:**
