@@ -104,13 +104,14 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
               </ul>
             </div>
 
-            {/* Col 2: Info & Rules (Remaining 4 Links) */}
+            {/* Col 2: Info & Rules */}
             <div className="col-span-2 sm:col-span-4 lg:col-span-3">
               <ul className="space-y-2">
                 <li><a href="#prizes" className="hover:text-[var(--text-cloud)] transition-colors">Prizes</a></li>
                 <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">FAQ</a></li>
                 <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">Rules & Guidelines</a></li>
                 <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">Code of Conduct</a></li>
+                <li><a href="https://github.com/Thawshi-Srikanth/apogee/blob/main/ATTRIBUTION.md" target="_blank" rel="noreferrer" className="hover:text-[var(--text-cloud)] transition-colors">Open Source & License</a></li>
               </ul>
             </div>
 

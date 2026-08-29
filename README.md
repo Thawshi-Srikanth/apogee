@@ -1,36 +1,37 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Apogee 2027 — Sri Lanka's 1st 24-Hour Space Hackathon
 
-## Getting Started
+Apogee is Sri Lanka's 1st 24-Hour Space Hackathon, organized in collaboration between **SEDS Sri Lanka** and **SEDS SLIIT**. 
 
-First, run the development server:
+Teams of Sri Lankan student developers, engineers, and researchers build real space-tech projects: satellites, flight software, rover control systems, orbital mechanics tools, and extreme-environment biology solutions.
+
+---
+
+## Technical Stack & Architecture
+
+- **Framework:** Next.js (App Router, React 19)
+- **Styling:** Vanilla CSS & Tailwind CSS v4 Neo-Brutalist design system
+- **State Management:** Zustand
+- **Animations & Physics:** Framer Motion & Canvas2D background engines
+- **Typography:** Cubano (Headings), Outfit (Body), JetBrains Mono (Technical / Stats)
+
+---
+
+## Development
+
+First, install dependencies and run the development server:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
+bun install
 bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the application.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+---
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+## Open Source & Licensing
 
-## Learn More
+Apogee is an educational, non-profit student club initiative.
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- **License:** Distributed under the [MIT License](LICENSE).
+- **Attributions:** All open-source packages, frameworks, and typography assets are documented in [ATTRIBUTION.md](ATTRIBUTION.md).
