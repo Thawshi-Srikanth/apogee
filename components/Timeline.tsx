@@ -177,21 +177,21 @@ export function Timeline() {
     return () => clearInterval(id);
   }, [isPlaying, maxHour, playbackSpeed, setSimulatedTime, setIsPlaying]);
 
-  // Layout — desktop
+  // Layout - desktop
   const ITEM_H = itemHeight;
   const PAD = 160;
   const VW = 1000;
   const VH = Math.max(600, (events.length - 1) * ITEM_H + PAD + 160);
   const PLANET = 80;
 
-  // Layout — mobile (planets aligned on left column at x=65px)
+  // Layout - mobile (planets aligned on left column at x=65px)
   const M_VW = 360;
   const M_ITEM_H = Math.max(160, Math.round(itemHeight * 0.75));
   const M_PAD = 90;
   const M_PLANET = 52;
   const M_VH = Math.max(450, (events.length - 1) * M_ITEM_H + M_PAD + 150);
 
-  // Desktop nodes — alternating sides
+  // Desktop nodes - alternating sides
   const nodes = useMemo(() => {
     const rng = seededRNG(events.reduce((a, e) => a + e.hourOffset * 7, 13));
     return events.map((evt, i) => {
@@ -213,7 +213,7 @@ export function Timeline() {
     });
   }, [events, simulatedTime, VW, PAD, ITEM_H]);
 
-  // Mobile nodes — all planets aligned on the left column (x = 65)
+  // Mobile nodes - all planets aligned on the left column (x = 65)
   const mobileNodes = useMemo(() => {
     return events.map((evt, i) => {
       const x = 65;
@@ -231,14 +231,14 @@ export function Timeline() {
     });
   }, [events, simulatedTime, M_PAD, M_ITEM_H]);
 
-  // Desktop path — reactive to orbitR and curveTension
+  // Desktop path - reactive to orbitR and curveTension
   const pathData = useMemo(() => {
     const rng = seededRNG(events.reduce((a, e) => a + e.id.length * 11 + e.hourOffset, 99));
     return buildPath(nodes.map(n => ({ x: n.x, y: n.y, isLeft: n.isLeft })), rng, VW, orbitR, curveTension);
   // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [nodes.map(n => n.id).join(","), VW, orbitR, curveTension]);
 
-  // Mobile path — 1:1 pixel canvas (w=140px)
+  // Mobile path - 1:1 pixel canvas (w=140px)
   const mobilePathData = useMemo(() => {
     const rng = seededRNG(events.reduce((a, e) => a + e.id.length * 11 + e.hourOffset, 99));
     return buildPath(mobileNodes.map(n => ({ x: n.x, y: n.y, isLeft: true })), rng, 140, 55, curveTension);

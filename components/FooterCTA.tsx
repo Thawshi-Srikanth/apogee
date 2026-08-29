@@ -92,9 +92,9 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
           </div>
 
           {/* Middle Row: Links & Large Social Icons */}
-          <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-8 mb-8 items-start font-sans text-xs text-[var(--text-muted)]">
+          <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-8 mb-8 items-center font-sans text-xs text-[var(--text-muted)]">
             
-            {/* Col 1: Page Navigation (First 5 Links) */}
+            {/* Col 1: Page Navigation */}
             <div className="col-span-2 sm:col-span-4 lg:col-span-3">
               <ul className="space-y-2">
                 <li><a href="#what" className="hover:text-[var(--text-cloud)] transition-colors">What is Apogee</a></li>
@@ -105,14 +105,21 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
               </ul>
             </div>
 
-            {/* Col 2: Info & Rules */}
+            {/* Col 2: Resources & Legal */}
             <div className="col-span-2 sm:col-span-4 lg:col-span-3">
               <ul className="space-y-2">
                 <li><a href="#prizes" className="hover:text-[var(--text-cloud)] transition-colors">Prizes</a></li>
                 <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">FAQ</a></li>
-                <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">Rules & Guidelines</a></li>
-                <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">Code of Conduct</a></li>
-                <li><Link href="/attributions" className="hover:text-[var(--text-cloud)] transition-colors">Open Source & Attributions</Link></li>
+                <li>
+                  <Link href="/code-of-conduct" className="hover:text-[var(--text-cloud)] transition-colors">
+                    Code of Conduct
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/attributions" className="hover:text-[var(--text-cloud)] transition-colors">
+                    Open Source & Attributions
+                  </Link>
+                </li>
               </ul>
             </div>
 

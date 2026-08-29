@@ -45,8 +45,12 @@ Apogee is Sri Lanka's 1st 24-Hour Space Hackathon.
    - Keep titles, subtitles, and button labels simple, practical, and direct (e.g., `Dev Panel`, `Timeline Controls`).
 
 5. **No Unwanted / Fluff Code Comments:**
-   - Do NOT add redundant, dramatic, or fluffy code comments (e.g., `/* ── Section 1: Time Scrubber ── */` or `/* Neo-Brutalist Space-Tech Style */`).
+   - Do NOT add redundant, dramatic, or fluffy code comments (e.g., `/* Section 1: Time Scrubber */` or `/* Neo-Brutalist Space-Tech Style */`).
    - Keep code clean and self-documenting. Only add comments when explaining non-obvious logic.
+
+6. **No Em-Dashes (Strict Rule):**
+   - NEVER use em-dashes (`—`) in titles, descriptions, body copy, or text anywhere in the user interface.
+   - Use standard hyphens (`-`), colons (`:`), or clean punctuation instead.
 
 ---
 

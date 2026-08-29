@@ -1,4 +1,4 @@
-# Apogee 2027 — Sri Lanka's 1st 24-Hour Space Hackathon
+# Apogee 2027 - Sri Lanka's 1st 24-Hour Space Hackathon
 
 Apogee is Sri Lanka's 1st 24-Hour Space Hackathon, organized in collaboration between **SEDS Sri Lanka** and **SEDS SLIIT**. 
 
