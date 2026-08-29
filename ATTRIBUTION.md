@@ -61,9 +61,10 @@ Below is the complete registry of open-source libraries, frameworks, tools, and 
 ## Fonts & Typography Assets
 
 - **Cubano**
-  - **Description:** Rounded, bold display headline typeface.
-  - **License:** Font Squirrel EULA / Webfont License
-  - **Source:** Font Squirrel
+  - **Designed By:** C. Van De Water
+  - **Distributed By:** The Lost Type Co-op
+  - **License:** Personal, Educational & Student Use License
+  - **Coverage:** Approved for educational student projects, school assignments, and non-commercial self-initiated student organization initiatives (SEDS Sri Lanka & SEDS SLIIT).
 
 - **Outfit**
   - **Description:** Modern geometric display sans-serif typeface.
