@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useMemo, useEffect } from "react";
+import { motion } from "framer-motion";
 import { useTimelineStore } from "@/store/useTimelineStore";
 import {
   Lock, CheckCircle2, Navigation, ChevronDown, ChevronUp,
@@ -122,7 +123,7 @@ function buildPath(
   }
 
   const last = planets[planets.length - 1];
-  pts.push({ x: VW / 2, y: last.y + 180 });
+  pts.push({ x: VW / 2, y: last.y + 110 });
 
   return catmullRomSpline(pts);
 }
@@ -177,7 +178,7 @@ export function Timeline() {
   const ITEM_H = 280;
   const PAD = 160;
   const VW = 1000;
-  const VH = Math.max(900, events.length * ITEM_H + PAD + 200);
+  const VH = Math.max(600, (events.length - 1) * ITEM_H + PAD + 160);
   const PLANET = 80;
 
   // Layout — mobile (planets aligned on left column at x=65px)
@@ -185,7 +186,7 @@ export function Timeline() {
   const M_ITEM_H = 210;
   const M_PAD = 90;
   const M_PLANET = 52;
-  const M_VH = Math.max(600, events.length * M_ITEM_H + M_PAD + 140);
+  const M_VH = Math.max(450, (events.length - 1) * M_ITEM_H + M_PAD + 150);
 
   // Desktop nodes — alternating sides
   const nodes = useMemo(() => {
@@ -333,9 +334,15 @@ export function Timeline() {
                   onMouseEnter={() => setHoveredId(node.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
-                  <img
+                  <motion.img
                     src={node.planetImg}
                     alt={node.title}
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 45 + (node.planetIndex ?? 1) * 10,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                     className={`w-full h-full object-contain transition-transform duration-200 ${isHovered ? "scale-110" : ""}`}
                   />
                   {isLocked && (
@@ -483,9 +490,15 @@ export function Timeline() {
                   onMouseEnter={() => setHoveredId(node.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
-                  <img
+                  <motion.img
                     src={node.planetImg}
                     alt={node.title}
+                    animate={{ rotate: 360 }}
+                    transition={{
+                      duration: 45 + (node.planetIndex ?? 1) * 10,
+                      repeat: Infinity,
+                      ease: "linear",
+                    }}
                     className={`w-full h-full object-contain transition-transform duration-200 ${
                       isExpanded ? "scale-110" : ""
                     }`}
