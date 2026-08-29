@@ -257,9 +257,9 @@ export function DevDrawer() {
                 </div>
                 <input
                   type="range"
-                  min={30}
-                  max={400}
-                  step={10}
+                  min={15}
+                  max={200}
+                  step={5}
                   value={starCount}
                   onChange={(e) => setStarCount(parseInt(e.target.value))}
                   className="w-full h-2 bg-gray-900 rounded appearance-none cursor-pointer accent-[var(--accent-pink)]"

@@ -77,7 +77,7 @@ export const useTimelineStore = create<TimelineState>((set) => ({
   playbackSpeed: 1,
 
   // Starry Background Defaults
-  starCount: 160,
+  starCount: 80,
   starSpeed: 0.5,
   starOpacity: 0.8,
 
@@ -147,7 +147,7 @@ export const useTimelineStore = create<TimelineState>((set) => ({
       curveTension: 0.5,
       itemHeight: 280,
       playbackSpeed: 1,
-      starCount: 160,
+      starCount: 80,
       starSpeed: 0.5,
       starOpacity: 0.8,
     }),
