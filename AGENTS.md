@@ -40,6 +40,14 @@ Apogee is Sri Lanka's 1st 24-Hour Space Hackathon.
    - Keep section descriptions short (max 1-2 sentences).
    - Use clear, practical statements (e.g., "24 hours. One weekend in Colombo. You show up, you build, you demo.").
 
+4. **No Meaningless Jargon or Inflated Placeholders:**
+   - NEVER use inflated or dramatic jargon like "MISSION CONTROL DEV PANEL", "NEO-BRUTALIST MISSION CTRL", or "SIMULATED TIME & TRAJECTORY CONTROLS".
+   - Keep titles, subtitles, and button labels simple, practical, and direct (e.g., `Dev Panel`, `Timeline Controls`).
+
+5. **No Unwanted / Fluff Code Comments:**
+   - Do NOT add redundant, dramatic, or fluffy code comments (e.g., `/* ── Section 1: Time Scrubber ── */` or `/* Neo-Brutalist Space-Tech Style */`).
+   - Keep code clean and self-documenting. Only add comments when explaining non-obvious logic.
+
 ---
 
 ## Color Palette & CSS Variables
