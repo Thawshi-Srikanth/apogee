@@ -83,7 +83,7 @@ export default function AttributionsPage() {
 
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
             <a
-              href="https://sedssrilanka.org"
+              href="https://sedssl.org/"
               target="_blank"
               rel="noreferrer"
               className="p-4 rounded-xl bg-[var(--bg-void)] border-3 border-[var(--card-border-color)] hover:border-[var(--accent-orange)] transition-colors flex items-center justify-between group"
@@ -96,7 +96,7 @@ export default function AttributionsPage() {
             </a>
 
             <a
-              href="https://seds-sliit.org"
+              href="https://www.sedssliit.org/"
               target="_blank"
               rel="noreferrer"
               className="p-4 rounded-xl bg-[var(--bg-void)] border-3 border-[var(--card-border-color)] hover:border-[var(--accent-yellow)] transition-colors flex items-center justify-between group"

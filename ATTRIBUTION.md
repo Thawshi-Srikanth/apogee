@@ -1,6 +1,6 @@
 # Open Source Software & Third-Party Attributions
 
-Apogee is an educational, non-profit student space hackathon project developed in collaboration between **[SEDS Sri Lanka](https://sedssrilanka.org)** and **[SEDS SLIIT](https://seds-sliit.org)**. We proudly build on the shoulders of the global open-source ecosystem.
+Apogee is an educational, non-profit student space hackathon project developed in collaboration between **[SEDS Sri Lanka](https://sedssl.org/)** and **[SEDS SLIIT](https://www.sedssliit.org/)**. We proudly build on the shoulders of the global open-source ecosystem.
 
 Below is the complete registry of open-source libraries, frameworks, tools, and font typography assets used within this codebase along with their respective licenses.
 
