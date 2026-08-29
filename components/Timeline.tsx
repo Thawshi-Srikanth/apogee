@@ -85,7 +85,8 @@ function buildPath(
   planets: (Pt & { isLeft: boolean })[],
   rng: () => number,
   VW: number,
-  orbitR = 105
+  orbitR = 105,
+  tension = 0.5
 ): { d: string; segs: Seg[]; totalLen: number } {
   if (!planets.length) return { d: "", segs: [], totalLen: 0 };
 
@@ -125,7 +126,7 @@ function buildPath(
   const last = planets[planets.length - 1];
   pts.push({ x: VW / 2, y: last.y + 110 });
 
-  return catmullRomSpline(pts);
+  return catmullRomSpline(pts, tension);
 }
 
 // ── Ship position by arc-length fraction ─────────────────────────────────────
@@ -152,30 +153,33 @@ export function Timeline() {
     isPlaying,
     hoveredId,
     expandedMobileId,
+    orbitR,
+    curveTension,
+    itemHeight,
+    playbackSpeed,
     setSimulatedTime,
     setIsPlaying,
     setHoveredId,
     setExpandedMobileId,
-    removeEvent,
   } = useTimelineStore();
 
   const minHour = events[0]?.hourOffset ?? 0;
   const maxHour = events[events.length - 1]?.hourOffset ?? 48;
 
-  // Auto playback timer
+  // Auto playback timer with speed multiplier
   useEffect(() => {
     if (!isPlaying) return;
     const id = setInterval(() => {
       setSimulatedTime(p => {
         if (p >= maxHour) { setIsPlaying(false); return maxHour; }
-        return Math.min(maxHour, p + 0.2);
+        return Math.min(maxHour, p + 0.2 * playbackSpeed);
       });
     }, 80);
     return () => clearInterval(id);
-  }, [isPlaying, maxHour, setSimulatedTime, setIsPlaying]);
+  }, [isPlaying, maxHour, playbackSpeed, setSimulatedTime, setIsPlaying]);
 
   // Layout — desktop
-  const ITEM_H = 280;
+  const ITEM_H = itemHeight;
   const PAD = 160;
   const VW = 1000;
   const VH = Math.max(600, (events.length - 1) * ITEM_H + PAD + 160);
@@ -183,7 +187,7 @@ export function Timeline() {
 
   // Layout — mobile (planets aligned on left column at x=65px)
   const M_VW = 360;
-  const M_ITEM_H = 210;
+  const M_ITEM_H = Math.max(160, Math.round(itemHeight * 0.75));
   const M_PAD = 90;
   const M_PLANET = 52;
   const M_VH = Math.max(450, (events.length - 1) * M_ITEM_H + M_PAD + 150);
@@ -228,19 +232,19 @@ export function Timeline() {
     });
   }, [events, simulatedTime, M_PAD, M_ITEM_H]);
 
-  // Desktop path
+  // Desktop path — reactive to orbitR and curveTension
   const pathData = useMemo(() => {
     const rng = seededRNG(events.reduce((a, e) => a + e.id.length * 11 + e.hourOffset, 99));
-    return buildPath(nodes.map(n => ({ x: n.x, y: n.y, isLeft: n.isLeft })), rng, VW, 105);
+    return buildPath(nodes.map(n => ({ x: n.x, y: n.y, isLeft: n.isLeft })), rng, VW, orbitR, curveTension);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [nodes.map(n => n.id).join(","), VW]);
+  }, [nodes.map(n => n.id).join(","), VW, orbitR, curveTension]);
 
-  // Mobile path — 1:1 pixel canvas (w=140px) to prevent path distortion on medium screens (500px - 1000px)
+  // Mobile path — 1:1 pixel canvas (w=140px)
   const mobilePathData = useMemo(() => {
     const rng = seededRNG(events.reduce((a, e) => a + e.id.length * 11 + e.hourOffset, 99));
-    return buildPath(mobileNodes.map(n => ({ x: n.x, y: n.y, isLeft: true })), rng, 140, 55);
+    return buildPath(mobileNodes.map(n => ({ x: n.x, y: n.y, isLeft: true })), rng, 140, 55, curveTension);
   // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [mobileNodes.map(n => n.id).join(",")]);
+  }, [mobileNodes.map(n => n.id).join(","), curveTension]);
 
   // Desktop ship position
   const ship = useMemo(() => {

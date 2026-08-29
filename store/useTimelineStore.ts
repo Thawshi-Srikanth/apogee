@@ -22,6 +22,12 @@ interface TimelineState {
   hoveredId: string | null;
   expandedMobileId: string | null;
 
+  // Trajectory & Curve Parameters
+  orbitR: number;
+  curveTension: number;
+  itemHeight: number;
+  playbackSpeed: number;
+
   // Actions
   setSimulatedTime: (time: number | ((prev: number) => number)) => void;
   setIsPlaying: (playing: boolean) => void;
@@ -30,10 +36,15 @@ interface TimelineState {
   toggleDevDrawer: () => void;
   setHoveredId: (id: string | null) => void;
   setExpandedMobileId: (id: string | null) => void;
+  setOrbitR: (r: number) => void;
+  setCurveTension: (t: number) => void;
+  setItemHeight: (h: number) => void;
+  setPlaybackSpeed: (s: number) => void;
   addEvent: () => void;
   removeEvent: (id: string) => void;
   updateEvent: (id: string, updates: Partial<TimelineEvent>) => void;
   resetEvents: () => void;
+  resetParameters: () => void;
 }
 
 const initialEvents: TimelineEvent[] = (timelineData as TimelineEvent[]).map((evt, idx) => ({
@@ -49,6 +60,12 @@ export const useTimelineStore = create<TimelineState>((set) => ({
   hoveredId: null,
   expandedMobileId: null,
 
+  // Parameter Defaults
+  orbitR: 105,
+  curveTension: 0.5,
+  itemHeight: 280,
+  playbackSpeed: 1,
+
   setSimulatedTime: (timeOrFn) =>
     set((state) => ({
       simulatedTime:
@@ -63,6 +80,11 @@ export const useTimelineStore = create<TimelineState>((set) => ({
 
   setHoveredId: (hoveredId) => set({ hoveredId }),
   setExpandedMobileId: (expandedMobileId) => set({ expandedMobileId }),
+
+  setOrbitR: (orbitR) => set({ orbitR }),
+  setCurveTension: (curveTension) => set({ curveTension }),
+  setItemHeight: (itemHeight) => set({ itemHeight }),
+  setPlaybackSpeed: (playbackSpeed) => set({ playbackSpeed }),
 
   addEvent: () =>
     set((state) => {
@@ -98,5 +120,13 @@ export const useTimelineStore = create<TimelineState>((set) => ({
       events: initialEvents,
       simulatedTime: 18,
       isPlaying: false,
+    }),
+
+  resetParameters: () =>
+    set({
+      orbitR: 105,
+      curveTension: 0.5,
+      itemHeight: 280,
+      playbackSpeed: 1,
     }),
 }));

@@ -113,6 +113,9 @@ All section headers MUST use the standardized display scale and centered layout 
    - Every modular component MUST consume Apogee's CSS variable tokens (`var(--bg-card)`, `var(--bg-void)`, `var(--text-cloud)`, `var(--border-card)`, `var(--card-border-color)`).
    - Component primitives should allow custom class extensions via `className` while maintaining strict Neo-Brutalist defaults (hard offset shadows, high contrast borders, tactile click states).
 
+3. **Tabbed Control Panel Conventions (`components/ui/tabs.tsx`):**
+   - Complex drawers and control panels MUST use Shadcn-style modular tabbed primitives (`Tabs`, `TabsList`, `TabsTrigger`, `TabsContent`) to separate domain controls into clean tabs (e.g., `SIMULATE` for time scrubbing & presets, `PARAMETERS` for path curvature/orbit radius tuning, `CHECKPOINTS` for node editing).
+
 ---
 
 ## Animation & Motion Principles
