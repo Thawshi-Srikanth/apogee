@@ -120,6 +120,11 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
                     Open Source & Attributions
                   </Link>
                 </li>
+                <li>
+                  <Link href="/contributors" className="hover:text-[var(--text-cloud)] transition-colors">
+                    Contributors
+                  </Link>
+                </li>
               </ul>
             </div>
 
