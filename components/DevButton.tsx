@@ -8,6 +8,8 @@ import { Sliders } from "lucide-react";
 export function DevButton() {
   const { toggleDevDrawer, isDevDrawerOpen } = useTimelineStore();
 
+  if (process.env.NODE_ENV !== "development") return null;
+
   return (
     <motion.button
       onClick={toggleDevDrawer}
@@ -20,8 +22,8 @@ export function DevButton() {
           ? "bg-[var(--accent-orange)] text-black"
           : "bg-[var(--bg-card)] text-[var(--text-cloud)] hover:bg-[var(--accent-orange)] hover:text-black"
       }`}
-      aria-label="Open Mission Dev Panel"
-      title="Open Trajectory Dev Panel (Shift+D)"
+      aria-label="Open Dev Panel"
+      title="Open Dev Panel (Shift+D)"
     >
       <Sliders className="w-4 h-4" />
       <span className="hidden sm:inline font-heading font-black">DEV PANEL</span>

@@ -28,8 +28,8 @@ export function DevDrawer() {
   const minHour = events[0]?.hourOffset ?? 0;
   const maxHour = events[events.length - 1]?.hourOffset ?? 48;
 
-  // Keyboard shortcut listener (Shift+D or Alt+D or Esc)
   useEffect(() => {
+    if (process.env.NODE_ENV !== "development") return;
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.shiftKey && e.key.toLowerCase() === "d") || (e.altKey && e.key.toLowerCase() === "d")) {
         e.preventDefault();
@@ -43,11 +43,12 @@ export function DevDrawer() {
     return () => window.removeEventListener("keydown", handleKeyDown);
   }, [isDevDrawerOpen, setDevDrawerOpen]);
 
+  if (process.env.NODE_ENV !== "development") return null;
+
   return (
     <AnimatePresence>
       {isDevDrawerOpen && (
         <>
-          {/* Backdrop Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
@@ -56,7 +57,6 @@ export function DevDrawer() {
             className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs"
           />
 
-          {/* Right Sliding Drawer Panel - Neo-Brutalist Space-Tech Style */}
           <motion.aside
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
@@ -64,14 +64,13 @@ export function DevDrawer() {
             transition={{ type: "spring", stiffness: 320, damping: 32 }}
             className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[var(--bg-card)] border-l-4 border-[var(--card-border-color)] shadow-[-8px_0px_0px_0px_#000000] flex flex-col overflow-hidden text-[var(--text-cloud)] font-sans"
           >
-            {/* Panel Header */}
             <div className="flex items-center justify-between px-5 py-4 border-b-3 border-[var(--card-border-color)] bg-[var(--bg-void)]">
               <div>
                 <h3 className="font-heading text-sm font-black uppercase tracking-wide text-[var(--text-cloud)]">
-                  MISSION CONTROL DEV PANEL
+                  DEV PANEL
                 </h3>
                 <p className="font-mono text-[10px] font-medium text-[var(--accent-orange)] uppercase">
-                  SIMULATED TIME & TRAJECTORY CONTROLS
+                  TIMELINE CONTROLS
                 </p>
               </div>
               <button
@@ -83,10 +82,7 @@ export function DevDrawer() {
               </button>
             </div>
 
-            {/* Scrollable Content Body */}
             <div className="flex-1 overflow-y-auto p-5 space-y-6">
-
-              {/* ── Section 1: Time Scrubber & Playback Controls ── */}
               <div className="p-4 rounded-xl border-3 border-[var(--card-border-color)] bg-[var(--bg-void)] shadow-[4px_4px_0px_0px_#000000] space-y-4">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
@@ -97,7 +93,6 @@ export function DevDrawer() {
                   </span>
                 </div>
 
-                {/* Main Scrubber Range Slider */}
                 <div className="space-y-1.5">
                   <input
                     type="range"
@@ -118,7 +113,6 @@ export function DevDrawer() {
                   </div>
                 </div>
 
-                {/* Tactile Neo-Brutalist Playback Buttons */}
                 <div className="flex items-center justify-between gap-2 pt-1">
                   <div className="flex items-center gap-2">
                     <button
@@ -155,7 +149,6 @@ export function DevDrawer() {
                 </div>
               </div>
 
-              {/* ── Section 2: Quick Jump Presets ── */}
               <div className="space-y-2">
                 <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] block">
                   TIMELINE PRESETS
@@ -180,7 +173,6 @@ export function DevDrawer() {
                 </div>
               </div>
 
-              {/* ── Section 3: Checkpoint Nodes Manager ── */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
                   <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)]">
@@ -194,7 +186,6 @@ export function DevDrawer() {
                   </button>
                 </div>
 
-                {/* List of editable events */}
                 <div className="space-y-2.5">
                   {events.map((node, idx) => {
                     const isExpanded = expandedEventId === node.id;
@@ -209,7 +200,6 @@ export function DevDrawer() {
                           isExpanded ? "border-[var(--accent-orange)]" : "border-[var(--card-border-color)]"
                         }`}
                       >
-                        {/* Event summary header row */}
                         <div
                           onClick={() => setExpandedEventId(isExpanded ? null : node.id)}
                           className="flex items-center justify-between p-3 cursor-pointer hover:bg-white/5 transition-colors"
@@ -258,7 +248,6 @@ export function DevDrawer() {
                           </div>
                         </div>
 
-                        {/* Expanded Edit Controls */}
                         {isExpanded && (
                           <div className="p-3.5 border-t-2 border-[var(--card-border-color)] bg-black/30 space-y-3 animate-in fade-in duration-200">
                             <div>
@@ -336,13 +325,11 @@ export function DevDrawer() {
                   })}
                 </div>
               </div>
-
             </div>
 
-            {/* Panel Footer */}
             <div className="p-4 border-t-3 border-[var(--card-border-color)] bg-[var(--bg-void)] flex items-center justify-between font-mono text-[10px] font-bold text-[var(--text-muted)]">
               <span>SHORTCUT: <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white border border-white/20">SHIFT+D</kbd></span>
-              <span className="text-[var(--accent-orange)]">NEO-BRUTALIST MISSION CTRL</span>
+              <span className="text-[var(--accent-orange)]">DEV TOOLS</span>
             </div>
           </motion.aside>
         </>

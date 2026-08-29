@@ -3,7 +3,7 @@
 import React, { useMemo, useEffect } from "react";
 import { useTimelineStore } from "@/store/useTimelineStore";
 import {
-  Trash2, Lock, CheckCircle2, Navigation, ChevronDown, ChevronUp,
+  Lock, CheckCircle2, Navigation, ChevronDown, ChevronUp,
 } from "lucide-react";
 
 export interface TimelineEvent {
@@ -259,7 +259,6 @@ export function Timeline() {
     <section id="timeline" className="relative py-12 sm:py-20 overflow-visible bg-[var(--bg-void)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* Standardized Section Header from AGENTS.md */}
         <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">
           <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
             TIMELINE
@@ -269,7 +268,6 @@ export function Timeline() {
           </p>
         </div>
 
-        {/* ── Desktop View ─────────────────────────────────────────────────── */}
         <div className="hidden md:block relative w-full" style={{ height: `${VH}px` }}>
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
@@ -403,14 +401,6 @@ export function Timeline() {
                     <p className="font-sans text-xs text-[var(--text-muted)] font-normal leading-relaxed">
                       {node.description}
                     </p>
-                    {events.length > 2 && (
-                      <button
-                        onClick={e => { e.stopPropagation(); removeEvent(node.id); }}
-                        className="mt-2.5 inline-flex items-center gap-1 text-[10px] font-mono font-bold text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
-                      >
-                        <Trash2 className="w-3 h-3" /> Remove Checkpoint
-                      </button>
-                    )}
                   </div>
                 </div>
               </React.Fragment>
@@ -571,7 +561,7 @@ export function Timeline() {
                         <p className="font-sans text-[11px] text-[var(--text-muted)] font-normal leading-relaxed">
                           {node.description}
                         </p>
-                        <div className="flex items-center justify-between pt-1">
+                        <div className="pt-1">
                           {isCompleted && (
                             <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold text-[var(--accent-cyan)] uppercase">
                               <CheckCircle2 className="w-3 h-3" /> Unlocked
@@ -586,18 +576,6 @@ export function Timeline() {
                             <span className="inline-flex items-center gap-1 font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase">
                               <Lock className="w-3 h-3" /> Locked
                             </span>
-                          )}
-
-                          {events.length > 2 && (
-                            <button
-                              onClick={(e) => {
-                                e.stopPropagation();
-                                removeEvent(node.id);
-                              }}
-                              className="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-red-400 hover:underline ml-auto"
-                            >
-                              <Trash2 className="w-2.5 h-2.5" /> Remove
-                            </button>
                           )}
                         </div>
                       </div>
