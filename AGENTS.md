@@ -20,6 +20,8 @@ Apogee is Sri Lanka's 1st 24-Hour Space Hackathon.
 - **Anti-Pattern Guardrail (NO AI SLOP):** 
   - NEVER use generic purple/indigo AI gradients, glossy blue badges, unrequested floating cartoon mascots, or floating stickers unless explicitly requested with provided assets.
   - NEVER use generic SaaS template layout cards without neo-brutalist borders and curated palette tokens.
+  - NEVER use unwanted blinking, flashing, or pinging animations (e.g., `animate-ping`, incessant blinking dots) that create visual noise.
+  - DO NOT overuse icons. Use icons with restraint and intention—never clutter buttons, badges, or headers with redundant icons.
 
 ---
 
@@ -106,6 +108,10 @@ All section headers MUST use the standardized display scale and centered layout 
 
 3. **No Clipping / Overflow:**
    - On sections containing floating character assets or upward scroll lifts, set `overflow-visible` and appropriate `z-index` (`z-20` / `z-30`) so elements are never clipped at section edges.
+
+4. **No Unwanted Blinking or Icon Overuse:**
+   - Eliminate distracting `animate-ping` or rapid flashing loops.
+   - Use icons sparingly to maintain a clean, high-impact neo-brutalist hierarchy.
 
 ---
 
