@@ -46,27 +46,29 @@ export default function AttributionsPage() {
     <div className="min-h-screen bg-[var(--bg-void)] text-[var(--text-cloud)] selection:bg-[#FF6B35] selection:text-white py-12 px-4 sm:px-6 lg:px-8">
       <div className="max-w-6xl mx-auto">
         
-        {/* Top Header & Navigation Bar */}
-        <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-6 mb-12 border-b-4 border-[var(--card-border-color)] pb-8">
-          <div className="flex items-center gap-4">
+        {/* Top Navigation Bar */}
+        <div className="flex items-center justify-between pb-6 mb-10 border-b-3 border-[var(--card-border-color)]">
+          <Link href="/" className="hover:opacity-80 transition-opacity">
             <Logo />
-            <div>
-              <h1 className="font-heading text-3xl sm:text-5xl font-normal uppercase tracking-wide text-[var(--text-cloud)]">
-                ATTRIBUTIONS
-              </h1>
-              <p className="font-sans text-sm sm:text-base text-[var(--accent-orange)] font-medium">
-                Educational Non-Profit Hackathon & Open Source Licenses
-              </p>
-            </div>
-          </div>
+          </Link>
 
           <Link
             href="/"
-            className="inline-flex items-center gap-2 px-6 py-3 rounded-xl bg-[var(--bg-card)] card-border font-mono text-xs sm:text-sm font-bold uppercase text-[var(--text-cloud)] card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all w-fit"
+            className="inline-flex items-center gap-2 px-5 py-2.5 rounded-xl bg-[var(--bg-card)] card-border font-mono text-xs sm:text-sm font-bold uppercase text-[var(--text-cloud)] card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
           >
             <ArrowLeft className="h-4 w-4 text-[var(--accent-cyan)]" />
-            BACK TO APOGEE
+            BACK TO HOMEPAGE
           </Link>
+        </div>
+
+        {/* Standard Centered Display Scale Section Header */}
+        <div className="text-center mb-12 sm:mb-16">
+          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-normal text-[var(--text-cloud)] uppercase tracking-wide mb-3">
+            ATTRIBUTIONS
+          </h1>
+          <p className="font-sans text-lg sm:text-xl text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">
+            Educational Non-Profit Space Hackathon & Open Source Registry
+          </p>
         </div>
 
         {/* Co-Organizers Highlight Card */}
