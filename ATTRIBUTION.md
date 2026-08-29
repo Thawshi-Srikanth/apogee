@@ -61,34 +61,18 @@ Below is the complete registry of open-source libraries, frameworks, tools, and 
 ## Fonts & Typography Assets
 
 - **Rubik**
-  - **Description:** Primary rounded geometric display sans-serif typeface.
+  - **Description:** Primary rounded geometric display headline typeface.
   - **License:** SIL Open Font License 1.1
   - **Provider:** Google Fonts / `next/font/google`
 
-- **Cubano (Backup)**
-  - **Designed By:** C. Van De Water
-  - **Distributed By:** The Lost Type Co-op
-  - **License:** Personal, Educational & Student Use License
-  - **Coverage:** Backup display typeface for educational student projects & SEDS club initiatives.
-
 - **Outfit**
-  - **Description:** Modern geometric display sans-serif typeface.
-  - **License:** SIL Open Font License, 1.1
+  - **Description:** Modern geometric display sans-serif body typeface.
+  - **License:** SIL Open Font License 1.1
   - **Provider:** Google Fonts / `next/font/google`
 
 - **JetBrains Mono**
-  - **Description:** Developer monospaced typeface.
-  - **License:** SIL Open Font License, 1.1
-  - **Provider:** Google Fonts / `next/font/google`
-
-- **Inter**
-  - **Description:** Clean, high-legibility sans-serif typeface.
-  - **License:** SIL Open Font License, 1.1
-  - **Provider:** Google Fonts / `next/font/google`
-
-- **Press Start 2P**
-  - **Description:** Retro 8-bit arcade pixel font.
-  - **License:** SIL Open Font License, 1.1
+  - **Description:** Developer monospaced code and stats typeface.
+  - **License:** SIL Open Font License 1.1
   - **Provider:** Google Fonts / `next/font/google`
 
 ---

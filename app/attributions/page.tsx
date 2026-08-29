@@ -34,11 +34,8 @@ export default function AttributionsPage() {
       category: "Fonts & Typography Assets",
       items: [
         { name: "Rubik", desc: "Primary rounded bold display headline typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Rubik" },
-        { name: "Cubano (Backup)", desc: "Rounded bold display headline typeface by C. Van De Water.", license: "Lost Type Personal & Educational License", url: "http://www.losttype.com/font/?name=cubano" },
-        { name: "Outfit", desc: "Modern geometric display sans-serif typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Outfit" },
-        { name: "JetBrains Mono", desc: "Developer monospaced typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/JetBrains+Mono" },
-        { name: "Inter", desc: "High-legibility sans-serif typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Inter" },
-        { name: "Press Start 2P", desc: "Retro 8-bit arcade pixel font.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Press+Start+2P" },
+        { name: "Outfit", desc: "Modern geometric display sans-serif body typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/Outfit" },
+        { name: "JetBrains Mono", desc: "Developer monospaced code and stats typeface.", license: "SIL Open Font License 1.1", url: "https://fonts.google.com/specimen/JetBrains+Mono" },
       ],
     },
   ];
@@ -64,7 +61,7 @@ export default function AttributionsPage() {
 
         {/* Standard Centered Display Scale Section Header */}
         <div className="text-center mb-12 sm:mb-16">
-          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
+          <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[var(--text-cloud)] uppercase tracking-tight mb-3">
             ATTRIBUTIONS
           </h1>
           <p className="font-sans text-lg sm:text-xl text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">

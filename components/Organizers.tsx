@@ -27,7 +27,7 @@ export function Organizers() {
         
         {/* Standard Section Header */}
         <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">
-          <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
+          <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[var(--text-cloud)] uppercase tracking-tight mb-3">
             ORGANIZERS
           </h2>
           <p className="font-sans text-lg text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">

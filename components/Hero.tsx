@@ -38,7 +38,7 @@ export function Hero({ onOpenRegister }: HeroProps) {
         <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
           {/* Left Hero Content */}
           <div className="relative col-span-4 sm:col-span-8 lg:col-span-7 flex flex-col items-start text-left z-10">
-            <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black tracking-tight leading-[1.02] text-[var(--text-cloud)] uppercase mb-6">
+            <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold tracking-tight leading-[1.02] text-[var(--text-cloud)] uppercase mb-6">
               Rocket fuel for <br />
               <span className="text-[#00f0ff]">developers.</span>
             </h1>

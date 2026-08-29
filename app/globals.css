@@ -1,9 +1,8 @@
 @import "tailwindcss";
 
 @theme {
-  --font-heading: var(--font-rubik), var(--font-cubano), sans-serif;
+  --font-heading: var(--font-rubik), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
-  --font-pixel: var(--font-pixel), monospace;
   --font-sans: var(--font-outfit), sans-serif;
 }
 
@@ -21,9 +20,8 @@
   --card-shadow: 6px 6px 0px 0px #000000;
   --card-shadow-sm: 4px 4px 0px 0px #000000;
   --header-bg: rgba(10, 10, 12, 0.95);
-  --font-heading: var(--font-rubik), var(--font-cubano), sans-serif;
+  --font-heading: var(--font-rubik), sans-serif;
   --font-mono: var(--font-jetbrains-mono), monospace;
-  --font-pixel: var(--font-pixel), monospace;
   --font-sans: var(--font-outfit), sans-serif;
   /* Timeline path */
   --path-track: #0d1520;
@@ -59,7 +57,7 @@ body {
 
 .font-heading {
   font-family: var(--font-heading);
-  font-weight: 900;
+  font-weight: 800;
   letter-spacing: 0.02em;
 }
 
@@ -69,10 +67,6 @@ body {
 
 .font-sans {
   font-family: var(--font-sans);
-}
-
-.font-pixel {
-  font-family: var(--font-pixel);
 }
 
 .card-border {
