@@ -7,6 +7,7 @@
     "title": "Doors Open & Registration",
     "description": "Team formation, badge collection, networking, and pre-event dinner.",
     "status": "completed",
+    "hourOffset": 0,
     "align": "top"
   },
   {
@@ -17,6 +18,7 @@
     "title": "Opening Ceremony & Briefing",
     "description": "Official challenge reveal, mentor introduction, and hackathon kickoff.",
     "status": "completed",
+    "hourOffset": 1,
     "align": "bottom"
   },
   {
@@ -27,6 +29,7 @@
     "title": "Midpoint Check-in",
     "description": "Technical review with space-tech mentors, project health check, and lunch.",
     "status": "active",
+    "hourOffset": 18,
     "align": "top"
   },
   {
@@ -37,6 +40,7 @@
     "title": "Code Freeze & Submissions",
     "description": "Repositories locked, dev submission portal closes, final pitch prep.",
     "status": "upcoming",
+    "hourOffset": 42,
     "align": "bottom"
   },
   {
@@ -47,6 +51,7 @@
     "title": "Live Demos & Judging",
     "description": "Teams present live prototypes to the judging panel in 5-minute sprints.",
     "status": "upcoming",
+    "hourOffset": 44,
     "align": "top"
   },
   {
@@ -57,6 +62,7 @@
     "title": "Prize Ceremony & Closing",
     "description": "Rs. 500,000+ awarded, keynotes, closing ceremony, and photo session.",
     "status": "upcoming",
+    "hourOffset": 47,
     "align": "bottom"
   }
 ]
