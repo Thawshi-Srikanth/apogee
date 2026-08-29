@@ -73,10 +73,6 @@ export default function CodeOfConductPage() {
 
         {/* Hero Banner Header */}
         <div className="mb-16">
-          <div className="inline-flex items-center gap-2 px-3 py-1 mb-4 rounded-md bg-[var(--accent-yellow)] text-black font-mono text-xs font-black uppercase tracking-wider">
-            <HugeiconsIcon icon={SecurityCheckIcon} className="h-4 w-4" />
-            OFFICIAL POLICY • APOGEE 2027
-          </div>
           <h1 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-extrabold text-[var(--text-cloud)] uppercase tracking-tight mb-4">
             CODE OF CONDUCT
           </h1>

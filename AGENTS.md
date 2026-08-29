@@ -22,6 +22,7 @@ Apogee is Sri Lanka's 1st 24-Hour Space Hackathon.
   - NEVER use generic SaaS template layout cards without neo-brutalist borders and curated palette tokens.
   - NEVER use unwanted blinking, flashing, or pinging animations (e.g., `animate-ping`, incessant blinking dots) that create visual noise.
   - DO NOT overuse icons. Use icons with restraint and intention—never clutter buttons, badges, or headers with redundant icons.
+  - NEVER add unwanted, unrequested, or decorative pill/badge tags above section titles or components (e.g., "LIVE MISSION TELEMETRY", "OFFICIAL POLICY", "FEATURED"). Keep section titles clean, direct, and un-cluttered.
 
 ---
 
