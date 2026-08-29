@@ -1,6 +1,7 @@
 "use client";
 
 import React, { useState } from "react";
+import Link from "next/link";
 import { Button } from "@/components/ui/Button";
 import { Logo } from "@/components/Logo";
 import { RoverMascot } from "@/components/RetroMascots";
@@ -111,7 +112,7 @@ export function FooterCTA({ onOpenRegister }: FooterCTAProps) {
                 <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">FAQ</a></li>
                 <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">Rules & Guidelines</a></li>
                 <li><a href="#faq" className="hover:text-[var(--text-cloud)] transition-colors">Code of Conduct</a></li>
-                <li><a href="https://github.com/Thawshi-Srikanth/apogee/blob/main/ATTRIBUTION.md" target="_blank" rel="noreferrer" className="hover:text-[var(--text-cloud)] transition-colors">Open Source & License</a></li>
+                <li><Link href="/attributions" className="hover:text-[var(--text-cloud)] transition-colors">Open Source & Attributions</Link></li>
               </ul>
             </div>
 
