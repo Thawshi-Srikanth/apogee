@@ -12,6 +12,7 @@ import { Timeline } from "@/components/Timeline";
 import { Speakers } from "@/components/Speakers";
 import { Prizes } from "@/components/Prizes";
 import { FAQ } from "@/components/FAQ";
+import { Organizers } from "@/components/Organizers";
 import { Sponsors } from "@/components/Sponsors";
 import { FooterCTA } from "@/components/FooterCTA";
 import { RegisterModal } from "@/components/RegisterModal";
@@ -154,7 +155,17 @@ export default function Home() {
           <FAQ />
         </motion.div>
 
-        {/* Section 10: Sponsors / Partners */}
+        {/* Section 10: Organizers */}
+        <motion.div
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, margin: "-50px" }}
+          variants={sectionVariants}
+        >
+          <Organizers />
+        </motion.div>
+
+        {/* Section 11: Partners */}
         <motion.div
           initial="hidden"
           whileInView="visible"

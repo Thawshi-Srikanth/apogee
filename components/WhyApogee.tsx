@@ -1,7 +1,6 @@
 "use client";
 
 import React from "react";
-import { RoverMascot } from "@/components/RetroMascots";
 
 export function WhyApogee() {
   const points = [
@@ -28,7 +27,7 @@ export function WhyApogee() {
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         
         {/* 4-8-12 Master Grid Container */}
-        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8 items-center">
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
           
           {/* Header */}
           <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">
@@ -41,28 +40,21 @@ export function WhyApogee() {
           </div>
 
           {/* 4 Cards */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-8 grid grid-cols-1 sm:grid-cols-2 gap-6">
-            {points.map((item, idx) => (
-              <div
-                key={idx}
-                className="rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
-              >
-                <div>
-                  <h3 className="font-heading text-xl font-bold text-[var(--text-cloud)] mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="font-sans text-sm text-[var(--text-muted)] leading-relaxed">
-                    {item.desc}
-                  </p>
-                </div>
+          {points.map((item, idx) => (
+            <div
+              key={idx}
+              className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
+            >
+              <div>
+                <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)] mb-2">
+                  {item.title}
+                </h3>
+                <p className="font-sans text-base text-[var(--text-muted)] leading-relaxed">
+                  {item.desc}
+                </p>
               </div>
-            ))}
-          </div>
-
-          {/* Rover Character (On Land) */}
-          <div className="col-span-4 sm:col-span-8 lg:col-span-4 flex justify-center lg:justify-end items-center">
-            <RoverMascot size={260} className="transform hover:scale-105 transition-transform" />
-          </div>
+            </div>
+          ))}
 
         </div>
 

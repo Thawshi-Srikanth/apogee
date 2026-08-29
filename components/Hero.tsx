@@ -44,12 +44,9 @@ export function Hero({ onOpenRegister }: HeroProps) {
             </h1>
 
             <p className="font-sans text-lg sm:text-2xl text-[var(--text-muted)] font-normal max-w-xl mb-8 leading-relaxed">
-              Sri Lanka's 24-hour space hackathon in Colombo. Building{" "}
-              <span className="font-medium text-[#ff5500]">
-                real challenges
-              </span>{" "}
-              && <span className="font-medium text-[#f72585]">real judges</span>
-              .
+              Sri Lanka's 24-hour space hackathon in Colombo. Organized by{" "}
+              <span className="font-medium text-[#00f0ff]">SEDS Sri Lanka</span>{" "}
+              && <span className="font-medium text-[#ffd000]">SEDS SLIIT</span>.
             </p>
 
             {/* Prominent Hero CTA Button */}

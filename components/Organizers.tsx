@@ -1,0 +1,60 @@
+"use client";
+
+import React from "react";
+
+export function Organizers() {
+  const organizers = [
+    {
+      name: "SEDS Sri Lanka",
+      role: "National Chapter",
+      desc: "Students for the Exploration and Development of Space (SEDS) Sri Lanka.",
+      color: "var(--accent-cyan)",
+    },
+    {
+      name: "SEDS SLIIT",
+      role: "University Chapter",
+      desc: "SEDS SLIIT Student Branch & Space Robotics Lab.",
+      color: "var(--accent-yellow)",
+    },
+  ];
+
+  return (
+    <section id="organizers" className="relative py-16 sm:py-24">
+      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+        
+        {/* Standard Section Header */}
+        <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">
+          <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
+            ORGANIZERS
+          </h2>
+          <p className="font-sans text-lg text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">
+            A joint collaboration between SEDS Sri Lanka and SEDS SLIIT.
+          </p>
+        </div>
+
+        {/* 4-8-12 Grid Container */}
+        <div className="grid grid-cols-4 sm:grid-cols-8 lg:grid-cols-12 gap-6 lg:gap-8">
+          {organizers.map((org, idx) => (
+            <div
+              key={idx}
+              className="col-span-4 sm:col-span-4 lg:col-span-6 rounded-xl bg-[var(--bg-card)] card-border p-6 flex flex-col justify-between card-shadow hover:-translate-x-0.5 hover:-translate-y-0.5 transition-transform"
+            >
+              <div>
+                <div className="font-mono text-xs font-bold uppercase mb-1" style={{ color: org.color }}>
+                  {org.role}
+                </div>
+                <h3 className="font-heading text-2xl font-bold text-[var(--text-cloud)] mb-2">
+                  {org.name}
+                </h3>
+                <p className="font-sans text-sm text-[var(--text-muted)] font-normal leading-relaxed">
+                  {org.desc}
+                </p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+      </div>
+    </section>
+  );
+}
