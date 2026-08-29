@@ -32,10 +32,10 @@ Below is the complete registry of open-source libraries, frameworks, tools, and 
   - **License:** MIT License
   - **Website:** [https://tailwindcss.com](https://tailwindcss.com)
 
-- **Lucide React**
-  - **Description:** Clean, consistent SVG icon library.
-  - **License:** ISC License
-  - **Website:** [https://lucide.dev](https://lucide.dev)
+- **Hugeicons React** (`@hugeicons/react` & `@hugeicons/core-free-icons`)
+  - **Description:** Modern stroke-rounded SVG icon library.
+  - **License:** MIT License
+  - **Website:** [https://hugeicons.com](https://hugeicons.com)
 
 ---
 
