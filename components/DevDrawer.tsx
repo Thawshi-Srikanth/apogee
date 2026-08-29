@@ -5,8 +5,8 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useTimelineStore } from "@/store/useTimelineStore";
 import {
   X, Play, Pause, Plus, Trash2, RotateCcw, Clock,
-  Lock, CheckCircle2, Navigation, Settings2, Sliders, ChevronDown, ChevronUp,
-  FastForward, Rewind, Sparkles, Layers
+  Lock, CheckCircle2, Navigation, Sliders, ChevronDown, ChevronUp,
+  FastForward, Rewind, Layers
 } from "lucide-react";
 
 export function DevDrawer() {
@@ -30,7 +30,7 @@ export function DevDrawer() {
   const minHour = events[0]?.hourOffset ?? 0;
   const maxHour = events[events.length - 1]?.hourOffset ?? 48;
 
-  // Keyboard shortcut listener (Shift+D or Esc)
+  // Keyboard shortcut listener (Shift+D or Alt+D or Esc)
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if ((e.shiftKey && e.key.toLowerCase() === "d") || (e.altKey && e.key.toLowerCase() === "d")) {
@@ -49,62 +49,62 @@ export function DevDrawer() {
     <AnimatePresence>
       {isDevDrawerOpen && (
         <>
-          {/* Backdrop Blur Overlay */}
+          {/* Backdrop Overlay */}
           <motion.div
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             onClick={() => setDevDrawerOpen(false)}
-            className="fixed inset-0 z-50 bg-black/60 backdrop-blur-sm"
+            className="fixed inset-0 z-50 bg-black/70 backdrop-blur-xs"
           />
 
-          {/* Right Sliding Drawer Panel */}
+          {/* Right Sliding Drawer Panel - Neo-Brutalist Space-Tech Style */}
           <motion.aside
             initial={{ x: "100%" }}
             animate={{ x: 0 }}
             exit={{ x: "100%" }}
-            transition={{ type: "spring", stiffness: 300, damping: 30 }}
-            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[var(--bg-card)] border-l border-[var(--border-card)] shadow-2xl flex flex-col overflow-hidden text-[var(--text-cloud)] font-sans"
+            transition={{ type: "spring", stiffness: 320, damping: 32 }}
+            className="fixed top-0 right-0 bottom-0 z-50 w-full max-w-md bg-[var(--bg-card)] border-l-4 border-[var(--card-border-color)] shadow-[-8px_0px_0px_0px_#000000] flex flex-col overflow-hidden text-[var(--text-cloud)] font-sans"
           >
             {/* Panel Header */}
-            <div className="flex items-center justify-between px-5 py-4 border-b border-[var(--border-card)] bg-[var(--bg-void)]">
-              <div className="flex items-center gap-2.5">
-                <div className="p-1.5 rounded-lg bg-[var(--accent-orange)]/15 border border-[var(--accent-orange)]/30 text-[var(--accent-orange)]">
+            <div className="flex items-center justify-between px-5 py-4 border-b-3 border-[var(--card-border-color)] bg-[var(--bg-void)]">
+              <div className="flex items-center gap-3">
+                <div className="p-2 rounded bg-[var(--accent-orange)] text-black font-black border-2 border-black shadow-[2px_2px_0px_0px_#000]">
                   <Sliders className="w-4 h-4" />
                 </div>
                 <div>
-                  <h3 className="font-mono text-xs font-bold uppercase tracking-wider text-[var(--text-cloud)]">
-                    Trajectory Dev Panel
+                  <h3 className="font-heading text-sm font-black uppercase tracking-wide text-[var(--text-cloud)]">
+                    MISSION CONTROL DEV PANEL
                   </h3>
-                  <p className="font-mono text-[10px] text-[var(--text-muted)]">
-                    Simulated Time & Orbital Controls
+                  <p className="font-mono text-[10px] font-medium text-[var(--accent-orange)] uppercase">
+                    SIMULATED TIME & TRAJECTORY CONTROLS
                   </p>
                 </div>
               </div>
               <button
                 onClick={() => setDevDrawerOpen(false)}
-                className="p-1.5 rounded-lg hover:bg-white/10 text-[var(--text-muted)] hover:text-white transition-colors"
+                className="p-1.5 rounded border-2 border-black bg-[var(--bg-card)] text-[var(--text-cloud)] hover:bg-[var(--accent-pink)] hover:text-white active:translate-x-[1px] active:translate-y-[1px] shadow-[2px_2px_0px_0px_#000] transition-all"
                 title="Close (Esc)"
               >
-                <X className="w-5 h-5" />
+                <X className="w-4 h-4" />
               </button>
             </div>
 
             {/* Scrollable Content Body */}
             <div className="flex-1 overflow-y-auto p-5 space-y-6">
 
-              {/* ── Section 1: Time Scrubber & Playback ── */}
-              <div className="p-4 rounded-xl border border-[var(--border-card)] bg-[var(--bg-void)]/60 space-y-4">
+              {/* ── Section 1: Time Scrubber & Playback Controls ── */}
+              <div className="p-4 rounded-xl border-3 border-[var(--card-border-color)] bg-[var(--bg-void)] shadow-[4px_4px_0px_0px_#000000] space-y-4">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] flex items-center gap-1.5">
-                    <Clock className="w-3.5 h-3.5 text-[var(--accent-orange)]" /> Time Scrubber
+                  <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)] flex items-center gap-1.5">
+                    <Clock className="w-3.5 h-3.5 text-[var(--accent-orange)]" /> TIME SCRUBBER
                   </span>
-                  <span className="font-mono text-xs font-bold text-[var(--accent-yellow)] bg-[var(--accent-yellow)]/10 px-2 py-0.5 rounded border border-[var(--accent-yellow)]/20">
-                    T+{simulatedTime.toFixed(1)} hrs
+                  <span className="font-mono text-xs font-black text-black bg-[var(--accent-yellow)] border border-black px-2 py-0.5 rounded uppercase shadow-[1px_1px_0px_0px_#000]">
+                    T+{simulatedTime.toFixed(1)} HRS
                   </span>
                 </div>
 
-                {/* Main Scrubber Slider */}
+                {/* Main Scrubber Range Slider */}
                 <div className="space-y-1.5">
                   <input
                     type="range"
@@ -116,35 +116,37 @@ export function DevDrawer() {
                       setIsPlaying(false);
                       setSimulatedTime(parseFloat(e.target.value));
                     }}
-                    className="w-full h-2 bg-black/40 rounded appearance-none cursor-pointer accent-[var(--accent-orange)]"
+                    className="w-full h-2.5 bg-gray-900 rounded appearance-none cursor-pointer accent-[var(--accent-orange)]"
                   />
-                  <div className="flex justify-between font-mono text-[9px] text-[var(--text-muted)]">
-                    <span>T+0.0</span>
-                    <span>T+{(maxHour / 2).toFixed(0)}.0</span>
-                    <span>T+{maxHour.toFixed(0)}.0</span>
+                  <div className="flex justify-between font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase">
+                    <span>Start (T+00)</span>
+                    <span>Mid (T+{(maxHour / 2).toFixed(0)})</span>
+                    <span>Finish (T+{maxHour.toFixed(0)})</span>
                   </div>
                 </div>
 
-                {/* Playback Controls */}
+                {/* Tactile Neo-Brutalist Playback Buttons */}
                 <div className="flex items-center justify-between gap-2 pt-1">
-                  <div className="flex items-center gap-1.5">
+                  <div className="flex items-center gap-2">
                     <button
                       onClick={() => setSimulatedTime(minHour)}
-                      className="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--accent-orange)] text-[var(--text-cloud)] transition-colors"
+                      className="p-2 rounded bg-[var(--bg-card)] border-2 border-black text-[var(--text-cloud)] shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
                       title="Jump to Start"
                     >
                       <Rewind className="w-3.5 h-3.5" />
                     </button>
+
                     <button
                       onClick={toggleIsPlaying}
-                      className="flex items-center gap-1.5 px-3 py-2 rounded-lg bg-[var(--accent-orange)] hover:bg-[var(--accent-orange)]/90 text-black font-mono text-xs font-bold transition-colors"
+                      className="flex items-center gap-1.5 px-3 py-2 rounded bg-[var(--accent-orange)] text-black border-2 border-black font-mono text-xs font-black uppercase shadow-[3px_3px_0px_0px_#000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none transition-all"
                     >
                       {isPlaying ? <Pause className="w-3.5 h-3.5" /> : <Play className="w-3.5 h-3.5" />}
-                      {isPlaying ? "Pause" : "Play"}
+                      {isPlaying ? "PAUSE" : "PLAY"}
                     </button>
+
                     <button
                       onClick={() => setSimulatedTime(maxHour)}
-                      className="p-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-card)] hover:border-[var(--accent-orange)] text-[var(--text-cloud)] transition-colors"
+                      className="p-2 rounded bg-[var(--bg-card)] border-2 border-black text-[var(--text-cloud)] shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
                       title="Jump to Finish"
                     >
                       <FastForward className="w-3.5 h-3.5" />
@@ -153,17 +155,17 @@ export function DevDrawer() {
 
                   <button
                     onClick={resetEvents}
-                    className="flex items-center gap-1 px-2.5 py-2 rounded-lg bg-[var(--bg-card)] border border-[var(--border-card)] text-[var(--text-muted)] hover:text-white transition-colors text-xs font-mono font-bold"
+                    className="flex items-center gap-1.5 px-2.5 py-2 rounded bg-[var(--bg-card)] border-2 border-black text-[var(--text-muted)] hover:text-white font-mono text-xs font-bold uppercase shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
                   >
-                    <RotateCcw className="w-3.5 h-3.5" /> Reset
+                    <RotateCcw className="w-3.5 h-3.5" /> RESET
                   </button>
                 </div>
               </div>
 
               {/* ── Section 2: Quick Jump Presets ── */}
               <div className="space-y-2">
-                <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] block">
-                  Quick Timeline Presets
+                <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-muted)] block">
+                  TIMELINE PRESETS
                 </span>
                 <div className="grid grid-cols-2 gap-2">
                   {events.map((evt) => (
@@ -173,10 +175,10 @@ export function DevDrawer() {
                         setIsPlaying(false);
                         setSimulatedTime(evt.hourOffset);
                       }}
-                      className={`px-2.5 py-1.5 rounded-lg border font-mono text-[10px] font-semibold truncate text-left transition-colors ${
+                      className={`px-2.5 py-1.5 rounded border-2 font-mono text-[10px] font-bold truncate text-left transition-all active:translate-x-[1px] active:translate-y-[1px] ${
                         Math.abs(simulatedTime - evt.hourOffset) < 0.5
-                          ? "border-[var(--accent-orange)] bg-[var(--accent-orange)]/15 text-[var(--accent-orange)]"
-                          : "border-[var(--border-card)] bg-[var(--bg-void)]/40 text-[var(--text-muted)] hover:text-[var(--text-cloud)]"
+                          ? "border-black bg-[var(--accent-orange)] text-black shadow-[2px_2px_0px_0px_#000]"
+                          : "border-[var(--card-border-color)] bg-[var(--bg-void)] text-[var(--text-muted)] hover:text-[var(--text-cloud)] shadow-[2px_2px_0px_0px_#000]"
                       }`}
                     >
                       {evt.code}: {evt.title}
@@ -185,22 +187,22 @@ export function DevDrawer() {
                 </div>
               </div>
 
-              {/* ── Section 3: Checkpoints & Planets Manager ── */}
+              {/* ── Section 3: Checkpoint Nodes Manager ── */}
               <div className="space-y-3">
                 <div className="flex items-center justify-between">
-                  <span className="font-mono text-[10px] font-bold uppercase tracking-widest text-[var(--text-muted)] flex items-center gap-1.5">
-                    <Layers className="w-3.5 h-3.5 text-[var(--accent-cyan)]" /> Checkpoints ({events.length})
+                  <span className="font-mono text-[10px] font-black uppercase tracking-widest text-[var(--text-cloud)] flex items-center gap-1.5">
+                    <Layers className="w-3.5 h-3.5 text-[var(--accent-cyan)]" /> CHECKPOINTS ({events.length})
                   </span>
                   <button
                     onClick={addEvent}
-                    className="flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--accent-cyan)]/15 border border-[var(--accent-cyan)]/30 text-[var(--accent-cyan)] hover:bg-[var(--accent-cyan)]/25 transition-colors font-mono text-[10px] font-bold uppercase"
+                    className="flex items-center gap-1 px-2.5 py-1 rounded bg-[var(--accent-cyan)] text-black border-2 border-black font-mono text-[10px] font-black uppercase shadow-[2px_2px_0px_0px_#000] active:translate-x-[1px] active:translate-y-[1px] active:shadow-none transition-all"
                   >
-                    <Plus className="w-3 h-3" /> Add Planet
+                    <Plus className="w-3 h-3" /> ADD PLANET
                   </button>
                 </div>
 
                 {/* List of editable events */}
-                <div className="space-y-2">
+                <div className="space-y-2.5">
                   {events.map((node, idx) => {
                     const isExpanded = expandedEventId === node.id;
                     const isCompleted = simulatedTime >= (events[idx + 1]?.hourOffset ?? node.hourOffset + 6);
@@ -210,11 +212,11 @@ export function DevDrawer() {
                     return (
                       <div
                         key={`drawer-item-${node.id}`}
-                        className={`rounded-xl border transition-all bg-[var(--bg-void)]/40 ${
-                          isExpanded ? "border-[var(--accent-orange)]" : "border-[var(--border-card)]"
+                        className={`rounded-xl border-2 transition-all bg-[var(--bg-void)] shadow-[3px_3px_0px_0px_#000000] ${
+                          isExpanded ? "border-[var(--accent-orange)]" : "border-[var(--card-border-color)]"
                         }`}
                       >
-                        {/* Event summary row */}
+                        {/* Event summary header row */}
                         <div
                           onClick={() => setExpandedEventId(isExpanded ? null : node.id)}
                           className="flex items-center justify-between p-3 cursor-pointer hover:bg-white/5 transition-colors"
@@ -235,11 +237,11 @@ export function DevDrawer() {
                               )}
                             </div>
                             <div>
-                              <div className="flex items-center gap-1.5">
-                                <span className="font-mono text-[9px] font-bold text-black bg-[var(--accent-yellow)] px-1 py-0.2 rounded">
+                              <div className="flex items-center gap-1.5 mb-0.5">
+                                <span className="font-mono text-[9px] font-black text-black bg-[var(--accent-yellow)] px-1 py-0.2 rounded border border-black">
                                   {node.time}
                                 </span>
-                                <span className="font-mono text-[9px] text-[var(--text-muted)]">
+                                <span className="font-mono text-[9px] font-semibold text-[var(--text-muted)]">
                                   {node.code}
                                 </span>
                               </div>
@@ -250,7 +252,7 @@ export function DevDrawer() {
                           </div>
 
                           <div className="flex items-center gap-2">
-                            <span className={`w-2 h-2 rounded-full ${
+                            <span className={`w-2.5 h-2.5 rounded-full border border-black ${
                               isCompleted ? "bg-[var(--accent-cyan)]" :
                               isActive    ? "bg-[var(--accent-orange)]" :
                                             "bg-[var(--text-muted)]"
@@ -263,37 +265,37 @@ export function DevDrawer() {
                           </div>
                         </div>
 
-                        {/* Expanded Edit Form */}
+                        {/* Expanded Edit Controls */}
                         {isExpanded && (
-                          <div className="p-3 border-t border-[var(--border-card)] bg-black/20 space-y-3 animate-in fade-in duration-200">
+                          <div className="p-3.5 border-t-2 border-[var(--card-border-color)] bg-black/30 space-y-3 animate-in fade-in duration-200">
                             <div>
-                              <label className="block font-mono text-[9px] text-[var(--text-muted)] uppercase mb-1">
-                                Title
+                              <label className="block font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                                CHECKPOINT TITLE
                               </label>
                               <input
                                 type="text"
                                 value={node.title}
                                 onChange={(e) => updateEvent(node.id, { title: e.target.value })}
-                                className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-card)] font-sans text-xs text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none"
+                                className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border-2 border-black font-sans text-xs font-semibold text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none"
                               />
                             </div>
 
                             <div>
-                              <label className="block font-mono text-[9px] text-[var(--text-muted)] uppercase mb-1">
-                                Description
+                              <label className="block font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                                DESCRIPTION
                               </label>
                               <textarea
                                 rows={2}
                                 value={node.description}
                                 onChange={(e) => updateEvent(node.id, { description: e.target.value })}
-                                className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-card)] font-sans text-xs text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none resize-none"
+                                className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border-2 border-black font-sans text-xs text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none resize-none leading-relaxed"
                               />
                             </div>
 
                             <div className="grid grid-cols-2 gap-2">
                               <div>
-                                <label className="block font-mono text-[9px] text-[var(--text-muted)] uppercase mb-1">
-                                  Hour Offset (T+N)
+                                <label className="block font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                                  HOUR OFFSET (T+N)
                                 </label>
                                 <input
                                   type="number"
@@ -305,32 +307,32 @@ export function DevDrawer() {
                                       code: `T+${String(val).padStart(2, "0")}:00`,
                                     });
                                   }}
-                                  className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-card)] font-mono text-xs text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none"
+                                  className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border-2 border-black font-mono text-xs font-bold text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none"
                                 />
                               </div>
                               <div>
-                                <label className="block font-mono text-[9px] text-[var(--text-muted)] uppercase mb-1">
-                                  Time Code
+                                <label className="block font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase mb-1">
+                                  DISPLAY TIME
                                 </label>
                                 <input
                                   type="text"
                                   value={node.time}
                                   onChange={(e) => updateEvent(node.id, { time: e.target.value })}
-                                  className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border border-[var(--border-card)] font-mono text-xs text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none"
+                                  className="w-full px-2.5 py-1.5 rounded bg-[var(--bg-card)] border-2 border-black font-mono text-xs font-bold text-[var(--text-cloud)] focus:border-[var(--accent-orange)] outline-none"
                                 />
                               </div>
                             </div>
 
                             <div className="flex items-center justify-between pt-1">
-                              <span className="font-mono text-[9px] text-[var(--text-muted)] uppercase">
-                                Planet sprite #{node.planetIndex}
+                              <span className="font-mono text-[9px] font-bold text-[var(--text-muted)] uppercase">
+                                PLANET SPRITE #{node.planetIndex}
                               </span>
                               {events.length > 2 && (
                                 <button
                                   onClick={() => removeEvent(node.id)}
-                                  className="inline-flex items-center gap-1 font-mono text-[10px] text-red-400 hover:text-red-300 transition-colors"
+                                  className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-red-400 hover:text-red-300 transition-colors uppercase"
                                 >
-                                  <Trash2 className="w-3 h-3" /> Remove Node
+                                  <Trash2 className="w-3 h-3" /> REMOVE CHECKPOINT
                                 </button>
                               )}
                             </div>
@@ -345,9 +347,9 @@ export function DevDrawer() {
             </div>
 
             {/* Panel Footer */}
-            <div className="p-4 border-t border-[var(--border-card)] bg-[var(--bg-void)] flex items-center justify-between font-mono text-[10px] text-[var(--text-muted)]">
-              <span>Shortcut: <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white">Shift+D</kbd></span>
-              <span className="text-[var(--accent-orange)] font-semibold">Zustand Reactive</span>
+            <div className="p-4 border-t-3 border-[var(--card-border-color)] bg-[var(--bg-void)] flex items-center justify-between font-mono text-[10px] font-bold text-[var(--text-muted)]">
+              <span>SHORTCUT: <kbd className="px-1.5 py-0.5 rounded bg-white/10 text-white border border-white/20">SHIFT+D</kbd></span>
+              <span className="text-[var(--accent-orange)]">NEO-BRUTALIST MISSION CTRL</span>
             </div>
           </motion.aside>
         </>

@@ -3,7 +3,7 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useTimelineStore } from "@/store/useTimelineStore";
-import { Sliders, Wrench, Sparkles } from "lucide-react";
+import { Sliders } from "lucide-react";
 
 export function DevButton() {
   const { toggleDevDrawer, isDevDrawerOpen } = useTimelineStore();
@@ -11,23 +11,23 @@ export function DevButton() {
   return (
     <motion.button
       onClick={toggleDevDrawer}
-      whileHover={{ scale: 1.08 }}
-      whileTap={{ scale: 0.95 }}
+      whileHover={{ scale: 1.05 }}
+      whileTap={{ scale: 0.96 }}
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
-      className={`fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 rounded-full border shadow-xl transition-all duration-300 font-mono text-xs font-bold uppercase tracking-wider backdrop-blur-md cursor-pointer ${
+      className={`fixed bottom-6 right-6 z-40 flex items-center gap-2.5 px-4 py-3 rounded-xl border-3 border-black font-mono text-xs font-black uppercase tracking-wider transition-all duration-150 cursor-pointer shadow-[4px_4px_0px_0px_#000000] active:translate-x-[2px] active:translate-y-[2px] active:shadow-none ${
         isDevDrawerOpen
-          ? "bg-[var(--accent-orange)] text-black border-[var(--accent-orange)] shadow-[0_0_20px_rgba(255,85,0,0.5)]"
-          : "bg-[var(--bg-card)]/90 text-[var(--text-cloud)] border-[var(--border-card)] hover:border-[var(--accent-orange)] hover:text-[var(--accent-orange)] shadow-[0_0_15px_rgba(0,0,0,0.5)]"
+          ? "bg-[var(--accent-orange)] text-black"
+          : "bg-[var(--bg-card)] text-[var(--text-cloud)] hover:bg-[var(--accent-orange)] hover:text-black"
       }`}
-      aria-label="Open Dev Panel"
+      aria-label="Open Mission Dev Panel"
       title="Open Trajectory Dev Panel (Shift+D)"
     >
       <div className="relative flex items-center justify-center">
         <Sliders className="w-4 h-4" />
-        <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[var(--accent-yellow)] animate-ping" />
+        <span className="absolute -top-1 -right-1 w-2 h-2 rounded-full bg-[var(--accent-yellow)] border border-black animate-ping" />
       </div>
-      <span className="hidden sm:inline">DEV PANEL</span>
+      <span className="hidden sm:inline font-heading font-black">DEV PANEL</span>
     </motion.button>
   );
 }

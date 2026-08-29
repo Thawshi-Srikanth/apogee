@@ -153,13 +153,9 @@ export function Timeline() {
     expandedMobileId,
     setSimulatedTime,
     setIsPlaying,
-    toggleIsPlaying,
     setHoveredId,
     setExpandedMobileId,
-    toggleDevDrawer,
-    addEvent,
     removeEvent,
-    resetEvents,
   } = useTimelineStore();
 
   const minHour = events[0]?.hourOffset ?? 0;
@@ -260,20 +256,16 @@ export function Timeline() {
   }, [mobilePathData, simulatedTime, minHour, maxHour, M_PAD]);
 
   return (
-    <section id="timeline" className="relative py-12 sm:py-20 overflow-hidden">
+    <section id="timeline" className="relative py-12 sm:py-20 overflow-visible bg-[var(--bg-void)]">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 
-        {/* Header */}
-        <div className="text-center mb-8 sm:mb-12">
-          <div className="inline-flex items-center gap-2 rounded-full border border-[var(--border-card)] bg-[var(--bg-card)] px-4 py-1.5 font-mono text-xs font-bold text-[var(--text-cloud)] uppercase tracking-wider mb-4">
-            <span className="h-2 w-2 rounded-full bg-[var(--accent-orange)]" />
-            GRAVITATIONAL SLINGSHOT TRAJECTORY
-          </div>
-          <h2 className="font-heading text-4xl sm:text-6xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
-            Timeline
+        {/* Standardized Section Header from AGENTS.md */}
+        <div className="col-span-4 sm:col-span-8 lg:col-span-12 text-center mb-8 sm:mb-12">
+          <h2 className="font-heading text-4xl sm:text-6xl lg:text-7xl font-black text-[var(--text-cloud)] uppercase tracking-tight mb-3">
+            TIMELINE
           </h2>
-          <p className="font-sans text-base sm:text-lg text-[var(--text-muted)] max-w-xl mx-auto">
-            Orbital gravity assists & planet slingshot checkpoints.
+          <p className="font-sans text-lg text-[var(--accent-orange)] font-medium max-w-2xl mx-auto">
+            24 hours. Orbital gravity assists & planet slingshot checkpoints.
           </p>
         </div>
 
@@ -308,7 +300,7 @@ export function Timeline() {
               <line key={`conn-${node.id}`}
                 x1={node.x} y1={node.y}
                 x2={node.isLeft ? node.x + 90 : node.x - 90} y2={node.y}
-                stroke="rgba(255,255,255,0.12)" strokeWidth="1.5" strokeDasharray="3 4"
+                stroke="var(--border-card)" strokeWidth="1.5" strokeDasharray="3 4"
               />
             ))}
 
@@ -321,7 +313,7 @@ export function Timeline() {
             />
           </svg>
 
-          {/* Desktop Planets + Cards */}
+          {/* Desktop Planets + Neo-Brutalist Cards */}
           {nodes.map((node) => {
             const isHovered   = hoveredId === node.id;
             const isCompleted = node.derivedStatus === "completed";
@@ -366,7 +358,7 @@ export function Timeline() {
                   )}
                 </div>
 
-                {/* Event Card */}
+                {/* Neo-Brutalist Event Card */}
                 <div
                   className="absolute z-20 group"
                   style={{
@@ -374,47 +366,49 @@ export function Timeline() {
                     right: !node.isLeft ? `${(((VW - node.x) + PLANET / 2 + 14) / VW) * 100}%` : "auto",
                     top: `${node.y}px`,
                     transform: "translateY(-50%)",
-                    width: "270px",
+                    width: "275px",
                   }}
                   onMouseEnter={() => setHoveredId(node.id)}
                   onMouseLeave={() => setHoveredId(null)}
                 >
-                  <div className={`p-4 rounded-xl border transition-colors bg-[var(--bg-card)] ${isHovered ? "border-[var(--accent-orange)]" : "border-[var(--border-card)]"}`}>
+                  <div className={`p-4 rounded-xl border-2 sm:border-3 transition-all duration-200 bg-[var(--bg-card)] shadow-[4px_4px_0px_0px_#000000] hover:translate-x-[-2px] hover:translate-y-[-2px] ${
+                    isHovered ? "border-[var(--accent-orange)]" : "border-[var(--border-card)]"
+                  }`}>
                     <div className="flex items-center justify-between gap-2 mb-2">
-                      <span className="font-mono text-[10px] font-bold text-black bg-[var(--accent-yellow)] px-2 py-0.5 rounded uppercase">
+                      <span className="font-mono text-[10px] font-black text-black bg-[var(--accent-yellow)] border border-black px-2 py-0.5 rounded uppercase shadow-[1px_1px_0px_0px_#000]">
                         {node.time}
                       </span>
                       {isCompleted && (
-                        <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--accent-cyan)] uppercase">
+                        <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--accent-cyan)] uppercase tracking-wide">
                           <CheckCircle2 className="w-3 h-3" /> Unlocked
                         </span>
                       )}
                       {isActive && (
-                        <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--accent-orange)] uppercase">
+                        <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--accent-orange)] uppercase tracking-wide">
                           <Navigation className="w-3 h-3" /> Active
                         </span>
                       )}
                       {isLocked && (
-                        <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase">
+                        <span className="inline-flex items-center gap-1 font-mono text-[10px] font-bold text-[var(--text-muted)] uppercase tracking-wide">
                           <Lock className="w-3 h-3" /> Locked
                         </span>
                       )}
                     </div>
-                    <div className="font-mono text-[10px] text-[var(--text-muted)] uppercase tracking-wider mb-1">
+                    <div className="font-mono text-[10px] font-semibold text-[var(--text-muted)] uppercase tracking-wider mb-1">
                       {node.code} · {node.phase}
                     </div>
-                    <h3 className="font-sans text-sm font-bold text-[var(--text-cloud)] mb-1">
+                    <h3 className="font-sans text-sm font-bold text-[var(--text-cloud)] mb-1.5">
                       {node.title}
                     </h3>
-                    <p className="font-sans text-xs text-[var(--text-muted)] leading-relaxed">
+                    <p className="font-sans text-xs text-[var(--text-muted)] font-normal leading-relaxed">
                       {node.description}
                     </p>
                     {events.length > 2 && (
                       <button
                         onClick={e => { e.stopPropagation(); removeEvent(node.id); }}
-                        className="mt-2 inline-flex items-center gap-1 text-[10px] font-mono text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
+                        className="mt-2.5 inline-flex items-center gap-1 text-[10px] font-mono font-bold text-red-400 opacity-0 group-hover:opacity-100 transition-opacity"
                       >
-                        <Trash2 className="w-3 h-3" /> Remove
+                        <Trash2 className="w-3 h-3" /> Remove Checkpoint
                       </button>
                     )}
                   </div>
@@ -424,13 +418,14 @@ export function Timeline() {
           })}
         </div>
 
-        {/* ── Mobile View ── */}
+        {/* ── Mobile View: Planets Aligned on Left (x=65) + Large Circular Orbit + Neo-Brutalist Cards ── */}
         <div className="md:hidden relative w-full overflow-hidden" style={{ height: `${M_VH}px` }}>
           <svg
             className="absolute inset-0 w-full h-full pointer-events-none"
             viewBox={`0 0 ${M_VW} ${M_VH}`}
             preserveAspectRatio="none"
           >
+            {/* Thick track line for mobile orbital path */}
             <path
               d={mobilePathData.d}
               fill="none"
@@ -439,6 +434,7 @@ export function Timeline() {
               strokeLinecap="round"
               strokeLinejoin="round"
             />
+            {/* Dotted orbital path line */}
             <path
               d={mobilePathData.d}
               fill="none"
@@ -448,6 +444,7 @@ export function Timeline() {
               strokeLinecap="round"
             />
 
+            {/* Connector stubs */}
             {mobileNodes.map(node => (
               <line
                 key={`m-conn-${node.id}`}
@@ -455,12 +452,13 @@ export function Timeline() {
                 y1={node.y}
                 x2={108}
                 y2={node.y}
-                stroke="rgba(255,255,255,0.18)"
+                stroke="var(--border-card)"
                 strokeWidth="1"
                 strokeDasharray="2 3"
               />
             ))}
 
+            {/* Spaceship traveling along mobile path */}
             <image
               href="/roadmap/ship.png"
               width="32"
@@ -471,6 +469,7 @@ export function Timeline() {
             />
           </svg>
 
+          {/* Planets Aligned on Left (x=65) & Neo-Brutalist Cards Aligned on Right (left:110px) */}
           {mobileNodes.map((node) => {
             const isHovered = hoveredId === node.id;
             const isCompleted = node.derivedStatus === "completed";
@@ -480,6 +479,7 @@ export function Timeline() {
 
             return (
               <React.Fragment key={`m-item-${node.id}`}>
+                {/* Mobile Planet Node */}
                 <div
                   className="absolute z-20 cursor-pointer pointer-events-auto"
                   style={{
@@ -518,6 +518,7 @@ export function Timeline() {
                   )}
                 </div>
 
+                {/* Mobile Neo-Brutalist Tile Card */}
                 <div
                   className="absolute z-30 cursor-pointer pointer-events-auto"
                   style={{
@@ -531,14 +532,15 @@ export function Timeline() {
                   onMouseLeave={() => setHoveredId(null)}
                 >
                   <div
-                    className={`p-2.5 rounded-xl border transition-all duration-200 bg-[var(--bg-card)] ${
+                    className={`p-3 rounded-xl border-2 transition-all duration-200 bg-[var(--bg-card)] shadow-[3px_3px_0px_0px_#000000] ${
                       isExpanded
-                        ? "border-[var(--accent-orange)] shadow-lg ring-1 ring-[var(--accent-orange)]/30"
-                        : "border-[var(--border-card)] hover:border-[var(--accent-orange)]/60"
+                        ? "border-[var(--accent-orange)]"
+                        : "border-[var(--border-card)]"
                     }`}
                   >
+                    {/* Header: Time badge & Status indicator */}
                     <div className="flex items-center justify-between gap-1 mb-1">
-                      <span className="font-mono text-[9px] font-bold text-black bg-[var(--accent-yellow)] px-1.5 py-0.5 rounded uppercase">
+                      <span className="font-mono text-[9px] font-black text-black bg-[var(--accent-yellow)] border border-black px-1.5 py-0.5 rounded uppercase shadow-[1px_1px_0px_0px_#000]">
                         {node.time}
                       </span>
                       <div className="flex items-center gap-1">
@@ -555,16 +557,18 @@ export function Timeline() {
                       </div>
                     </div>
 
+                    {/* Title */}
                     <h3 className="font-sans text-xs font-bold text-[var(--text-cloud)] leading-tight">
                       {node.title}
                     </h3>
 
+                    {/* Expanded Content on Tap / Hover */}
                     {isExpanded && (
                       <div className="mt-2 pt-2 border-t border-[var(--border-card)] space-y-1.5 animate-in fade-in duration-200">
-                        <div className="font-mono text-[9px] text-[var(--text-muted)] uppercase tracking-wider">
+                        <div className="font-mono text-[9px] font-semibold text-[var(--text-muted)] uppercase tracking-wider">
                           {node.code} · {node.phase}
                         </div>
-                        <p className="font-sans text-[11px] text-[var(--text-muted)] leading-relaxed">
+                        <p className="font-sans text-[11px] text-[var(--text-muted)] font-normal leading-relaxed">
                           {node.description}
                         </p>
                         <div className="flex items-center justify-between pt-1">
@@ -590,7 +594,7 @@ export function Timeline() {
                                 e.stopPropagation();
                                 removeEvent(node.id);
                               }}
-                              className="inline-flex items-center gap-1 text-[9px] font-mono text-red-400 hover:underline ml-auto"
+                              className="inline-flex items-center gap-1 text-[9px] font-mono font-bold text-red-400 hover:underline ml-auto"
                             >
                               <Trash2 className="w-2.5 h-2.5" /> Remove
                             </button>
